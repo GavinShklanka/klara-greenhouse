@@ -19,7 +19,8 @@
     <div class="hero-content">
         <h1 class="heading-massive fade-in stagger-1">Grow Your<br>Own Food</h1>
         <h2 class="fade-in stagger-2">Powered by the Sun</h2>
-        <p class="sub fade-in stagger-3">A clear plan to build your greenhouse — based on your land, your climate, and your goals.</p>
+        <p class="sub fade-in stagger-3">Klara Intelligence helps Nova Scotians plan the right greenhouse for their property, then routes them to trusted local services for blueprinting, consultation, and build execution.</p>
+        <p class="sub fade-in stagger-3" style="font-size: 0.85rem; letter-spacing: 0.08em; opacity: 0.7; margin-top: 0.5rem;">Planning intelligence. Local routing. Real next steps.</p>
         <button class="btn-primary fade-in stagger-4" id="btnStartPlan" onclick="scrollToSection('screen-sunmap')">
             <span>Start Your Plan</span>
             <span class="arrow">→</span>
@@ -105,6 +106,7 @@
      ══════════════════════════════════════════════════════════ -->
 <section class="section-half trust-strip" id="screen-trust">
     <div class="container">
+        <div class="text-body" style="text-align: center; font-size: 0.85rem; letter-spacing: 0.06em; color: rgba(255,214,10,0.6); margin-bottom: 2rem;">A Nova Scotia greenhouse planning and routing system — from starting plan to tailored blueprint to local next step.</div>
         <div class="trust-grid">
             <div class="trust-item fade-in stagger-1">
                 <h3>Climate-Aware</h3>
@@ -241,7 +243,8 @@
             </div>
             <div class="rec-card">
                 <h3>Your Best-Fit Direction</h3>
-                <div class="text-body" style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 1.25rem;">This is your starting plan. Final design is customized after consultation using your property conditions, solar exposure, and build goals.</div>
+                <div class="text-body" style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 1.25rem;">This is your starting plan. Final greenhouse design is customized after reviewing your property, sunlight, shading, and build goals.</div>
+                <div class="text-body" style="font-size: 0.8rem; color: rgba(255,214,10,0.5); margin-bottom: 1.25rem;">Klara gives you a credible starting direction now, then helps route you to the right next step locally.</div>
                 <div class="rec-detail"><div class="rec-detail-label">Type</div><div class="rec-detail-value" id="recType">—</div></div>
                 <div class="rec-detail"><div class="rec-detail-label">Size</div><div class="rec-detail-value" id="recSize">—</div></div>
                 <div class="rec-detail"><div class="rec-detail-label">Materials</div><div class="rec-detail-value" id="recMaterials">—</div></div>
@@ -280,12 +283,13 @@
             </div>
         </div>
         <div class="veracity-block">
-            <div class="veracity-block-label">Rules Engine</div>
-            <div class="text-body" style="margin-bottom: 1rem; color: rgba(255,255,255,0.5); font-size: 0.9rem;">We use rule-based logic, not guesswork.</div>
+            <div class="veracity-block-label">Decision Logic</div>
+            <div class="text-body" style="margin-bottom: 1rem; color: rgba(255,255,255,0.5); font-size: 0.9rem;">We use rule-based logic grounded in Nova Scotia climate conditions, greenhouse design principles, and your selected goals.</div>
             <div class="veracity-facts">
-                <div class="veracity-fact"><span class="veracity-key">Budget &lt; $5k</span><span class="veracity-val">→ Polytunnel or starter greenhouse</span></div>
-                <div class="veracity-fact"><span class="veracity-key">Budget $5–10k</span><span class="veracity-val">→ Polycarbonate greenhouse</span></div>
-                <div class="veracity-fact"><span class="veracity-key">Sustainability goal or $10k+</span><span class="veracity-val">→ Passive solar greenhouse</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Climate context</span><span class="veracity-val">Nova Scotia growing conditions, winter limits, and seasonal opportunity</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Site assumptions</span><span class="veracity-val">Sunlight exposure, orientation, and likely property constraints</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Build fit</span><span class="veracity-val">Budget, greenhouse type, and intended use</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Next-step logic</span><span class="veracity-val">Whether you need a starter plan, tailored blueprint, or direct consultation</span></div>
             </div>
             <div class="text-body" style="margin-top: 0.75rem; font-size: 0.85rem; color: rgba(255,214,10,0.6);" id="veracityRuleApplied">—</div>
         </div>
@@ -298,7 +302,7 @@
             </div>
         </div>
         <div class="veracity-confidence">
-            This recommendation is based on known Nova Scotia growing conditions and standard greenhouse design principles. It is a starting point for real-world execution — not a simulation or estimate from AI guesswork.
+            This recommendation is a credible starting point — not a final engineered design. Property-specific customization happens through the tailored blueprint process.
         </div>
     </div>
 </section>
@@ -309,7 +313,8 @@
 <section class="section hidden-section" id="screen-solar" style="border-top: 1px solid rgba(255,255,255,0.06)">
     <div class="container-narrow">
         <div class="intake-step-label">Solar Insight</div>
-        <div class="heading-large" style="margin-bottom: 2rem">Your Sunlight Profile</div>
+        <div class="heading-large" style="margin-bottom: 1rem">Your Sunlight Profile</div>
+        <div class="text-body" style="margin-bottom: 2.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.5);">We assess solar readiness and placement directionally at this stage. Final solar integration is handled by accredited installers with proven local experience and customer support.</div>
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem">
             <div><div class="rec-detail-label">Summer Peak</div><div class="rec-detail-value" id="solarSummer">—</div></div>
             <div><div class="rec-detail-label">Winter Peak</div><div class="rec-detail-value" id="solarWinter">—</div></div>
@@ -319,6 +324,7 @@
         <div class="text-body" id="solarHeat"></div>
         <!-- Solar context note (Phase 5C) -->
         <div class="text-body" id="solarExistingNote" style="margin-top: 1.5rem; color: rgba(255,214,10,0.6); font-size: 0.9rem;"></div>
+        <div class="text-body" style="margin-top: 1rem; font-size: 0.8rem; color: rgba(255,214,10,0.5);">We only route solar-related work to accredited, proven installers.</div>
     </div>
 </section>
 
@@ -382,28 +388,29 @@
 <section class="section hidden-section" id="screen-local" style="border-top: 1px solid rgba(255,255,255,0.06)">
     <div class="container-narrow">
         <div class="intake-step-label">Local Execution</div>
-        <div class="heading-large" style="margin-bottom: 2.5rem">What Happens Next — Locally</div>
+        <div class="heading-large" style="margin-bottom: 1rem">What Happens Next — Locally</div>
+        <div class="text-body" style="margin-bottom: 2.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.5);">Klara does not sell materials or install systems directly. We help you understand your best-fit direction, then route you to trusted local options for support, sourcing, and execution.</div>
         <div class="local-paths">
             <div class="local-path-card">
                 <div class="local-path-icon">🔨</div>
                 <div class="local-path-title">Build It Yourself</div>
-                <div class="local-path-desc">Materials list + local stores</div>
+                <div class="local-path-desc">Use your plan to source materials and move forward yourself.</div>
                 <div class="local-path-items" id="localBuildItems"></div>
             </div>
             <div class="local-path-card">
                 <div class="local-path-icon">📋</div>
                 <div class="local-path-title">Get a Quote</div>
-                <div class="local-path-desc">Routed to local greenhouse builders</div>
+                <div class="local-path-desc">Use your plan to begin a conversation with a local builder.</div>
                 <div class="local-path-items" id="localQuoteItems"></div>
             </div>
             <div class="local-path-card">
                 <div class="local-path-icon">🌱</div>
-                <div class="local-path-title">Learn &amp; Scale</div>
-                <div class="local-path-desc">Community resources</div>
+                <div class="local-path-title">Learn &amp; Explore</div>
+                <div class="local-path-desc">Explore trusted Nova Scotia resources, support organizations, and growing guidance.</div>
                 <div class="local-path-items" id="localCommunityItems"></div>
             </div>
         </div>
-        <div class="local-disclaimer">Klara does not sell materials — we guide you to local options.</div>
+        <div class="local-disclaimer">Klara routes your plan to trusted local services so you can move into blueprinting, consultation, or builder discussion with more clarity.</div>
     </div>
 </section>
 
@@ -412,14 +419,13 @@
      ══════════════════════════════════════════════════════════ -->
 <section class="section community-section hidden-section" id="screen-community">
     <div class="container-narrow">
-        <div class="intake-step-label">Beyond One Household</div>
-        <div class="heading-large" style="margin-bottom: 0.5rem">This System Can Scale</div>
-        <div class="text-body" style="margin-bottom: 0">From a backyard to a community food source.</div>
+        <div class="intake-step-label">Economic Development</div>
+        <div class="heading-large" style="margin-bottom: 0.5rem">Built to Strengthen Local Resilience</div>
+        <div class="text-body" style="margin-bottom: 1.5rem">Klara is designed to keep value closer to home — helping Nova Scotians plan local food-growing systems, route into local services, and support more reliable regional supply over time.</div>
         <div class="community-grid">
-            <div class="community-item"><div class="community-icon">🏠</div><div class="community-label">Families</div></div>
-            <div class="community-item"><div class="community-icon">🌱</div><div class="community-label">Community Gardens</div></div>
-            <div class="community-item"><div class="community-icon">🤝</div><div class="community-label">Food Banks</div></div>
-            <div class="community-item"><div class="community-icon">🏪</div><div class="community-label">Local Markets</div></div>
+            <div class="community-item"><div class="community-icon">🔧</div><div class="community-label">Support local builders &amp; accredited installers</div></div>
+            <div class="community-item"><div class="community-icon">🌱</div><div class="community-label">Strengthen household &amp; community food resilience</div></div>
+            <div class="community-item"><div class="community-icon">🍁</div><div class="community-label">Keep planning &amp; execution grounded in NS conditions</div></div>
         </div>
     </div>
 <!-- ═══════════════════════════════════════════════════════════
@@ -429,25 +435,22 @@
     <div class="container-narrow">
         <div class="text-body" style="text-align: center; font-size: 0.8rem; color: rgba(255,214,10,0.5); margin-bottom: 1rem; letter-spacing: 0.05em;">Spring builds fill up fast in Nova Scotia — start planning now</div>
 
-        <div class="heading-large">Choose Your Path</div>
-        <div class="text-body" style="text-align: center; font-size: 0.9rem; margin-bottom: 3rem;">This is your best-fit starting plan. Final greenhouse design is customized after reviewing your property, sunlight, and build goals.</div>
-
-        <!-- Value Stack -->
-        <div class="intake-step-label" style="margin-bottom: 1rem;">What's Included</div>
-        <div class="veracity-facts" style="margin-bottom: 3rem;">
-            <div class="veracity-fact"><span class="veracity-key">Starter greenhouse direction</span><span class="veracity-val" style="color: rgba(255,255,255,0.35); text-decoration: line-through;">$500+ value</span></div>
-            <div class="veracity-fact"><span class="veracity-key">Materials &amp; layout guidance</span><span class="veracity-val" style="color: rgba(255,255,255,0.35); text-decoration: line-through;">$200+ value</span></div>
-            <div class="veracity-fact"><span class="veracity-key">Solar positioning insight</span><span class="veracity-val" style="color: rgba(255,255,255,0.35); text-decoration: line-through;">$150+ value</span></div>
-            <div class="veracity-fact"><span class="veracity-key">Seasonal crop plan</span><span class="veracity-val" style="color: rgba(255,255,255,0.35); text-decoration: line-through;">$100+ value</span></div>
-            <div class="veracity-fact"><span class="veracity-key">Build timeline &amp; setup guidance</span><span class="veracity-val" style="color: rgba(255,255,255,0.35); text-decoration: line-through;">$100+ value</span></div>
-        </div>
+        <div class="heading-large">Choose Your Next Step</div>
+        <div class="text-body" style="text-align: center; font-size: 0.9rem; margin-bottom: 3rem;">Start with direction, move into precision, and route into real execution when you're ready.</div>
 
         <!-- TIER 1: Starter Plan -->
         <div style="border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem;">
             <div class="action-price-tag" style="font-size: 2.5rem;">$29</div>
             <div class="text-body" style="text-align: center; font-weight: 500; color: rgba(255,255,255,0.85); margin-bottom: 0.25rem;">Get Your Starter Plan</div>
-            <div class="text-body" style="text-align: center; font-size: 0.85rem; margin-bottom: 1rem;">A clear starting point based on your inputs.</div>
-            <div class="text-body" style="text-align: center; font-size: 0.8rem; color: rgba(255,214,10,0.6); margin-bottom: 1.5rem;">Instant download · One-time — no subscription</div>
+            <div class="text-body" style="text-align: center; font-size: 0.85rem; margin-bottom: 1rem;">A clear starting point based on your goals, budget, and region.</div>
+            <ul class="action-includes" style="margin-bottom: 1rem;">
+                <li>Best-fit greenhouse direction</li>
+                <li>Rough size and budget range</li>
+                <li>Starter materials and layout guidance</li>
+                <li>Seasonal crop guidance</li>
+                <li>Emailed starter plan</li>
+            </ul>
+            <div class="text-body" style="text-align: center; font-size: 0.8rem; color: rgba(255,214,10,0.6); margin-bottom: 1.5rem;">Best for understanding what direction makes sense before customizing.</div>
             <button class="btn-secondary" id="btnGetPlan" onclick="handleAction('checkout')" style="width: 100%;">
                 <span>Get Your Starter Plan — $29</span>
                 <span class="arrow">→</span>
@@ -459,14 +462,14 @@
             <div style="text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: #FFD60A; margin-bottom: 0.75rem;">Recommended</div>
             <div class="action-price-tag" style="font-size: 3rem;">$79</div>
             <div class="text-body" style="text-align: center; font-weight: 600; color: #fff; margin-bottom: 0.25rem;">Get Your Tailored Blueprint</div>
-            <div class="text-body" style="text-align: center; font-size: 0.85rem; margin-bottom: 1rem;">We analyze your property to create a custom greenhouse plan.</div>
+            <div class="text-body" style="text-align: center; font-size: 0.85rem; margin-bottom: 1rem;">We review your property and create a more specific greenhouse path for your site.</div>
             <ul class="action-includes" style="margin-bottom: 1rem;">
                 <li>Address-based site review</li>
                 <li>Sunlight &amp; orientation analysis</li>
-                <li>Shading detection &amp; elevation</li>
-                <li>Optimized greenhouse structure</li>
-                <li>Refined cost, timeline &amp; crop plan</li>
-                <li>Solar readiness assessment</li>
+                <li>Shading &amp; surrounding-condition review</li>
+                <li>Refined structure recommendation</li>
+                <li>Improved cost &amp; build-path guidance</li>
+                <li>Builder-ready blueprint emailed to you</li>
             </ul>
             <div class="text-body" style="text-align: center; font-size: 0.8rem; color: rgba(255,214,10,0.6); margin-bottom: 1.5rem;">This is where your plan becomes specific to your property.</div>
             <button class="btn-primary" id="btnBlueprint" onclick="handleAction('blueprint')" style="width: 100%;">
@@ -477,9 +480,14 @@
 
         <!-- TIER 3: Consultation -->
         <div style="border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 2rem; margin-bottom: 2rem;">
-            <div class="text-body" style="text-align: center; font-weight: 500; color: rgba(255,255,255,0.85); margin-bottom: 0.25rem;">Book a 15-min Consultation</div>
-            <div class="text-body" style="text-align: center; font-size: 0.85rem; margin-bottom: 1rem;">We walk you through your setup and next steps.</div>
-            <div class="text-body" style="text-align: center; font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-bottom: 1rem;">We only work with accredited solar installers and trusted local builders.</div>
+            <div class="text-body" style="text-align: center; font-weight: 500; color: rgba(255,255,255,0.85); margin-bottom: 0.25rem;">Book a 15-Min Consultation</div>
+            <div class="text-body" style="text-align: center; font-size: 0.85rem; margin-bottom: 1rem;">We walk you through your setup, answer questions, and help route you to the right local path.</div>
+            <ul class="action-includes" style="margin-bottom: 1rem;">
+                <li>Review of your goals</li>
+                <li>Guidance on next steps</li>
+                <li>Consultation before builder or blueprint follow-up</li>
+            </ul>
+            <div class="text-body" style="text-align: center; font-size: 0.8rem; color: rgba(255,214,10,0.6); margin-bottom: 1rem;">Best for users who want help deciding or want local service support.</div>
             <button class="btn-secondary" id="btnConsult" onclick="handleAction('consultation')" style="width: 100%;">
                 <span>Book a Consultation</span>
                 <span class="arrow">→</span>
@@ -544,14 +552,16 @@
 <section class="section-half hidden-section" id="screen-continuity" style="border-top: 1px solid rgba(255,255,255,0.06)">
     <div class="container-narrow">
         <div class="intake-step-label" style="margin-bottom: 1rem">After Your Plan</div>
-        <div class="heading-medium" style="margin-bottom: 2rem">Klara Stays With You</div>
+        <div class="heading-medium" style="margin-bottom: 1rem">What Klara Can Support Next</div>
+        <div class="text-body" style="margin-bottom: 1.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.5);">After planning, Klara can support the next phase with timeline guidance, milestone reminders, seasonal prompts, and local routing support.</div>
         <div class="veracity-facts">
-            <div class="veracity-fact"><span class="veracity-key">📅 Timeline tracking</span><span class="veracity-val">Build milestones</span></div>
+            <div class="veracity-fact"><span class="veracity-key">📅 Timeline guidance</span><span class="veracity-val">Build milestones</span></div>
             <div class="veracity-fact"><span class="veracity-key">🔔 Milestone reminders</span><span class="veracity-val">Key dates flagged</span></div>
-            <div class="veracity-fact"><span class="veracity-key">🌱 Seasonal planting guidance</span><span class="veracity-val">What to plant when</span></div>
-            <div class="veracity-fact"><span class="veracity-key">🔧 Maintenance prompts</span><span class="veracity-val">Seasonal care</span></div>
-            <div class="veracity-fact"><span class="veracity-key">📍 Local routing</span><span class="veracity-val">Builders &amp; support</span></div>
+            <div class="veracity-fact"><span class="veracity-key">🌱 Seasonal planting prompts</span><span class="veracity-val">What to plant when</span></div>
+            <div class="veracity-fact"><span class="veracity-key">🔧 Maintenance guidance</span><span class="veracity-val">Seasonal care</span></div>
+            <div class="veracity-fact"><span class="veracity-key">📍 Local support routing</span><span class="veracity-val">Builders &amp; support</span></div>
         </div>
+        <div class="text-body" style="font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-top: 1rem;">Some support features are delivered through consultation and post-plan follow-up.</div>
     </div>
 </section>
 
@@ -561,7 +571,7 @@
 <section class="section-half hidden-section" id="screen-service" style="border-top: 1px solid rgba(255,255,255,0.06)">
     <div class="container-narrow" style="text-align: center">
         <div class="intake-step-label" style="margin-bottom: 1rem">How Klara Works</div>
-        <div class="heading-medium" style="margin-bottom: 2rem">Klara analyzes your property and climate, recommends a greenhouse setup, and connects you to real local next steps — whether that's building it yourself, getting a quote, or speaking to someone.</div>
+        <div class="heading-medium" style="margin-bottom: 2rem">Klara analyzes your property and climate, recommends a greenhouse setup, and routes you to real local next steps — whether that's building it yourself, getting a quote, or speaking to someone.</div>
     </div>
 </section>
 
@@ -613,19 +623,20 @@
     <h2 id="confirmTitle">Your Plan Is Ready</h2>
     <p id="confirmMessage" style="margin-bottom: 2rem;">Check your email for your complete plan.</p>
     <div style="max-width: 400px; margin: 0 auto; text-align: left;">
-        <div class="intake-step-label" style="margin-bottom: 1rem; text-align: center;">Your Next Steps</div>
-        <div style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 1rem; align-items: center;">
+        <div class="intake-step-label" style="margin-bottom: 1rem; text-align: center;">What Happens Next</div>
+        <div style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 1rem; align-items: flex-start;">
             <div style="width: 28px; height: 28px; border: 1px solid rgba(255,214,10,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #FFD60A; flex-shrink: 0;">1</div>
-            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">Review your plan — materials, layout, and seasonal calendar</div>
+            <div><div style="font-size: 0.9rem; color: #fff; font-weight: 500; margin-bottom: 0.2rem;">Receive your plan by email</div><div style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">You'll get your starter plan or tailored blueprint delivered directly to your inbox.</div></div>
         </div>
-        <div style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 1rem; align-items: center;">
+        <div style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 1rem; align-items: flex-start;">
             <div style="width: 28px; height: 28px; border: 1px solid rgba(255,214,10,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #FFD60A; flex-shrink: 0;">2</div>
-            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">Choose your build path — DIY or get a builder quote</div>
+            <div><div style="font-size: 0.9rem; color: #fff; font-weight: 500; margin-bottom: 0.2rem;">Review the right path for your property</div><div style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Use it yourself, refine it further, or route it into consultation or builder discussion.</div></div>
         </div>
-        <div style="padding: 0.75rem 0; display: flex; gap: 1rem; align-items: center;">
+        <div style="padding: 0.75rem 0; display: flex; gap: 1rem; align-items: flex-start;">
             <div style="width: 28px; height: 28px; border: 1px solid rgba(255,214,10,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #FFD60A; flex-shrink: 0;">3</div>
-            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">Source locally — seeds, materials, and agricultural support</div>
+            <div><div style="font-size: 0.9rem; color: #fff; font-weight: 500; margin-bottom: 0.2rem;">Move forward with real local next steps</div><div style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Klara helps connect planning to trusted local execution.</div></div>
         </div>
+        <div class="text-body" style="font-size: 0.8rem; color: rgba(255,214,10,0.5); margin-top: 1rem; text-align: center;">Your tailored blueprint is emailed before your consultation or builder conversation so everyone works from the same starting point.</div>
     </div>
 </section>
 
