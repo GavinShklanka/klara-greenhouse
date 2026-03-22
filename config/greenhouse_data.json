@@ -1,0 +1,260 @@
+{
+  "climate_zones": {
+    "halifax": {
+      "zone": "6a",
+      "avg_last_frost": "May 10",
+      "avg_first_frost": "October 15",
+      "growing_season_days": 158,
+      "design_snow_load_psf": 45,
+      "frost_depth_inches": 48,
+      "avg_winter_low_c": -18,
+      "peak_sun_hours_summer": 5.5,
+      "peak_sun_hours_winter": 2.8,
+      "annual_sun_hours": 1885,
+      "label": "Halifax Regional Municipality"
+    },
+    "annapolis_valley": {
+      "zone": "6a",
+      "avg_last_frost": "May 5",
+      "avg_first_frost": "October 20",
+      "growing_season_days": 168,
+      "design_snow_load_psf": 40,
+      "frost_depth_inches": 42,
+      "avg_winter_low_c": -16,
+      "peak_sun_hours_summer": 5.8,
+      "peak_sun_hours_winter": 3.0,
+      "annual_sun_hours": 1920,
+      "label": "Annapolis Valley"
+    },
+    "south_shore": {
+      "zone": "6a",
+      "avg_last_frost": "May 12",
+      "avg_first_frost": "October 12",
+      "growing_season_days": 153,
+      "design_snow_load_psf": 42,
+      "frost_depth_inches": 44,
+      "avg_winter_low_c": -17,
+      "peak_sun_hours_summer": 5.3,
+      "peak_sun_hours_winter": 2.6,
+      "annual_sun_hours": 1840,
+      "label": "South Shore"
+    },
+    "cape_breton": {
+      "zone": "5b",
+      "avg_last_frost": "May 25",
+      "avg_first_frost": "October 5",
+      "growing_season_days": 133,
+      "design_snow_load_psf": 55,
+      "frost_depth_inches": 54,
+      "avg_winter_low_c": -23,
+      "peak_sun_hours_summer": 5.0,
+      "peak_sun_hours_winter": 2.4,
+      "annual_sun_hours": 1760,
+      "label": "Cape Breton"
+    },
+    "north_shore": {
+      "zone": "5b",
+      "avg_last_frost": "May 20",
+      "avg_first_frost": "October 8",
+      "growing_season_days": 141,
+      "design_snow_load_psf": 50,
+      "frost_depth_inches": 50,
+      "avg_winter_low_c": -21,
+      "peak_sun_hours_summer": 5.2,
+      "peak_sun_hours_winter": 2.5,
+      "annual_sun_hours": 1800,
+      "label": "North Shore (Pictou / Antigonish)"
+    },
+    "central_ns": {
+      "zone": "5b",
+      "avg_last_frost": "May 18",
+      "avg_first_frost": "October 10",
+      "growing_season_days": 145,
+      "design_snow_load_psf": 48,
+      "frost_depth_inches": 48,
+      "avg_winter_low_c": -20,
+      "peak_sun_hours_summer": 5.4,
+      "peak_sun_hours_winter": 2.7,
+      "annual_sun_hours": 1850,
+      "label": "Central Nova Scotia (Truro / Colchester)"
+    },
+    "eastern_shore": {
+      "zone": "6a",
+      "avg_last_frost": "May 15",
+      "avg_first_frost": "October 10",
+      "growing_season_days": 148,
+      "design_snow_load_psf": 44,
+      "frost_depth_inches": 46,
+      "avg_winter_low_c": -18,
+      "peak_sun_hours_summer": 5.1,
+      "peak_sun_hours_winter": 2.5,
+      "annual_sun_hours": 1810,
+      "label": "Eastern Shore"
+    }
+  },
+  "greenhouse_types": {
+    "polycarbonate": {
+      "id": "polycarbonate",
+      "name": "Polycarbonate Greenhouse",
+      "short": "Simple Backyard Greenhouse",
+      "description": "A classic rigid-frame greenhouse with twin-wall polycarbonate panels. Excellent light transmission, good insulation, and handles Nova Scotia snow loads well.",
+      "pros": ["Durable in all weather", "Good insulation (R-1.6)", "15+ year lifespan", "Easy to vent"],
+      "cons": ["Higher upfront cost", "Requires level foundation"],
+      "best_for": "Year-round growing with minimal maintenance",
+      "frame": "Galvanized steel or aluminum",
+      "glazing": "8mm twin-wall polycarbonate",
+      "r_value": 1.6,
+      "light_transmission": "80%",
+      "snow_capable": true,
+      "wind_rating": "High"
+    },
+    "polytunnel": {
+      "id": "polytunnel",
+      "name": "Polytunnel (Hoop House)",
+      "short": "Budget-Friendly Polytunnel",
+      "description": "A cost-effective hoop-frame tunnel covered in greenhouse-grade polyethylene. Great for season extension and high-volume growing at a fraction of rigid greenhouse cost.",
+      "pros": ["Lowest cost option", "Quick to build (1-2 days)", "Large growing area", "Easy to relocate"],
+      "cons": ["Poly film needs replacing every 4-5 years", "Less insulation", "Can struggle in heavy snow"],
+      "best_for": "Season extension and budget-conscious growers",
+      "frame": "Galvanized steel hoops",
+      "glazing": "6-mil greenhouse poly (UV-treated)",
+      "r_value": 0.8,
+      "light_transmission": "88%",
+      "snow_capable": false,
+      "wind_rating": "Medium"
+    },
+    "passive_solar": {
+      "id": "passive_solar",
+      "name": "Passive Solar Greenhouse",
+      "short": "High-Performance Solar Greenhouse",
+      "description": "An insulated north wall with south-facing glazing captures and stores solar heat. Uses thermal mass (water barrels, stone) to release warmth overnight. The most energy-efficient option for NS winters.",
+      "pros": ["Lowest heating cost", "Grows through NS winter", "30+ year lifespan", "No electricity needed for heat"],
+      "cons": ["Higher build complexity", "Requires south-facing site", "More planning required"],
+      "best_for": "True year-round growing with minimal energy input",
+      "frame": "Timber frame with insulated north/east/west walls",
+      "glazing": "South face: twin-wall polycarbonate or double-pane glass",
+      "r_value": 3.2,
+      "light_transmission": "75% (south face)",
+      "snow_capable": true,
+      "wind_rating": "High"
+    }
+  },
+  "size_tiers": [
+    {
+      "id": "starter",
+      "label": "Starter",
+      "dimensions": "10' × 12'",
+      "sq_ft": 120,
+      "beds": "2 raised beds (4'×8')",
+      "capacity": "~40 plants",
+      "best_for": "Seedlings, herbs, season extension for a small garden"
+    },
+    {
+      "id": "family",
+      "label": "Family",
+      "dimensions": "12' × 16'",
+      "sq_ft": 192,
+      "beds": "3 raised beds (4'×8') + potting area",
+      "capacity": "~80 plants",
+      "best_for": "Year-round vegetables for a family of 4"
+    },
+    {
+      "id": "serious",
+      "label": "Serious Grower",
+      "dimensions": "14' × 20'",
+      "sq_ft": 280,
+      "beds": "4 raised beds + staging area",
+      "capacity": "~120 plants",
+      "best_for": "Year-round production, small-scale market growing"
+    },
+    {
+      "id": "market",
+      "label": "Market Scale",
+      "dimensions": "16' × 24'",
+      "sq_ft": 384,
+      "beds": "6 raised beds + workspace + storage",
+      "capacity": "~200 plants",
+      "best_for": "Market garden production, CSA supply, commercial starts"
+    }
+  ],
+  "cost_matrix": {
+    "polycarbonate": {
+      "starter":  {"materials_low": 1800, "materials_high": 2400, "labor_diy_hours": 40, "labor_contractor": 1200, "foundation": 400, "extras": 300, "total_diy_low": 2500, "total_diy_high": 3100, "total_contractor_low": 3700, "total_contractor_high": 4600},
+      "family":   {"materials_low": 2800, "materials_high": 3600, "labor_diy_hours": 60, "labor_contractor": 1800, "foundation": 600, "extras": 400, "total_diy_low": 3800, "total_diy_high": 4600, "total_contractor_low": 5600, "total_contractor_high": 6800},
+      "serious":  {"materials_low": 4200, "materials_high": 5400, "labor_diy_hours": 80, "labor_contractor": 2800, "foundation": 900, "extras": 600, "total_diy_low": 5700, "total_diy_high": 6900, "total_contractor_low": 8500, "total_contractor_high": 10400},
+      "market":   {"materials_low": 5800, "materials_high": 7200, "labor_diy_hours": 120, "labor_contractor": 4000, "foundation": 1200, "extras": 800, "total_diy_low": 7800, "total_diy_high": 9200, "total_contractor_low": 11800, "total_contractor_high": 14200}
+    },
+    "polytunnel": {
+      "starter":  {"materials_low": 600, "materials_high": 900, "labor_diy_hours": 8, "labor_contractor": 400, "foundation": 100, "extras": 150, "total_diy_low": 850, "total_diy_high": 1150, "total_contractor_low": 1250, "total_contractor_high": 1650},
+      "family":   {"materials_low": 900, "materials_high": 1400, "labor_diy_hours": 12, "labor_contractor": 600, "foundation": 150, "extras": 200, "total_diy_low": 1250, "total_diy_high": 1750, "total_contractor_low": 1850, "total_contractor_high": 2550},
+      "serious":  {"materials_low": 1400, "materials_high": 2000, "labor_diy_hours": 16, "labor_contractor": 900, "foundation": 200, "extras": 300, "total_diy_low": 1900, "total_diy_high": 2500, "total_contractor_low": 2800, "total_contractor_high": 3700},
+      "market":   {"materials_low": 2000, "materials_high": 2800, "labor_diy_hours": 24, "labor_contractor": 1200, "foundation": 300, "extras": 400, "total_diy_low": 2700, "total_diy_high": 3500, "total_contractor_low": 3900, "total_contractor_high": 5000}
+    },
+    "passive_solar": {
+      "starter":  {"materials_low": 3200, "materials_high": 4200, "labor_diy_hours": 80, "labor_contractor": 2400, "foundation": 800, "extras": 500, "total_diy_low": 4500, "total_diy_high": 5500, "total_contractor_low": 6900, "total_contractor_high": 8400},
+      "family":   {"materials_low": 4800, "materials_high": 6200, "labor_diy_hours": 120, "labor_contractor": 3600, "foundation": 1200, "extras": 700, "total_diy_low": 6700, "total_diy_high": 8100, "total_contractor_low": 10300, "total_contractor_high": 12500},
+      "serious":  {"materials_low": 7000, "materials_high": 9000, "labor_diy_hours": 160, "labor_contractor": 5200, "foundation": 1600, "extras": 1000, "total_diy_low": 9600, "total_diy_high": 11600, "total_contractor_low": 14800, "total_contractor_high": 18000},
+      "market":   {"materials_low": 9500, "materials_high": 12000, "labor_diy_hours": 220, "labor_contractor": 7000, "foundation": 2000, "extras": 1400, "total_diy_low": 12900, "total_diy_high": 15400, "total_contractor_low": 19900, "total_contractor_high": 24000}
+    }
+  },
+  "timeline": {
+    "polycarbonate": {"starter": {"diy_weeks": 3, "contractor_weeks": 1}, "family": {"diy_weeks": 4, "contractor_weeks": 1.5}, "serious": {"diy_weeks": 6, "contractor_weeks": 2}, "market": {"diy_weeks": 8, "contractor_weeks": 3}},
+    "polytunnel":    {"starter": {"diy_weeks": 0.5, "contractor_weeks": 0.5}, "family": {"diy_weeks": 1, "contractor_weeks": 0.5}, "serious": {"diy_weeks": 1.5, "contractor_weeks": 1}, "market": {"diy_weeks": 2, "contractor_weeks": 1}},
+    "passive_solar": {"starter": {"diy_weeks": 6, "contractor_weeks": 2}, "family": {"diy_weeks": 8, "contractor_weeks": 3}, "serious": {"diy_weeks": 12, "contractor_weeks": 4}, "market": {"diy_weeks": 16, "contractor_weeks": 6}}
+  },
+  "crops": {
+    "cool_season": [
+      {"name": "Kale", "difficulty": "beginner", "start_indoor": "March", "transplant": "April", "harvest_months": "May–Nov", "note": "Thrives in NS cool temps. Sweetens after frost.", "yield_per_plant": "2-3 lbs"},
+      {"name": "Lettuce & Salad Greens", "difficulty": "beginner", "start_indoor": "Feb", "transplant": "March", "harvest_months": "March–Nov", "note": "Succession plant every 2 weeks for continuous harvest.", "yield_per_plant": "0.5 lbs"},
+      {"name": "Spinach", "difficulty": "beginner", "start_indoor": "Feb", "transplant": "March", "harvest_months": "March–Nov", "note": "Cold-hardy. Grows through NS fall easily.", "yield_per_plant": "0.5 lbs"},
+      {"name": "Peas", "difficulty": "beginner", "start_indoor": "March", "transplant": "April", "harvest_months": "June–Jul", "note": "Direct sow in greenhouse beds. Vertical growing saves space.", "yield_per_plant": "0.25 lbs"},
+      {"name": "Radishes", "difficulty": "beginner", "start_indoor": "n/a", "transplant": "Direct sow March", "harvest_months": "April–Oct", "note": "30-day crop. Perfect gap filler between plantings.", "yield_per_plant": "0.1 lbs"}
+    ],
+    "warm_season": [
+      {"name": "Tomatoes", "difficulty": "beginner", "start_indoor": "March", "transplant": "May", "harvest_months": "Jul–Oct", "note": "Greenhouse essential. Indeterminate varieties produce all season.", "yield_per_plant": "10-15 lbs"},
+      {"name": "Cucumbers", "difficulty": "beginner", "start_indoor": "April", "transplant": "May", "harvest_months": "Jul–Sep", "note": "Train vertically. English/greenhouse varieties perform best.", "yield_per_plant": "5-8 lbs"},
+      {"name": "Peppers", "difficulty": "intermediate", "start_indoor": "Feb", "transplant": "May", "harvest_months": "Jul–Oct", "note": "Need warmth. Greenhouse is the ONLY reliable way to grow in NS.", "yield_per_plant": "3-5 lbs"},
+      {"name": "Basil & Herbs", "difficulty": "beginner", "start_indoor": "March", "transplant": "May", "harvest_months": "May–Oct", "note": "Basil, cilantro, parsley, dill — all thrive in greenhouse warmth.", "yield_per_plant": "0.5 lbs"}
+    ],
+    "winter_greenhouse": [
+      {"name": "Winter Lettuce", "difficulty": "intermediate", "start_indoor": "Sep", "transplant": "n/a", "harvest_months": "Oct–Mar", "note": "Grows slowly but steadily in passive solar or heated greenhouse.", "yield_per_plant": "0.3 lbs"},
+      {"name": "Microgreens", "difficulty": "beginner", "start_indoor": "Any", "transplant": "n/a", "harvest_months": "Year-round", "note": "7-14 day crop. No supplemental light needed. High nutrition.", "yield_per_plant": "0.1 lbs"},
+      {"name": "Garlic (overwintered)", "difficulty": "beginner", "start_indoor": "Oct", "transplant": "n/a", "harvest_months": "July", "note": "Plant in fall, harvest mid-summer. NS garlic is premium quality.", "yield_per_plant": "1 bulb"}
+    ]
+  },
+  "local_resources": {
+    "seed_suppliers": [
+      {"name": "Halifax Seed Company", "type": "seed_supplier", "location": "Halifax, NS", "url": "halifaxseed.ca", "note": "NS institution. Varieties selected for Maritime climates."},
+      {"name": "Veseys Seeds", "type": "seed_supplier", "location": "PEI (ships to NS)", "url": "veseys.com", "note": "Atlantic Canada specialist. Cold-hardy varieties."},
+      {"name": "Hope Seeds", "type": "seed_supplier", "location": "Annapolis Valley, NS", "url": "hopeseed.com", "note": "Organic, open-pollinated seeds grown in Nova Scotia."}
+    ],
+    "agricultural_extensions": [
+      {"name": "Perennia Food & Agriculture", "type": "ag_extension", "location": "Truro, NS", "url": "perennia.ca", "note": "NS provincial ag extension. Free greenhouse growing guides."},
+      {"name": "Dalhousie Faculty of Agriculture", "type": "ag_extension", "location": "Truro, NS", "url": "dal.ca/agriculture", "note": "Research-backed growing advice for Maritime conditions."}
+    ],
+    "co_ops": [
+      {"name": "FarmWorks Investment Co-op", "type": "co_op", "location": "Nova Scotia", "url": "farmworks.ca", "note": "Community investment co-op supporting NS food production."}
+    ],
+    "material_suppliers": [
+      {"name": "Kent Building Supplies", "type": "materials", "location": "Multiple NS locations", "url": "kent.ca", "note": "Lumber, foundation materials, hardware. Maritime chain."},
+      {"name": "Greenhouse Megastore", "type": "materials", "location": "Online (ships to NS)", "url": "greenhousemegastore.com", "note": "Polycarbonate panels, greenhouse kits, ventilation hardware."}
+    ]
+  },
+  "contractors": [
+    {
+      "name": "Atlantic Greenhouse Solutions",
+      "region": "Annapolis Valley, Halifax, South Shore",
+      "phone": "(902) 555-0142",
+      "email": "info@atlanticgreenhouse.example.com",
+      "note": "Stub — replace with real contractor before launch"
+    },
+    {
+      "name": "Cape Breton Structures",
+      "region": "Cape Breton, North Shore, Central NS",
+      "phone": "(902) 555-0198",
+      "email": "builds@cbstructures.example.com",
+      "note": "Stub — replace with real contractor before launch"
+    }
+  ],
+  "best_build_months": "May through early October. Foundation work should begin after last frost. Aim to have glazing installed before first fall frost."
+}
