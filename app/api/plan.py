@@ -17,10 +17,14 @@ from app.services.local_routing_service import get_local_resources
 router = APIRouter()
 
 
+def _get_session(session_id: str, db: DBSession) -> GreenhouseSession | None:
+    return db.query(GreenhouseSession).filter_by(id=session_id).first()
+
+
 @router.get("/plan/{session_id}")
 def get_plan(session_id: str, db: DBSession = Depends(get_db)):
     """Run full pipeline, return complete build plan."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
+    gh_session = _get_session(session_id, db)
     if not gh_session:
         return {"success": False, "error": "Session not found"}
 
@@ -30,14 +34,28 @@ def get_plan(session_id: str, db: DBSession = Depends(get_db)):
     # Pipeline
     suitability = check_suitability(intake)
     design = recommend_design(intake, suitability)
+
+    # Bridge to services
+    archetype_id = design.get("id", "")
+    legacy_type_id = design.get("greenhouse", {}).get("type_id", "polycarbonate")
+    legacy_tier_id = design.get("size", {}).get("tier_id", "starter")
+    experience = intake.get("experience_level", "first_time")
+
     costs = estimate_costs(
-        design["greenhouse"]["type_id"],
-        design["size"]["tier_id"],
+        legacy_type_id,
+        legacy_tier_id,
         suitability["climate"],
+        archetype_id=archetype_id,
     )
     solar = get_solar_context(location)
-    crops = get_crop_plan(design["greenhouse"]["type_id"], intake.get("goal", "grow_food"), location)
-    local = get_local_resources(location)
+    crops = get_crop_plan(
+        legacy_type_id,
+        intake.get("goal", "grow_food"),
+        location,
+        archetype_id=archetype_id,
+        experience_level=experience,
+    )
+    local = get_local_resources(location, archetype_id=archetype_id)
 
     plan = {
         "suitability": {
@@ -62,7 +80,7 @@ def get_plan(session_id: str, db: DBSession = Depends(get_db)):
 @router.get("/solar-context/{session_id}")
 def solar_context(session_id: str, db: DBSession = Depends(get_db)):
     """Solar viability for a session's location."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
+    gh_session = _get_session(session_id, db)
     if not gh_session:
         return {"success": False, "error": "Session not found"}
     intake = json.loads(gh_session.intake_data)
@@ -71,8 +89,8 @@ def solar_context(session_id: str, db: DBSession = Depends(get_db)):
 
 @router.get("/greenhouse-model/{session_id}")
 def greenhouse_model(session_id: str, db: DBSession = Depends(get_db)):
-    """Greenhouse type + size recommendation for a session."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
+    """Greenhouse archetype recommendation for a session."""
+    gh_session = _get_session(session_id, db)
     if not gh_session:
         return {"success": False, "error": "Session not found"}
     intake = json.loads(gh_session.intake_data)
@@ -83,32 +101,52 @@ def greenhouse_model(session_id: str, db: DBSession = Depends(get_db)):
 @router.get("/crop-plan/{session_id}")
 def crop_plan(session_id: str, db: DBSession = Depends(get_db)):
     """Crop recommendations for a session."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
+    gh_session = _get_session(session_id, db)
     if not gh_session:
         return {"success": False, "error": "Session not found"}
     intake = json.loads(gh_session.intake_data)
     suitability = check_suitability(intake)
     design = recommend_design(intake, suitability)
-    return get_crop_plan(design["greenhouse"]["type_id"], intake.get("goal", "grow_food"), intake.get("location", "halifax"))
+    archetype_id = design.get("id", "")
+    legacy_type_id = design.get("greenhouse", {}).get("type_id", "polycarbonate")
+    return get_crop_plan(
+        legacy_type_id,
+        intake.get("goal", "grow_food"),
+        intake.get("location", "halifax"),
+        archetype_id=archetype_id,
+        experience_level=intake.get("experience_level", "first_time"),
+    )
 
 
 @router.get("/cost-estimate/{session_id}")
 def cost_estimate(session_id: str, db: DBSession = Depends(get_db)):
     """Cost estimate for a session."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
+    gh_session = _get_session(session_id, db)
     if not gh_session:
         return {"success": False, "error": "Session not found"}
     intake = json.loads(gh_session.intake_data)
     suitability = check_suitability(intake)
     design = recommend_design(intake, suitability)
-    return estimate_costs(design["greenhouse"]["type_id"], design["size"]["tier_id"], suitability["climate"])
+    archetype_id = design.get("id", "")
+    legacy_type_id = design.get("greenhouse", {}).get("type_id", "polycarbonate")
+    legacy_tier_id = design.get("size", {}).get("tier_id", "starter")
+    return estimate_costs(
+        legacy_type_id,
+        legacy_tier_id,
+        suitability["climate"],
+        archetype_id=archetype_id,
+    )
 
 
 @router.get("/local-routing/{session_id}")
 def local_routing(session_id: str, db: DBSession = Depends(get_db)):
     """Local resources for a session's location."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
+    gh_session = _get_session(session_id, db)
     if not gh_session:
         return {"success": False, "error": "Session not found"}
     intake = json.loads(gh_session.intake_data)
-    return get_local_resources(intake.get("location", "halifax"))
+    # Determine archetype for filtering
+    suitability = check_suitability(intake)
+    design = recommend_design(intake, suitability)
+    archetype_id = design.get("id", "")
+    return get_local_resources(intake.get("location", "halifax"), archetype_id=archetype_id)

@@ -1152,6 +1152,431 @@ body {
 .stagger-4 { transition-delay: 0.4s; }
 .stagger-5 { transition-delay: 0.5s; }
 
+/* ── Intake Microcopy ─────────────────────────────────────── */
+.intake-microcopy {
+    font-size: 0.9rem;
+    color: rgba(255, 214, 10, 0.55);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 600px;
+}
+
+/* ── Archetype Header ─────────────────────────────────────── */
+.archetype-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.archetype-name {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    text-transform: uppercase;
+    line-height: 1;
+    color: #FFD60A;
+    margin-bottom: 0.75rem;
+}
+
+.archetype-tagline {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.archetype-why-this {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* ── Specs Grid ───────────────────────────────────────────── */
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.spec-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1.5rem;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+.spec-card:hover {
+    border-color: rgba(255, 214, 10, 0.2);
+}
+
+.spec-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0.5rem;
+}
+
+.spec-value {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.spec-value.spec-cost {
+    color: #FFD60A;
+}
+
+/* ── Cost Reality Block ───────────────────────────────────── */
+.cost-reality-block {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.cost-reality-heading {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #FFD60A;
+}
+
+.cost-comparison {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cost-column {
+    text-align: center;
+    flex: 1;
+    max-width: 200px;
+}
+
+.cost-column-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0.5rem;
+}
+
+.cost-column-value {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.cost-column-primary .cost-column-value {
+    font-size: 2rem;
+    color: #FFD60A;
+}
+
+.cost-vs {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.cost-explainer {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cost-line-items {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cost-line-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.25rem;
+}
+
+.cost-line-category {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cost-line-range {
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    color: #FFD60A;
+    text-align: right;
+}
+
+.cost-line-note {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    grid-column: 1 / -1;
+    font-weight: 300;
+}
+
+.cost-disclaimer {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: 1.5rem;
+    font-style: italic;
+    text-align: center;
+}
+
+/* ── Disqualification Block ───────────────────────────────── */
+.disqualification-block {
+    background: rgba(255, 60, 60, 0.04);
+    border: 1px solid rgba(255, 60, 60, 0.15);
+    border-left: 3px solid rgba(255, 60, 60, 0.4);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.disqualification-heading {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: rgba(255, 100, 100, 0.8);
+    margin-bottom: 1rem;
+}
+
+.disqualification-text {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.65;
+    font-weight: 300;
+}
+
+/* ── Confidence Indicators ────────────────────────────────── */
+.confidence-indicators {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    justify-content: center;
+}
+
+.confidence-badge {
+    flex: 1;
+    max-width: 200px;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: border-color 0.3s ease;
+}
+
+.confidence-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0.5rem;
+}
+
+.confidence-value {
+    display: block;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+
+.confidence-high { border-color: rgba(45, 106, 79, 0.4); }
+.confidence-high .confidence-value { color: #40916C; }
+.confidence-medium { border-color: rgba(255, 214, 10, 0.3); }
+.confidence-medium .confidence-value { color: #FFD60A; }
+.confidence-low { border-color: rgba(244, 163, 0, 0.3); }
+.confidence-low .confidence-value { color: #F4A300; }
+
+/* ── Assumptions & Materials Blocks ───────────────────────── */
+.assumptions-block,
+.materials-block {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.assumptions-heading,
+.materials-heading {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.assumptions-list,
+.materials-list {
+    list-style: none;
+}
+
+.assumptions-list li,
+.materials-list li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.assumptions-list li::before {
+    content: '▸';
+    color: rgba(255, 214, 10, 0.5);
+    flex-shrink: 0;
+}
+
+.materials-list li::before {
+    content: '✓';
+    color: #FFD60A;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* ── Local Resource Cards ─────────────────────────────────── */
+.local-resource-card {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.local-resource-card:hover {
+    border-color: rgba(255, 214, 10, 0.2);
+}
+
+.local-resource-type {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #FFD60A;
+    margin-bottom: 0.5rem;
+}
+
+.local-resource-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.local-resource-what {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.local-resource-who {
+    font-size: 0.85rem;
+    color: rgba(255, 214, 10, 0.5);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+.local-resource-disclosure {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.local-resource-link {
+    font-size: 0.85rem;
+    color: #FFD60A;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.local-resource-link:hover {
+    opacity: 0.7;
+}
+
+/* ── Confirmation Card ────────────────────────────────────── */
+.confirm-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.confirm-ref {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0.75rem;
+    font-family: monospace;
+}
+
+.confirm-archetype {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #FFD60A;
+    margin-bottom: 1rem;
+}
+
+.confirm-detail {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.confirm-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.confirm-list li {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.confirm-list li::before {
+    content: '✓';
+    color: #FFD60A;
+    font-weight: 700;
+}
+
+.confirm-next {
+    font-size: 0.9rem;
+    color: rgba(255, 214, 10, 0.6);
+    font-weight: 400;
+}
+
 /* ── Hidden Sections ──────────────────────────────────────── */
 .hidden-section {
     display: none;
@@ -1192,6 +1617,25 @@ body {
     }
 
     .solar-badge {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .confidence-indicators {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .confidence-badge {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .cost-comparison {
         flex-direction: column;
         gap: 1rem;
     }
