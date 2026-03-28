@@ -146,19 +146,18 @@ HUMAN_LABELS = {
 
 
 def _safe_render(request, template_name, context):
-    """Render template with error catch — returns friendly error page on failure."""
+    """DEBUG MODE — full traceback exposed. Revert before production."""
+    import traceback
+    from app.main import templates as app_templates
     try:
-        from app.main import templates as app_templates
         return app_templates.TemplateResponse(template_name, context)
     except Exception as e:
-        logger.error(f"Template render error ({template_name}): {e}")
+        tb = traceback.format_exc()
+        logger.error(f"Template render error ({template_name}): {e}\n{tb}")
         return HTMLResponse(
-            f"<html><body style='font-family:Inter,sans-serif;padding:2rem;'>"
-            f"<h1>Something went wrong</h1>"
-            f"<p>We encountered an error generating this page. Please try again or "
-            f"<a href='/greenhouse/intake'>start a new assessment</a>.</p>"
-            f"<p style='color:#888;font-size:0.8rem;'>Error ref: {type(e).__name__}</p>"
-            f"</body></html>",
+            f"<pre style='font-family:monospace;padding:2rem;white-space:pre-wrap;'>"
+            f"DEBUG TRACEBACK:\n{tb}"
+            f"</pre>",
             status_code=500,
         )
 
