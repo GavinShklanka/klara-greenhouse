@@ -150,7 +150,11 @@ def _safe_render(request, template_name, context):
     import traceback
     from app.main import templates as app_templates
     try:
-        return app_templates.TemplateResponse(template_name, context)
+        return app_templates.TemplateResponse(
+            request=request,
+            name=template_name,
+            context=context,
+        )
     except Exception as e:
         tb = traceback.format_exc()
         logger.error(f"Template render error ({template_name}): {e}\n{tb}")
