@@ -1,0 +1,128 @@
+{
+  "region": {
+    "prefix": "B3",
+    "name": "Halifax city",
+    "nbc_reference": "Halifax",
+    "hardiness_zone": "6a",
+    "snow_load_kpa": 2.2,
+    "snow_load_psf": 46,
+    "snow_load_confidence": "confirmed",
+    "frost_depth_in": 48,
+    "last_frost": "May 10",
+    "first_frost": "Oct 15",
+    "growing_season_days": 158,
+    "persephone_days": 94,
+    "winter_solar_kwh": 2.5,
+    "delivery_tier": 1,
+    "delivery_tier_name": "HRM Metro",
+    "permit_authority": "HRM",
+    "permit_notes": "Development permit required any size. Building permit >=20m2.",
+    "support_desert": false,
+    "climate_region": "hrm_metro",
+    "data_confidence": "confirmed"
+  },
+  "components": {
+    "structures": {
+      "product_id": "planta_greenhouses_sungrow_20",
+      "product_name": "Sungrow 20",
+      "vendor_name": "Planta Greenhouses",
+      "vendor_url": "https://www.plantagreenhouses.ca",
+      "product_url": "https://www.plantagreenhouses.ca/collections/greenhouses/products/sungrow-20",
+      "price_cad": 4150.0,
+      "price_source": "listed",
+      "ships_to_ns": true,
+      "ships_to_pei": true,
+      "delivery_cost_estimate_cad": null,
+      "delivery_source": "assumed",
+      "klara_system_fit": "core",
+      "meets_minimum_spec": true,
+      "spec_gap_notes": null,
+      "evidence": {
+        "source_url": "https://www.plantagreenhouses.ca/collections/greenhouses/products/sungrow-20",
+        "fetch_date": "2026-03-27T23:46:20.757398+00:00",
+        "extraction_method": "scraped",
+        "data_confidence": "confirmed",
+        "verified_by": "automated",
+        "notes": "Specs from Planta Sungrow series product page and marketing materials"
+      },
+      "spec_completeness_score": 88,
+      "last_verified": "2026-03-27T23:46:20.757413+00:00",
+      "stale": false,
+      "dimensions_ft": {
+        "width": 10,
+        "length": 20,
+        "peak_height": 8
+      },
+      "area_sqft": 200,
+      "frame_material": "galvanized_steel",
+      "frame_gauge": 14,
+      "glazing_type": "twin_wall_polycarb",
+      "glazing_thickness_mm": 6,
+      "snow_load_psf": 75,
+      "wind_load_kmh": 105,
+      "wind_load_mph": 65,
+      "warranty_months": 120,
+      "ventilation_type": "auto_ridge",
+      "assembly_complexity": "moderate"
+    },
+    "lighting": {
+      "product_id": "mars_hydro_sp_150",
+      "product_name": "SP 150",
+      "vendor_name": "Mars Hydro",
+      "vendor_url": "https://www.marshydro.ca",
+      "product_url": "https://www.marshydro.ca/products/mars-hydro-sp-150-led-grow-light",
+      "price_cad": null,
+      "price_source": "unknown",
+      "ships_to_ns": true,
+      "ships_to_pei": true,
+      "delivery_cost_estimate_cad": null,
+      "delivery_source": "unknown",
+      "klara_system_fit": "standard",
+      "meets_minimum_spec": true,
+      "spec_gap_notes": null,
+      "evidence": {
+        "source_url": "https://www.marshydro.ca/products/mars-hydro-sp-150-led-grow-light",
+        "fetch_date": "2026-03-27T23:46:27.961759+00:00",
+        "extraction_method": "scraped",
+        "data_confidence": "confirmed",
+        "verified_by": "automated",
+        "notes": null
+      },
+      "spec_completeness_score": 37,
+      "last_verified": "2026-03-27T23:46:27.961772+00:00",
+      "stale": false,
+      "light_type": "led_bar",
+      "spectrum": "full_spectrum",
+      "dimmable": false
+    }
+  },
+  "component_gaps": [
+    {
+      "category": "renewable",
+      "reason": "No products available in category 'renewable'"
+    },
+    {
+      "category": "sensors",
+      "reason": "No products available in category 'sensors'"
+    }
+  ],
+  "system_cost": 5150.0,
+  "scores": {
+    "budget_fit": 100,
+    "regional_viability": 100,
+    "data_confidence": 50,
+    "installation_feasibility": 85,
+    "biological_viability": 100,
+    "local_support": 75,
+    "weighted_total": 87.8
+  },
+  "confidence": "medium",
+  "disqualifications": [],
+  "assumptions": [
+    "Foundation: gravel_pad (frost depth 48in)",
+    "Solar panels: 1 (Persephone 94 days)",
+    "Estimated costs for non-scraped subsystems: hydro=$200, thermal=$250, water=$100, biological=$150, foundation=$300"
+  ],
+  "route_decision": "proceed",
+  "action_text": "Your property is well-suited for the Klara greenhouse ecosystem."
+}

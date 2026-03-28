@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klara Admin — Audit Trail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/klara.css">
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Klara</a><span class="nav-tagline">Audit Trail</span></div></nav>
+
+    <main class="container">
+        <a href="/admin/proposals" class="btn btn-secondary" style="margin-bottom:1rem;">← Back to Dashboard</a>
+
+        <h1>Audit Trail — {{ session_id[:8] }}…</h1>
+
+        <section class="proposal-section">
+            <h2>Intake Data</h2>
+            <pre class="json-block">{{ intake | tojson(indent=2) }}</pre>
+        </section>
+
+        <section class="proposal-section">
+            <h2>Extended Intake</h2>
+            <pre class="json-block">{{ extended | tojson(indent=2) }}</pre>
+        </section>
+
+        {% if rec %}
+        <section class="proposal-section">
+            <h2>Assumptions</h2>
+            <ul>
+                {% for a in rec.get('assumptions', []) %}
+                <li>{{ a }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="proposal-section">
+            <h2>Scores</h2>
+            <div class="data-grid">
+                {% for key, val in rec.get('scores', {}).items() %}
+                <div class="data-item"><span class="data-label">{{ key.replace('_', ' ').title() }}</span><span class="data-value">{{ val }}</span></div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="proposal-section">
+            <h2>Full JSON</h2>
+            <pre class="json-block" style="max-height:600px;overflow-y:auto;">{{ rec_json }}</pre>
+        </section>
+        {% else %}
+        <p class="text-muted">No recommendation has been generated for this session yet.</p>
+        {% endif %}
+    </main>
+
+    <footer class="footer"><p>© 2026 Black Point Analytics · Klara Admin</p></footer>
+</body>
+</html>

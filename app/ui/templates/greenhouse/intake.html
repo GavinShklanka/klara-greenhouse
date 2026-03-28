@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klara — Start Your Greenhouse Assessment</title>
+    <meta name="description" content="Get a property-specific greenhouse recommendation for Nova Scotia or PEI. Answer 6 questions, get your free feasibility assessment.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/klara.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">Klara</a>
+            <span class="nav-tagline">Greenhouse Intelligence for Atlantic Canada</span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="intake-hero">
+            <h1>Let's assess your property</h1>
+            <p class="subtitle">Answer 6 questions. Get an instant feasibility assessment for a year-round greenhouse ecosystem on your NS or PEI property.</p>
+        </div>
+
+        <form action="{% if beta_code is defined and beta_code %}/greenhouse/beta/{{ beta_code }}/intake{% else %}/greenhouse/intake{% endif %}" method="POST" class="intake-form" id="intakeForm">
+            {% if beta_code is defined and beta_code %}
+            <div class="alert" style="background:var(--green-light);border-left:3px solid var(--green);margin-bottom:1rem;">
+                ✅ Beta code <strong>{{ beta_code }}</strong> applied — your proposal will be free.
+            </div>
+            {% endif %}
+            <div class="form-group">
+                <label for="postal_code">Your Postal Code</label>
+                <input type="text" id="postal_code" name="postal_code" placeholder="e.g. B3H 1A1" required
+                       pattern="[BbCc][0-9][A-Za-z]\s?[0-9][A-Za-z][0-9]"
+                       title="Enter a Nova Scotia (B) or PEI (C) postal code">
+                <span class="form-help">NS or PEI only — we're calibrated to Atlantic Canadian conditions</span>
+            </div>
+
+            <div class="form-group">
+                <label for="budget_range">Budget Range</label>
+                <select id="budget_range" name="budget_range" required>
+                    <option value="" disabled selected>Select your budget</option>
+                    {% for val, label in labels.budget_range.items() %}
+                    <option value="{{ val }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="available_footprint_sqft">Available Outdoor Space</label>
+                <select id="available_footprint_sqft" name="available_footprint_sqft" required>
+                    <option value="" disabled selected>Select available space</option>
+                    {% for val, label in labels.available_footprint_sqft.items() %}
+                    <option value="{{ val }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="primary_use">Primary Use Case</label>
+                <select id="primary_use" name="primary_use" required>
+                    <option value="" disabled selected>What's your primary goal?</option>
+                    {% for val, label in labels.primary_use.items() %}
+                    <option value="{{ val }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="diy_capacity">DIY Capacity</label>
+                <select id="diy_capacity" name="diy_capacity" required>
+                    <option value="" disabled selected>How much can you build yourself?</option>
+                    {% for val, label in labels.diy_capacity.items() %}
+                    <option value="{{ val }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="timeline">Timeline</label>
+                <select id="timeline" name="timeline" required>
+                    <option value="" disabled selected>When are you thinking?</option>
+                    {% for val, label in labels.timeline.items() %}
+                    <option value="{{ val }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Get My Free Assessment →</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Black Point Analytics · Klara Greenhouse Intelligence</p>
+    </footer>
+
+    <script>
+    // Friction tracking — invisible to user
+    (function() {
+        var startTime = Date.now();
+        var interacted = false;
+        document.getElementById('intakeForm').addEventListener('change', function() {
+            if (!interacted) {
+                interacted = true;
+                fetch('/greenhouse/events', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({event_type: 'intake_start', page: window.location.pathname})
+                }).catch(function() {});
+            }
+        });
+        window.addEventListener('beforeunload', function() {
+            var elapsed = (Date.now() - startTime) / 1000;
+            if (interacted && elapsed > 5) {
+                navigator.sendBeacon('/greenhouse/events', JSON.stringify({
+                    event_type: 'page_view',
+                    page: window.location.pathname,
+                    time_on_page_seconds: elapsed
+                }));
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

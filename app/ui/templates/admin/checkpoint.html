@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klara Admin — Week 4 Checkpoint</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/klara.css">
+    <style>
+        .signal-card { padding:1.5rem; border-radius:var(--radius-lg); margin-bottom:1rem; }
+        .signal-continue { background: var(--green-light); border-left:4px solid var(--green); }
+        .signal-narrow { background: var(--amber-light); border-left:4px solid var(--amber); }
+        .signal-pause { background: var(--red-light); border-left:4px solid var(--red); }
+        .signal-waiting { background: var(--gray-100); border-left:4px solid var(--gray-400); }
+        .signal-item { display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0; }
+        .signal-light { width:16px; height:16px; border-radius:50%; flex-shrink:0; }
+        .light-green { background:var(--green); }
+        .light-amber { background:var(--amber); }
+        .light-red { background:var(--red); }
+        .light-gray { background:var(--gray-400); }
+        .overall-badge { display:inline-block; padding:0.5rem 1.5rem; border-radius:100px;
+            font-size:1.25rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; }
+        .overall-continue { background:var(--green); color:white; }
+        .overall-narrow { background:var(--amber); color:white; }
+        .overall-pause { background:var(--red); color:white; }
+        .overall-waiting { background:var(--gray-400); color:white; }
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Klara</a><span class="nav-tagline">Week 4 Checkpoint</span>
+    <div style="margin-left:auto;display:flex;gap:0.5rem;">
+        <a href="/admin/proposals" class="btn btn-sm btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.3);">Dashboard</a>
+        <a href="/admin/analytics" class="btn btn-sm btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.3);">Analytics</a>
+    </div></div></nav>
+
+    <main class="container">
+        <div style="text-align:center;margin-bottom:2rem;">
+            <h1>Week 4 Checkpoint</h1>
+            <p class="subtitle">Auto-calculated from {{ total_sessions }} sessions, {{ total_events }} events, {{ beta_total }} beta users</p>
+            <div style="margin-top:1rem">
+                <span class="overall-badge overall-{{ overall }}">{{ overall }}</span>
+            </div>
+        </div>
+
+        <!-- CONTINUE Signals -->
+        <div class="signal-card signal-continue">
+            <h2 style="color:var(--green);margin-bottom:1rem;">🟢 CONTINUE Signals</h2>
+            {% for key, sig in signals.continue.items() %}
+            <div class="signal-item">
+                <div class="signal-light {% if sig.met %}light-green{% else %}light-gray{% endif %}"></div>
+                <div>
+                    <strong>{{ sig.label }}</strong>
+                    <span class="text-muted" style="margin-left:0.5rem;">
+                        {{ sig.value }}{% if sig.target is defined %}/{{ sig.target }}{% endif %}
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- NARROW Signals -->
+        <div class="signal-card signal-narrow">
+            <h2 style="color:var(--amber);margin-bottom:1rem;">🟡 NARROW Signals</h2>
+            <p class="text-muted" style="margin-bottom:0.75rem;">Action: narrow to HRM-only, tighten data quality</p>
+            {% for key, sig in signals.narrow.items() %}
+            <div class="signal-item">
+                <div class="signal-light {% if sig.triggered %}light-amber{% else %}light-gray{% endif %}"></div>
+                <div>
+                    <strong>{{ sig.label }}</strong>
+                    <span class="text-muted" style="margin-left:0.5rem;">
+                        {{ sig.value }}{% if sig.total is defined %}/{{ sig.total }}{% endif %}
+                        {% if sig.triggered %} — <strong style="color:var(--amber)">TRIGGERED</strong>{% endif %}
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- PAUSE Signals -->
+        <div class="signal-card signal-pause">
+            <h2 style="color:var(--red);margin-bottom:1rem;">🔴 PAUSE Signals</h2>
+            <p class="text-muted" style="margin-bottom:0.75rem;">Action: pause, fix data layer, re-run beta</p>
+            {% for key, sig in signals.pause.items() %}
+            <div class="signal-item">
+                <div class="signal-light {% if sig.triggered %}light-red{% else %}light-gray{% endif %}"></div>
+                <div>
+                    <strong>{{ sig.label }}</strong>
+                    <span class="text-muted" style="margin-left:0.5rem;">
+                        {{ sig.value }}{% if sig.target is defined %}/{{ sig.target }}{% endif %}
+                        {% if sig.triggered %} — <strong style="color:var(--red)">TRIGGERED</strong>{% endif %}
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Summary -->
+        <section class="proposal-section">
+            <h2>Summary</h2>
+            <div class="data-grid">
+                <div class="data-item"><span class="data-label">Beta Users</span><span class="data-value">{{ beta_total }}</span></div>
+                <div class="data-item"><span class="data-label">Beta Completed</span><span class="data-value">{{ beta_complete }}</span></div>
+                <div class="data-item"><span class="data-label">Total Sessions</span><span class="data-value">{{ total_sessions }}</span></div>
+                <div class="data-item"><span class="data-label">Total Events</span><span class="data-value">{{ total_events }}</span></div>
+                <div class="data-item"><span class="data-label">Total Errors</span><span class="data-value">{{ total_errors }}</span></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"><p>© 2026 Black Point Analytics · Klara Admin</p></footer>
+</body>
+</html>

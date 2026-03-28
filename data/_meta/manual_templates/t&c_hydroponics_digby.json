@@ -1,0 +1,37 @@
+[
+  {
+    "product_id": "t&c_hydroponics_digby_FILL_MODEL_NAME",
+    "product_name": "FILL: product name",
+    "vendor_name": "T&C Hydroponics (Digby)",
+    "vendor_url": "https://www.hydrotekhydroponics.com",
+    "product_url": "FILL: specific product page URL",
+    "price_cad": null,
+    "price_source": "unknown",
+    "ships_to_ns": null,
+    "ships_to_pei": null,
+    "delivery_cost_estimate_cad": null,
+    "delivery_source": "unknown",
+    "klara_system_fit": "standard",
+    "meets_minimum_spec": true,
+    "spec_gap_notes": null,
+    "evidence": {
+      "source_url": "https://www.hydrotekhydroponics.com",
+      "fetch_date": null,
+      "extraction_method": "manual",
+      "data_confidence": "unknown",
+      "verified_by": "FILL: operator name",
+      "notes": "Data collected from phone_or_visit"
+    },
+    "spec_completeness_score": 0,
+    "last_verified": null,
+    "stale": false,
+    "_operator_notes": "Contact: Conway Place, 3-305 NS-303, Digby NS B0V 1A0. Data needed: In-store inventory, Kratky supplies, nutrients, pH kits, pricing",
+    "system_type": null,
+    "capacity_plants": null,
+    "reservoir_litres": null,
+    "pump_required": null,
+    "power_draw_watts": null,
+    "maintenance_interval_days": null,
+    "organic_compatible": null
+  }
+]

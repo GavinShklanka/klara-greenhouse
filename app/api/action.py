@@ -52,8 +52,15 @@ def create_checkout(req: CheckoutRequest, db: DBSession = Depends(get_db)):
         return {"success": False, "error": "Session not found"}
 
     # Determine price
-    price_cents = settings.plan_price_basic if req.plan_tier == "basic" else settings.plan_price_premium
-    price_label = "$29" if req.plan_tier == "basic" else "$79"
+    price_cents = 2000  # $20 CAD for Property Proposal
+    price_label = "$20"
+
+    # MANUAL FALLBACK: If Stripe is not configured, this endpoint returns
+    # a 'stubbed' response. The operator then:
+    # 1. Emails the user a Stripe Payment Link ($20)
+    # 2. Monitors Stripe dashboard for payment
+    # 3. Manually sets payment_status='paid' in the DB (or via admin endpoint)
+    # 4. Sends the extended intake URL to the user
 
     # If Stripe is configured, create real checkout session
     if settings.stripe_secret_key:
@@ -67,20 +74,19 @@ def create_checkout(req: CheckoutRequest, db: DBSession = Depends(get_db)):
                     "price_data": {
                         "currency": "cad",
                         "product_data": {
-                            "name": f"Greenhouse Build Plan ({req.plan_tier.title()})",
-                            "description": "Complete build plan with materials list, instructions, crop calendar, and foundation calculations.",
+                            "name": "Klara Property Proposal",
+                            "description": "Property-specific proposal including siting, cost line items, blocker analysis, and seasonal crop match.",
                         },
                         "unit_amount": price_cents,
                     },
                     "quantity": 1,
                 }],
                 mode="payment",
-                success_url=f"{settings.base_url}/?checkout=success&session_id={req.session_id}",
-                cancel_url=f"{settings.base_url}/?checkout=cancelled",
+                success_url=f"{settings.base_url}/proposal/{req.session_id}/extend?checkout_session={{CHECKOUT_SESSION_ID}}",
+                cancel_url=f"{settings.base_url}/?session_id={req.session_id}&checkout=cancelled",
                 customer_email=req.email,
                 metadata={
                     "greenhouse_session_id": req.session_id,
-                    "plan_tier": req.plan_tier,
                 },
             )
 
@@ -101,6 +107,10 @@ def create_checkout(req: CheckoutRequest, db: DBSession = Depends(get_db)):
     _record_contact(db, req.session_id, "checkout", req.email)
     gh_session.action_taken = "checkout"
     gh_session.status = "action"
+    
+    # In full manual mode during dev without admin endpoint, uncomment to auto-mark paid
+    # gh_session.payment_status = "paid" 
+    
     db.commit()
 
     # Email notifications
@@ -113,7 +123,7 @@ def create_checkout(req: CheckoutRequest, db: DBSession = Depends(get_db)):
         "action": "checkout",
         "checkout_url": None,
         "message": (
-            f"Your {price_label} build plan request has been received. "
+            f"Your {price_label} Property Proposal request has been received. "
             f"Stripe is not configured — in production, you would be redirected to a secure checkout page."
         ),
         "dev_note": "Set STRIPE_SECRET_KEY in .env to enable real payments.",
@@ -227,9 +237,30 @@ async def stripe_webhook(request: Request, db: DBSession = Depends(get_db)):
             if gh_session:
                 gh_session.action_taken = "paid"
                 gh_session.status = "paid"
+                gh_session.payment_status = "paid"
                 db.commit()
+            else:
+                import logging
+                logging.getLogger(__name__).warning(f"Webhook fired for session {gh_session_id} but it was not found in DB.")
 
     return JSONResponse({"status": "ok"}, status_code=200)
+
+
+# ── /admin/sessions/{session_id}/mark-paid ───────────────────
+
+@router.post("/admin/sessions/{session_id}/mark-paid")
+def admin_mark_paid(session_id: str, db: DBSession = Depends(get_db)):
+    """Manually mark a session as paid (for fallback operator flows)."""
+    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
+    if not gh_session:
+        raise HTTPException(status_code=404, detail="Session not found")
+        
+    gh_session.payment_status = "paid"
+    gh_session.action_taken = "paid"
+    gh_session.status = "paid"
+    db.commit()
+    
+    return {"success": True, "message": f"Session {session_id} marked as paid."}
 
 
 # ── Helper ───────────────────────────────────────────────────

@@ -1,0 +1,30 @@
+[
+  {
+    "product_id": "hope_seeds_FILL_MODEL_NAME",
+    "product_name": "FILL: product name",
+    "vendor_name": "Hope Seeds",
+    "vendor_url": "https://www.hopeseed.com",
+    "product_url": "FILL: specific product page URL",
+    "price_cad": null,
+    "price_source": "unknown",
+    "ships_to_ns": null,
+    "ships_to_pei": null,
+    "delivery_cost_estimate_cad": null,
+    "delivery_source": "unknown",
+    "klara_system_fit": "standard",
+    "meets_minimum_spec": true,
+    "spec_gap_notes": null,
+    "evidence": {
+      "source_url": "https://www.hopeseed.com",
+      "fetch_date": null,
+      "extraction_method": "manual",
+      "data_confidence": "unknown",
+      "verified_by": "FILL: operator name",
+      "notes": "Data collected from website_review"
+    },
+    "spec_completeness_score": 0,
+    "last_verified": null,
+    "stale": false,
+    "_operator_notes": "Contact: NS-based organic seed company. Data needed: NS-adapted variety list, pricing, companion species availability"
+  }
+]

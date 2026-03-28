@@ -1,0 +1,40 @@
+[
+  {
+    "product_id": "litime_12v_100ah_lifepo4_selfheating",
+    "product_name": "LiTime 12V 100Ah LiFePO4 Battery (Self-Heating)",
+    "vendor_name": "LiTime",
+    "vendor_url": "https://www.litime.com",
+    "product_url": "https://www.litime.com/products/litime-12v-100ah-self-heating-lifepo4-lithium-battery",
+    "price_cad": 500.00,
+    "price_source": "manual",
+    "ships_to_ns": true,
+    "ships_to_pei": true,
+    "delivery_cost_estimate_cad": 0,
+    "delivery_source": "assumed",
+    "klara_system_fit": "core",
+    "meets_minimum_spec": true,
+    "spec_gap_notes": null,
+    "evidence": {
+      "source_url": "https://www.litime.com/products/litime-12v-100ah-self-heating-lifepo4-lithium-battery",
+      "fetch_date": "2026-03-28T00:00:00+00:00",
+      "extraction_method": "manual",
+      "data_confidence": "confirmed",
+      "verified_by": "operator",
+      "notes": "Price from litime.com, Amazon.ca cross-referenced. Self-heating BMS critical for NS/PEI winter operation. March 2026."
+    },
+    "spec_completeness_score": 90,
+    "last_verified": "2026-03-28T00:00:00+00:00",
+    "stale": false,
+    "component_type": "battery",
+    "battery_chemistry": "lifepo4",
+    "capacity_ah": 100,
+    "voltage": 12,
+    "energy_wh": 1280,
+    "cycle_life": 4000,
+    "self_heating_bms": true,
+    "low_temp_cutoff_c": -20,
+    "self_heating_activation_c": 0,
+    "weight_kg": 11.2,
+    "warranty_years": 5
+  }
+]

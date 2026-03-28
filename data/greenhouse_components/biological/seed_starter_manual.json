@@ -1,0 +1,47 @@
+[
+  {
+    "product_id": "ns_pei_seed_starter_collection",
+    "product_name": "NS/PEI Seed Starter Collection",
+    "vendor_name": "Halifax Seed / Vesey's Seeds",
+    "vendor_url": "https://www.halifaxseed.ca",
+    "product_url": "https://www.halifaxseed.ca",
+    "price_cad": 80.00,
+    "price_source": "manual",
+    "ships_to_ns": true,
+    "ships_to_pei": true,
+    "delivery_cost_estimate_cad": 10,
+    "delivery_source": "estimated",
+    "klara_system_fit": "core",
+    "meets_minimum_spec": true,
+    "spec_gap_notes": null,
+    "evidence": {
+      "source_url": "https://www.halifaxseed.ca",
+      "fetch_date": "2026-03-28T00:00:00+00:00",
+      "extraction_method": "manual",
+      "data_confidence": "confirmed",
+      "verified_by": "operator",
+      "notes": "Combined pricing: Halifax Seed leafy greens + herbs ~$45, Vesey's warm-season starts ~$35. March 2026."
+    },
+    "spec_completeness_score": 75,
+    "last_verified": "2026-03-28T00:00:00+00:00",
+    "stale": false,
+    "seed_sources": [
+      {
+        "vendor": "Halifax Seed",
+        "url": "https://www.halifaxseed.ca",
+        "location": "Halifax, NS",
+        "items": "Lettuce mix (Black Seeded Simpson, Valley Heart), Dwarf Blue Scotch Kale, Swiss Chard, Basil, Parsley, Cilantro, Chives",
+        "price_cad": 45
+      },
+      {
+        "vendor": "Vesey's Seeds",
+        "url": "https://www.veseys.com",
+        "location": "York, PEI",
+        "items": "Scotia Tomato, Mountain Magic Tomato, Right On Red Pepper, Marketmore 76 Cucumber",
+        "price_cad": 35
+      }
+    ],
+    "varieties_tested_for_region": true,
+    "region_notes": "All varieties selected for Zone 5b-6a performance. Halifax Seed trials in NS; Vesey's trials on 40-acre PEI facility."
+  }
+]

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klara — Complete Your Greenhouse Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/klara.css">
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Klara</a><span class="nav-tagline">Greenhouse Intelligence for Atlantic Canada</span></div></nav>
+
+    <main class="container">
+        <div class="intake-hero">
+            <span class="badge badge-green" style="margin-bottom:1rem;">Payment Received ✓</span>
+            <h1>Two more questions</h1>
+            <p class="subtitle">These help us optimize your greenhouse placement and infrastructure recommendations.</p>
+        </div>
+
+        <form action="/greenhouse/extend/{{ session_id }}" method="POST" class="intake-form">
+            <div class="form-group">
+                <label for="lot_orientation">Lot Orientation</label>
+                <select id="lot_orientation" name="lot_orientation" required>
+                    <option value="" disabled selected>Which way does your backyard face?</option>
+                    {% for val, label in labels.lot_orientation.items() %}
+                    <option value="{{ val }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+                <span class="form-help">South-facing is ideal for solar gain. Don't worry if you're not sure.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="existing_infrastructure">Existing Infrastructure</label>
+                <select id="existing_infrastructure" name="existing_infrastructure" required>
+                    <option value="" disabled selected>What's already on your property?</option>
+                    {% for val, label in labels.existing_infrastructure.items() %}
+                    <option value="{{ val }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+                <span class="form-help">Existing water and electrical access reduces installation cost and complexity.</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Generate My Proposal →</button>
+        </form>
+    </main>
+
+    <footer class="footer"><p>© 2026 Black Point Analytics · Klara Greenhouse Intelligence</p></footer>
+</body>
+</html>

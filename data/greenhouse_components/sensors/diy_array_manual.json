@@ -1,0 +1,39 @@
+[
+  {
+    "product_id": "diy_sensor_array_v1",
+    "product_name": "DIY Greenhouse Sensor Array",
+    "vendor_name": "Amazon.ca (Multiple)",
+    "vendor_url": "https://www.amazon.ca",
+    "product_url": "https://www.amazon.ca/s?k=ESP32+DHT22+soil+moisture+sensor",
+    "price_cad": 57.00,
+    "price_source": "manual",
+    "ships_to_ns": true,
+    "ships_to_pei": true,
+    "delivery_cost_estimate_cad": 0,
+    "delivery_source": "confirmed",
+    "klara_system_fit": "core",
+    "meets_minimum_spec": true,
+    "spec_gap_notes": "Requires soldering and basic Arduino/ESP32 programming. Not suitable for 'need_install' users without technical assistance.",
+    "evidence": {
+      "source_url": "https://www.amazon.ca",
+      "fetch_date": "2026-03-28T00:00:00+00:00",
+      "extraction_method": "manual",
+      "data_confidence": "confirmed",
+      "verified_by": "operator",
+      "notes": "Bundle pricing from Amazon.ca individual listings, March 2026. ESP32 $20, DHT22 $12, Soil Moisture $8, DS18B20 $10, BH1750 $7."
+    },
+    "spec_completeness_score": 80,
+    "last_verified": "2026-03-28T00:00:00+00:00",
+    "stale": false,
+    "sensors_included": [
+      {"name": "ESP32 Dev Board", "function": "Microcontroller / WiFi hub", "price_cad": 20},
+      {"name": "DHT22", "function": "Air temperature + humidity", "price_cad": 12},
+      {"name": "Capacitive Soil Moisture Sensor", "function": "Wicking bed moisture level", "price_cad": 8},
+      {"name": "DS18B20 Waterproof Temp Probe", "function": "Soil / water temperature", "price_cad": 10},
+      {"name": "BH1750 Lux Sensor", "function": "Light level (PAR proxy)", "price_cad": 7}
+    ],
+    "connectivity": "wifi",
+    "power_requirement": "5V USB (from solar/battery system)",
+    "diy_complexity": "intermediate"
+  }
+]

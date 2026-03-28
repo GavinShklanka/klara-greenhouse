@@ -1,0 +1,43 @@
+{
+  "score": 87.0,
+  "confidence": "medium",
+  "decision": "proceed",
+  "cost": 5721.0,
+  "components_found": [
+    "structures",
+    "lighting",
+    "renewable",
+    "sensors",
+    "hydroponic",
+    "biological"
+  ],
+  "component_gaps": [],
+  "species_count": 22,
+  "seasonal_months": 12,
+  "component_details": {
+    "structures": {
+      "name": "Sungrow 20",
+      "price": 4150.0
+    },
+    "lighting": {
+      "name": "TS 1000",
+      "price": 179.0
+    },
+    "renewable": {
+      "name": "LiTime 12V 100Ah LiFePO4 Battery (Self-Heating)",
+      "price": 500.0
+    },
+    "sensors": {
+      "name": "DIY Greenhouse Sensor Array",
+      "price": 57.0
+    },
+    "hydroponic": {
+      "name": "Kratky Hydroponic Starter Kit",
+      "price": 105.0
+    },
+    "biological": {
+      "name": "NS/PEI Seed Starter Collection",
+      "price": 80.0
+    }
+  }
+}

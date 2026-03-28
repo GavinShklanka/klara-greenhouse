@@ -1,0 +1,100 @@
+{
+  "run_started_at": "2026-03-27T23:46:11.586071+00:00",
+  "scrapers_registered": 2,
+  "results": [
+    {
+      "vendor": "Planta Greenhouses",
+      "category": "structures",
+      "requires_manual": false,
+      "started_at": "2026-03-27T23:46:11.586308+00:00",
+      "products_found": 3,
+      "products_valid": 3,
+      "warnings": 0,
+      "errors": 0,
+      "validation_report": {
+        "valid_count": 3,
+        "warning_count": 0,
+        "error_count": 0,
+        "valid": [
+          {
+            "product_id": "planta_greenhouses_sungrow_20",
+            "message": "Structure passes validation"
+          },
+          {
+            "product_id": "planta_greenhouses_sungrow_26",
+            "message": "Structure passes validation"
+          },
+          {
+            "product_id": "planta_greenhouses_sigma_20",
+            "message": "Structure passes validation"
+          }
+        ],
+        "warnings": [],
+        "errors": []
+      },
+      "completed_at": "2026-03-27T23:46:20.932959+00:00"
+    },
+    {
+      "vendor": "Mars Hydro",
+      "category": "lighting",
+      "requires_manual": false,
+      "started_at": "2026-03-27T23:46:20.933637+00:00",
+      "products_found": 4,
+      "products_valid": 4,
+      "warnings": 4,
+      "errors": 0,
+      "validation_report": {
+        "valid_count": 4,
+        "warning_count": 4,
+        "error_count": 0,
+        "valid": [
+          {
+            "product_id": "mars_hydro_sp_150",
+            "message": "Lighting passes validation"
+          },
+          {
+            "product_id": "mars_hydro_sp_3000",
+            "message": "Lighting passes validation"
+          },
+          {
+            "product_id": "mars_hydro_ts_1000",
+            "message": "Lighting passes validation"
+          },
+          {
+            "product_id": "mars_hydro_ts_600",
+            "message": "Lighting passes validation"
+          }
+        ],
+        "warnings": [
+          {
+            "product_id": "mars_hydro_sp_150",
+            "field": "ppf_umol_s",
+            "message": "PAR output not published. Cannot validate adequacy."
+          },
+          {
+            "product_id": "mars_hydro_sp_3000",
+            "field": "ppf_umol_s",
+            "message": "PAR output not published. Cannot validate adequacy."
+          },
+          {
+            "product_id": "mars_hydro_ts_1000",
+            "field": "ppf_umol_s",
+            "message": "PAR output not published. Cannot validate adequacy."
+          },
+          {
+            "product_id": "mars_hydro_ts_600",
+            "field": "ppf_umol_s",
+            "message": "PAR output not published. Cannot validate adequacy."
+          }
+        ],
+        "errors": []
+      },
+      "completed_at": "2026-03-27T23:46:27.979719+00:00"
+    }
+  ],
+  "total_products": 7,
+  "total_valid": 7,
+  "total_warnings": 4,
+  "total_errors": 0,
+  "run_completed_at": "2026-03-27T23:46:27.979740+00:00"
+}

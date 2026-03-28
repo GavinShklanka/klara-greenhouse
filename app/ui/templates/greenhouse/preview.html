@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klara — Your Greenhouse Feasibility Assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/klara.css">
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Klara</a><span class="nav-tagline">Greenhouse Intelligence for Atlantic Canada</span></div></nav>
+
+    <main class="container">
+        {% if result.route_decision == 'disqualified' %}
+        <!-- DISQUALIFIED -->
+        <div class="card card-disqualified">
+            <div class="card-header">
+                <span class="badge badge-red">Not Feasible</span>
+                <h2>We can't recommend a greenhouse for your situation</h2>
+            </div>
+            <div class="card-body">
+                {% for dq in result.disqualifications %}
+                <div class="alert alert-red">
+                    <strong>{{ dq.code.replace('_', ' ').title() }}:</strong> {{ dq.reason }}
+                    <p class="mt-2"><em>Suggestion:</em> {{ dq.suggestion }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="card-footer">
+                <a href="/greenhouse/intake" class="btn btn-secondary">← Try Different Options</a>
+            </div>
+        </div>
+
+        {% else %}
+        <!-- FEASIBILITY ASSESSMENT -->
+        <div class="preview-header">
+            <h1>Your Greenhouse Feasibility Assessment</h1>
+            <p class="subtitle">Based on your postal code <strong>{{ intake.postal_code }}</strong> and stated preferences</p>
+        </div>
+
+        <div class="preview-grid">
+            <!-- Feasibility Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Feasibility</h3>
+                    {% if result.route_decision == 'proceed' %}
+                    <span class="badge badge-green">Suitable</span>
+                    {% elif result.route_decision == 'consult' %}
+                    <span class="badge badge-amber">Marginal — Consultation Recommended</span>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <p class="lead">{{ result.action_text }}</p>
+                    <p>{{ result.region.name if result.region else 'Unknown location' }} · Zone {{ result.region.hardiness_zone if result.region else '?' }} · {{ result.region.growing_season_days if result.region else '?' }}-day growing season</p>
+                </div>
+            </div>
+
+            <!-- Budget Validation -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Budget Fit</h3>
+                    {% set budget_score = result.scores.get('budget_fit', 0) %}
+                    {% if budget_score >= 75 %}
+                    <span class="badge badge-green">Good Fit</span>
+                    {% elif budget_score >= 50 %}
+                    <span class="badge badge-amber">Tight</span>
+                    {% else %}
+                    <span class="badge badge-red">Insufficient</span>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    {% if budget_score >= 75 %}
+                    <p>Your budget of <strong>{{ labels.budget_range.get(intake.budget_range, intake.budget_range) }}</strong> covers the recommended system configuration for your location.</p>
+                    {% elif budget_score >= 50 %}
+                    <p>Your budget of <strong>{{ labels.budget_range.get(intake.budget_range, intake.budget_range) }}</strong> is tight for the full system. Some substitutions may be needed.</p>
+                    {% else %}
+                    <p>Your budget of <strong>{{ labels.budget_range.get(intake.budget_range, intake.budget_range) }}</strong> may not fully cover the recommended system. Consider phased implementation.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- System Type -->
+            <div class="card">
+                <div class="card-header"><h3>Recommended System</h3></div>
+                <div class="card-body">
+                    <p class="lead">10×20 ft Rigid Polycarbonate Greenhouse</p>
+                    <p>With wicking-bed + Kratky hydroponics, passive thermal mass, LED Persephone supplementation, and a 22-species biological management system.</p>
+                    <p class="text-muted">Specific products, vendors, pricing, and your full biological blueprint are available in the paid proposal.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h2>Get Your Full Property Proposal</h2>
+            <p>Your personalized 8-section proposal includes: exact product recommendations with current pricing, a 22-species planting calendar for your zone, cost breakdown, regional building context, and evidence-sourced vendor references.</p>
+            <form action="/greenhouse/checkout/{{ session_id }}" method="POST">
+                <button type="submit" class="btn btn-primary btn-lg">Get Your Full Property Proposal — $49 →</button>
+            </form>
+            <p class="cta-note">One-time payment · Includes all 8 sections · Sources verified March 2026</p>
+        </div>
+        {% endif %}
+    </main>
+
+    <footer class="footer"><p>© 2026 Black Point Analytics · Klara Greenhouse Intelligence</p></footer>
+</body>
+</html>

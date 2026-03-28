@@ -1,0 +1,43 @@
+[
+  {
+    "product_id": "kratky_starter_kit_v1",
+    "product_name": "Kratky Hydroponic Starter Kit",
+    "vendor_name": "Multiple (Amazon.ca / Halifax Seed)",
+    "vendor_url": "https://www.amazon.ca",
+    "product_url": "https://www.amazon.ca/s?k=kratky+hydroponic+mason+jar",
+    "price_cad": 105.00,
+    "price_source": "manual",
+    "ships_to_ns": true,
+    "ships_to_pei": true,
+    "delivery_cost_estimate_cad": 0,
+    "delivery_source": "confirmed",
+    "klara_system_fit": "core",
+    "meets_minimum_spec": true,
+    "spec_gap_notes": null,
+    "evidence": {
+      "source_url": "https://www.amazon.ca",
+      "fetch_date": "2026-03-28T00:00:00+00:00",
+      "extraction_method": "manual",
+      "data_confidence": "confirmed",
+      "verified_by": "operator",
+      "notes": "Bundle pricing: mason jars $25, net pots $15, GH Flora nutrients $35, pH kit $18, perlite $12. March 2026."
+    },
+    "spec_completeness_score": 85,
+    "last_verified": "2026-03-28T00:00:00+00:00",
+    "stale": false,
+    "system_type": "kratky_passive",
+    "capacity_plants": 12,
+    "kit_contents": [
+      {"item": "Wide-mouth mason jars (12-pack)", "price_cad": 25},
+      {"item": "Net pots 3-inch (50-pack)", "price_cad": 15},
+      {"item": "General Hydroponics Flora Series (Micro/Grow/Bloom)", "price_cad": 35},
+      {"item": "pH test/adjustment kit", "price_cad": 18},
+      {"item": "Perlite growing media (8L bag)", "price_cad": 12}
+    ],
+    "pump_required": false,
+    "power_draw_watts": 0,
+    "maintenance_interval_days": 21,
+    "organic_compatible": false,
+    "organic_alternative_notes": "Replace GH Flora with Botanicare Pure Blend Pro (~$45) for organic-compatible nutrients."
+  }
+]

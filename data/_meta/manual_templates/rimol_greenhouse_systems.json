@@ -1,0 +1,49 @@
+[
+  {
+    "product_id": "rimol_greenhouse_systems_FILL_MODEL_NAME",
+    "product_name": "FILL: product name",
+    "vendor_name": "Rimol Greenhouse Systems",
+    "vendor_url": "https://www.rimol.com",
+    "product_url": "FILL: specific product page URL",
+    "price_cad": null,
+    "price_source": "unknown",
+    "ships_to_ns": null,
+    "ships_to_pei": null,
+    "delivery_cost_estimate_cad": null,
+    "delivery_source": "unknown",
+    "klara_system_fit": "standard",
+    "meets_minimum_spec": true,
+    "spec_gap_notes": null,
+    "evidence": {
+      "source_url": "https://www.rimol.com",
+      "fetch_date": null,
+      "extraction_method": "manual",
+      "data_confidence": "unknown",
+      "verified_by": "FILL: operator name",
+      "notes": "Data collected from email"
+    },
+    "spec_completeness_score": 0,
+    "last_verified": null,
+    "stale": false,
+    "_operator_notes": "Contact: Contact form on rimol.com. Data needed: Nor'Easter residential pricing, Atlantic-specific specs",
+    "dimensions_ft": {
+      "width": null,
+      "length": null,
+      "peak_height": null
+    },
+    "area_sqft": null,
+    "frame_material": null,
+    "frame_gauge": null,
+    "glazing_type": null,
+    "glazing_thickness_mm": null,
+    "snow_load_psf": null,
+    "snow_load_source": "unknown",
+    "wind_load_kmh": null,
+    "wind_load_source": "unknown",
+    "warranty_months": null,
+    "ventilation_type": null,
+    "assembly_complexity": null,
+    "foundation_requirements": null,
+    "extendable": null
+  }
+]

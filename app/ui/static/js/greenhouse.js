@@ -449,6 +449,40 @@ window.addEventListener('load', function() {
     document.querySelectorAll('.hero .fade-in').forEach(function(el) { el.classList.add('visible'); });
     logEvent('page_loaded');
     var params = new URLSearchParams(window.location.search);
+    
+    if (params.get('session_id')) {
+        state.sessionId = params.get('session_id');
+        
+        var alertMsg = null;
+        if (params.get('checkout') === 'cancelled') {
+            alertMsg = "No problem — your recommendation is still here. You can get your Property Proposal anytime.";
+        } else if (params.get('error') === 'payment_required') {
+            alertMsg = "Complete your payment to access the property details form.";
+        }
+
+        if (alertMsg) {
+            // Hide intro sections and jump to details
+            document.getElementById('screen-hero').style.display = 'none';
+            document.getElementById('screen-sunmap').style.display = 'none';
+            document.getElementById('screen-trust').style.display = 'none';
+            document.getElementById('screen-intake').style.display = 'none';
+            
+            var cancelDiv = document.createElement('div');
+            cancelDiv.style.cssText = "background: rgba(255,214,10,0.1); border: 1px solid rgba(255,214,10,0.3); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; text-align: center; color: #FFF; font-size: 0.95rem;";
+            cancelDiv.textContent = alertMsg;
+            
+            var actionScreen = document.getElementById('screen-action');
+            if (actionScreen) {
+                var container = actionScreen.querySelector('.container-narrow');
+                container.insertBefore(cancelDiv, container.firstChild);
+            }
+            
+            fetchPlan().then(() => {
+                setTimeout(() => scrollToSection('screen-action'), 300);
+            });
+        }
+    }
+    
     if (params.get('checkout') === 'success') {
         showConfirmation('checkout', { reference_id: params.get('ref') || '—' });
     }

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details — Klara Greenhouse</title>
+    <link rel="stylesheet" href="/static/css/greenhouse.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container-narrow">
+            <div class="intake-step-label">Almost There</div>
+            <div class="heading-large" style="margin-bottom: 1rem">Property Details</div>
+            <div class="text-body" style="margin-bottom: 3rem;">
+                Your payment is confirmed. To generate your Property Proposal, we need a few more details to customize your construction plan, cost estimate, and crop calendar.
+            </div>
+
+            <form id="extendedIntakeForm" method="POST" action="/api/proposal/{{ session_id }}/extend">
+                
+                <!-- Slope -->
+                <div style="margin-bottom: 2.5rem;">
+                    <label style="display: block; font-family: 'Anton', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 0.5rem; color: #FFD60A;">1. Topography</label>
+                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">Slope affects foundation type and cost. If your yard has a noticeable grade, we account for it.</div>
+                    <select name="slope" class="btn-select" required style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: white; -webkit-appearance: none; appearance: none;">
+                        <option value="" disabled selected>Select slope...</option>
+                        <option value="flat">Flat or nearly flat</option>
+                        <option value="slight">Slight incline</option>
+                        <option value="significant">Significant grade / hill</option>
+                        <option value="not_sure">Not sure</option>
+                    </select>
+                </div>
+
+                <!-- Drainage -->
+                <div style="margin-bottom: 2.5rem;">
+                    <label style="display: block; font-family: 'Anton', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 0.5rem; color: #FFD60A;">2. Drainage</label>
+                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">Poor drainage can undermine foundations. If water pools in your yard after rain, select 'poor'.</div>
+                    <select name="drainage" class="btn-select" required style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: white; -webkit-appearance: none; appearance: none;">
+                        <option value="" disabled selected>Select drainage...</option>
+                        <option value="good">Good (drains well)</option>
+                        <option value="poor">Poor (water pools)</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </div>
+
+                <!-- Nearby Structures -->
+                <div style="margin-bottom: 2.5rem;">
+                    <label style="display: block; font-family: 'Anton', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 0.5rem; color: #FFD60A;">3. Nearby Structures</label>
+                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">Nearby structures affect wind shelter and shading. A house wall enables lean-to designs.</div>
+                    <select name="nearby_structures" class="btn-select" required style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: white; -webkit-appearance: none; appearance: none;">
+                        <option value="" disabled selected>Select closest structure...</option>
+                        <option value="none">None (open area)</option>
+                        <option value="fence">Fence</option>
+                        <option value="shed">Shed</option>
+                        <option value="garage">Garage</option>
+                        <option value="house_wall">House Wall</option>
+                        <option value="multiple">Multiple structures</option>
+                    </select>
+                </div>
+
+                <!-- Seasonal Intent -->
+                <div style="margin-bottom: 2.5rem;">
+                    <label style="display: block; font-family: 'Anton', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 0.5rem; color: #FFD60A;">4. Growing Season</label>
+                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">Year-round growing requires heating. We'll factor this into cost and feasibility.</div>
+                    <select name="seasonal_intent" class="btn-select" required style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: white; -webkit-appearance: none; appearance: none;">
+                        <option value="" disabled selected>Select intent...</option>
+                        <option value="spring_to_fall">Spring to Fall only</option>
+                        <option value="extended_season">Extended Season (early spring to late fall)</option>
+                        <option value="year_round">Year-round (heated winter)</option>
+                        <option value="not_sure">Not sure</option>
+                    </select>
+                </div>
+
+                <!-- Execution Method -->
+                <div style="margin-bottom: 2.5rem;">
+                    <label style="display: block; font-family: 'Anton', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 0.5rem; color: #FFD60A;">5. Execution</label>
+                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">This affects your cost estimate. DIY saves labor cost but requires more time and skill.</div>
+                    <select name="diy_or_contractor" class="btn-select" required style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: white; -webkit-appearance: none; appearance: none;">
+                        <option value="" disabled selected>Select approach...</option>
+                        <option value="full_diy">Full DIY (I'll build it all)</option>
+                        <option value="partial_diy">Partial DIY (I'll buy kit, hire logic)</option>
+                        <option value="full_contractor">Full Contractor (I want it built for me)</option>
+                        <option value="not_sure">Not sure</option>
+                    </select>
+                </div>
+
+                <!-- Desired Crops (Multi-select) -->
+                <div style="margin-bottom: 3.5rem;">
+                    <label style="display: block; font-family: 'Anton', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 0.5rem; color: #FFD60A;">6. Desired Crops</label>
+                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">We'll check if your chosen archetype supports these crops and flag any mismatches. (Select all that apply)</div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <label style="display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.04); padding: 1rem; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;">
+                            <input type="checkbox" name="desired_crops" value="tomatoes" style="width: 1.25rem; height: 1.25rem; accent-color: #FFD60A;">
+                            <span style="font-size: 1.1rem;">Tomatoes</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.04); padding: 1rem; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;">
+                            <input type="checkbox" name="desired_crops" value="peppers" style="width: 1.25rem; height: 1.25rem; accent-color: #FFD60A;">
+                            <span style="font-size: 1.1rem;">Peppers / Warm Weather</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.04); padding: 1rem; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;">
+                            <input type="checkbox" name="desired_crops" value="lettuce_greens" style="width: 1.25rem; height: 1.25rem; accent-color: #FFD60A;">
+                            <span style="font-size: 1.1rem;">Lettuce & Greens</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.04); padding: 1rem; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;">
+                            <input type="checkbox" name="desired_crops" value="herbs" style="width: 1.25rem; height: 1.25rem; accent-color: #FFD60A;">
+                            <span style="font-size: 1.1rem;">Herbs</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.04); padding: 1rem; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;">
+                            <input type="checkbox" name="desired_crops" value="root_vegetables" style="width: 1.25rem; height: 1.25rem; accent-color: #FFD60A;">
+                            <span style="font-size: 1.1rem;">Root Vegetables</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.04); padding: 1rem; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;">
+                            <input type="checkbox" name="desired_crops" value="berries" style="width: 1.25rem; height: 1.25rem; accent-color: #FFD60A;">
+                            <span style="font-size: 1.1rem;">Berries</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.04); padding: 1rem; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;">
+                            <input type="checkbox" name="desired_crops" id="cropNotSure" value="not_sure" style="width: 1.25rem; height: 1.25rem; accent-color: #FFD60A;">
+                            <span style="font-size: 1.1rem;">Not sure yet</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                    <span>Generate Proposal</span>
+                    <span class="arrow">→</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Form validation logic. Ensure at least one crop is selected.
+        document.getElementById('extendedIntakeForm').addEventListener('submit', function(e) {
+            const checkboxes = document.querySelectorAll('input[name="desired_crops"]:checked');
+            if (checkboxes.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one desired crop, or choose "Not sure yet".');
+            }
+        });
+
+        // Mutually exclusive "Not sure" for crops
+        const notSureCheckbox = document.getElementById('cropNotSure');
+        const cropCheckboxes = document.querySelectorAll('input[name="desired_crops"]');
+        
+        cropCheckboxes.forEach(cb => {
+            cb.addEventListener('change', function() {
+                if (this.value === 'not_sure' && this.checked) {
+                    cropCheckboxes.forEach(otherCb => {
+                        if (otherCb !== this) otherCb.checked = false;
+                    });
+                } else if (this.checked && this.value !== 'not_sure') {
+                    notSureCheckbox.checked = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

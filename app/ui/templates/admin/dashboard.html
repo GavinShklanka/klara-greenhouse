@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klara Admin — Proposals Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/klara.css">
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Klara</a><span class="nav-tagline">Admin Dashboard</span>
+    <div style="margin-left:auto;display:flex;gap:0.5rem;">
+        <a href="/admin/analytics" class="btn btn-sm btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.3);">Analytics</a>
+        <a href="/admin/checkpoint" class="btn btn-sm btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.3);">Checkpoint</a>
+    </div></div></nav>
+
+    <main class="container">
+        <h1>Proposals Dashboard</h1>
+        <p class="subtitle">{{ proposals|length }} total sessions</p>
+
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Session ID</th>
+                    <th>Postal Code</th>
+                    <th>Budget</th>
+                    <th>Score</th>
+                    <th>Confidence</th>
+                    <th>Decision</th>
+                    <th>Payment</th>
+                    <th>Approved</th>
+                    <th>Created</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in proposals %}
+                <tr>
+                    <td class="mono">{{ p.session_id[:8] }}…</td>
+                    <td>{{ p.postal_code }}</td>
+                    <td>{{ p.budget_range }}</td>
+                    <td>{{ p.score }}</td>
+                    <td>
+                        <span class="badge {% if p.confidence == 'high' %}badge-green{% elif p.confidence == 'medium' %}badge-amber{% else %}badge-red{% endif %}">
+                            {{ p.confidence }}
+                        </span>
+                    </td>
+                    <td>{{ p.decision }}</td>
+                    <td>
+                        <span class="badge {% if p.payment_status == 'paid' %}badge-green{% else %}badge-red{% endif %}">
+                            {{ p.payment_status }}
+                        </span>
+                    </td>
+                    <td>
+                        {% if p.approved %}
+                        <span class="badge badge-green">✓</span>
+                        {% else %}
+                        <form action="/admin/proposal/{{ p.session_id }}/approve" method="POST" style="display:inline">
+                            <button type="submit" class="btn btn-sm btn-secondary">Approve</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                    <td>{{ p.created_at[:16] if p.created_at != '—' else '—' }}</td>
+                    <td>
+                        <a href="/admin/proposal/{{ p.session_id }}/audit" class="btn btn-sm btn-outline">Audit</a>
+                        {% if p.payment_status == 'paid' %}
+                        <a href="/greenhouse/proposal/{{ p.session_id }}" class="btn btn-sm btn-outline" style="margin-left:0.25rem;">View</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Beta Code Generator -->
+        <section class="proposal-section" style="margin-top:2rem">
+            <h2>Beta Code Management</h2>
+            <p class="text-muted" style="margin-bottom:1rem">Generate single-use codes for beta testers. Each code gives free access to the full proposal.</p>
+            <div style="display:flex;gap:1rem;align-items:center">
+                <button id="genBeta" class="btn btn-primary">Generate 15 Beta Codes</button>
+                <span id="betaStatus" class="text-muted"></span>
+            </div>
+            <pre id="betaCodes" class="json-block" style="margin-top:1rem;display:none"></pre>
+        </section>
+    </main>
+
+    <footer class="footer"><p>© 2026 Black Point Analytics · Klara Admin</p></footer>
+    <script>
+    document.getElementById('genBeta').addEventListener('click', function() {
+        var btn = this;
+        btn.disabled = true;
+        btn.textContent = 'Generating...';
+        fetch('/admin/beta/generate', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:'count=15'})
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var pre = document.getElementById('betaCodes');
+                pre.style.display = 'block';
+                pre.textContent = 'Generated ' + data.count + ' codes:\n\n' + data.codes.map(function(c) {
+                    return c + '  →  ' + window.location.origin + '/greenhouse/beta/' + c;
+                }).join('\n');
+                document.getElementById('betaStatus').textContent = data.count + ' codes generated!';
+                btn.textContent = 'Generate 15 More';
+                btn.disabled = false;
+            })
+            .catch(function(e) {
+                document.getElementById('betaStatus').textContent = 'Error: ' + e.message;
+                btn.disabled = false;
+                btn.textContent = 'Generate 15 Beta Codes';
+            });
+    });
+    </script>
+</body>
+</html>

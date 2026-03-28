@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klara Admin — Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/klara.css">
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">Klara</a><span class="nav-tagline">Analytics</span>
+    <div style="margin-left:auto;display:flex;gap:0.5rem;">
+        <a href="/admin/proposals" class="btn btn-sm btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.3);">Dashboard</a>
+        <a href="/admin/checkpoint" class="btn btn-sm btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.3);">Checkpoint</a>
+    </div></div></nav>
+
+    <main class="container">
+        <h1>Funnel Analytics</h1>
+        <p class="subtitle">{{ total_events }} total events · {{ total_sessions }} sessions · {{ beta_sessions }} beta</p>
+
+        <!-- Stats Row -->
+        <div class="data-grid" style="margin-bottom:2rem">
+            <div class="card" style="padding:1.25rem;text-align:center">
+                <div style="font-size:2rem;font-weight:700;color:var(--navy)">{{ total_sessions }}</div>
+                <div class="text-muted">Total Sessions</div>
+            </div>
+            <div class="card" style="padding:1.25rem;text-align:center">
+                <div style="font-size:2rem;font-weight:700;color:var(--green)">{{ paid_sessions }}</div>
+                <div class="text-muted">Paid / Beta</div>
+            </div>
+            <div class="card" style="padding:1.25rem;text-align:center">
+                <div style="font-size:2rem;font-weight:700;color:var(--blue)">{{ with_rec }}</div>
+                <div class="text-muted">Proposals Generated</div>
+            </div>
+            <div class="card" style="padding:1.25rem;text-align:center">
+                <div style="font-size:2rem;font-weight:700;color:var(--amber)">{{ beta_used }}/{{ beta_total }}</div>
+                <div class="text-muted">Beta Codes Used</div>
+            </div>
+        </div>
+
+        <!-- Funnel -->
+        <section class="proposal-section">
+            <h2>Conversion Funnel</h2>
+            {% set funnel_steps = [
+                ('Intake Complete', funnel.intake_complete),
+                ('Preview View', funnel.preview_view),
+                ('Checkout Start', funnel.checkout_start),
+                ('Checkout Complete', funnel.checkout_complete),
+                ('Extended Intake', funnel.extend_complete),
+                ('Proposal View', funnel.proposal_view),
+            ] %}
+            {% set max_val = funnel.intake_complete if funnel.intake_complete > 0 else 1 %}
+            {% for label, val in funnel_steps %}
+            <div class="score-row" style="margin-bottom:0.75rem">
+                <span class="score-label" style="width:180px">{{ label }}</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill {% if val >= max_val * 0.7 %}bar-green{% elif val >= max_val * 0.3 %}bar-amber{% else %}bar-red{% endif %}"
+                         style="width:{{ (val / max_val * 100)|round }}%"></div>
+                </div>
+                <span class="score-value" style="width:48px">{{ val }}</span>
+            </div>
+            {% endfor %}
+
+            {% if funnel.intake_complete > 0 %}
+            <div style="margin-top:1.5rem;padding:1rem;background:var(--gray-50);border-radius:var(--radius)">
+                <h4>Drop-off Analysis</h4>
+                <ul style="padding-left:1.25rem">
+                    {% if funnel.preview_view < funnel.intake_complete %}
+                    <li>{{ funnel.intake_complete - funnel.preview_view }} users did not view their preview ({{ ((1 - funnel.preview_view / funnel.intake_complete) * 100)|round }}% drop)</li>
+                    {% endif %}
+                    {% if funnel.checkout_start < funnel.preview_view and funnel.preview_view > 0 %}
+                    <li>{{ funnel.preview_view - funnel.checkout_start }} users saw preview but didn't checkout ({{ ((1 - funnel.checkout_start / funnel.preview_view) * 100)|round }}% drop)</li>
+                    {% endif %}
+                    {% if funnel.checkout_complete < funnel.checkout_start and funnel.checkout_start > 0 %}
+                    <li>{{ funnel.checkout_start - funnel.checkout_complete }} checkout abandons ({{ ((1 - funnel.checkout_complete / funnel.checkout_start) * 100)|round }}% drop)</li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endif %}
+        </section>
+
+        <!-- Average Times -->
+        {% if avg_times %}
+        <section class="proposal-section">
+            <h2>Average Time per Step</h2>
+            <div class="data-grid">
+                {% for step, time in avg_times.items() %}
+                <div class="data-item">
+                    <span class="data-label">{{ step.replace('_', ' ').title() }}</span>
+                    <span class="data-value">{{ time }}s</span>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Errors -->
+        {% if error_counts %}
+        <section class="proposal-section">
+            <h2>Error Frequency</h2>
+            {% for error, count in error_counts.items() %}
+            <div class="alert alert-red" style="margin-bottom:0.5rem">
+                <strong>{{ count }}×</strong> {{ error[:200] }}
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+    </main>
+
+    <footer class="footer"><p>© 2026 Black Point Analytics · Klara Admin</p></footer>
+</body>
+</html>

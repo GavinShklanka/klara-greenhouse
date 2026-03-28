@@ -1,0 +1,101 @@
+[
+  {
+    "vendor_name": "Atlantic Greenhouse Supplies",
+    "vendor_url": "https://www.atlanticgreenhouses.ca",
+    "category": "structures",
+    "contact": "Jackie MacDonald, 902-968-1082, jackie@atlanticgreenhouses.ca",
+    "data_needed": "Harnois structure models, pricing, snow/wind specs, delivery to NS/PEI",
+    "collection_method": "phone_call",
+    "status": "pending"
+  },
+  {
+    "vendor_name": "BC Greenhouse Builders",
+    "vendor_url": "https://www.bcgreenhouses.com",
+    "category": "structures",
+    "contact": "Website contact form",
+    "data_needed": "Model specs, pricing range, shipping to NS",
+    "collection_method": "email",
+    "status": "pending"
+  },
+  {
+    "vendor_name": "Grandio Greenhouses",
+    "vendor_url": "https://www.grandiogreenhouses.com",
+    "category": "structures",
+    "contact": "Website contact form",
+    "data_needed": "Snow/wind ratings per model, Canadian pricing",
+    "collection_method": "email",
+    "status": "pending"
+  },
+  {
+    "vendor_name": "Rimol Greenhouse Systems",
+    "vendor_url": "https://www.rimol.com",
+    "category": "structures",
+    "contact": "Contact form on rimol.com",
+    "data_needed": "Nor'Easter residential pricing, Atlantic-specific specs",
+    "collection_method": "email",
+    "status": "pending"
+  },
+  {
+    "vendor_name": "T&C Hydroponics (Digby)",
+    "vendor_url": "https://www.hydrotekhydroponics.com",
+    "category": "hydroponic",
+    "contact": "Conway Place, 3-305 NS-303, Digby NS B0V 1A0",
+    "data_needed": "In-store inventory, Kratky supplies, nutrients, pH kits, pricing",
+    "collection_method": "phone_or_visit",
+    "status": "pending"
+  },
+  {
+    "vendor_name": "The Grow-Op Shop (Dartmouth)",
+    "vendor_url": "https://www.hydrotekhydroponics.com",
+    "category": "hydroponic",
+    "contact": "10 Akerley Blvd, Unit 58, Dartmouth NS B3B 1J3",
+    "data_needed": "In-store inventory, pricing for Kratky supplies, nutrients",
+    "collection_method": "phone_or_visit",
+    "status": "pending"
+  },
+  {
+    "vendor_name": "Mile High Hydroponics (Sackville)",
+    "vendor_url": "https://www.hydrotekhydroponics.com",
+    "category": "hydroponic",
+    "contact": "225 Cobequid Rd, Unit 3, Lower Sackville NS B4C 3J7",
+    "data_needed": "In-store inventory, pricing",
+    "collection_method": "phone_or_visit",
+    "status": "pending"
+  },
+  {
+    "vendor_name": "SucSeed",
+    "vendor_url": "https://www.sucseed.ca",
+    "category": "hydroponic",
+    "contact": "Website / St. John's NL",
+    "data_needed": "Kit pricing, nutrient supplies, component availability",
+    "collection_method": "website_review",
+    "status": "pending"
+  },
+  {
+    "vendor_name": "Hope Seeds",
+    "vendor_url": "https://www.hopeseed.com",
+    "category": "biological",
+    "contact": "NS-based organic seed company",
+    "data_needed": "NS-adapted variety list, pricing, companion species availability",
+    "collection_method": "website_review",
+    "status": "pending"
+  },
+  {
+    "vendor_name": "Canadian Solar (via dealers)",
+    "vendor_url": "https://www.canadiansolar.com",
+    "category": "renewable",
+    "contact": "Dealer locator on website",
+    "data_needed": "NS/PEI dealer identification, panel pricing, residential availability",
+    "collection_method": "dealer_lookup",
+    "status": "pending"
+  },
+  {
+    "vendor_name": "Greenhouse Nova Scotia",
+    "vendor_url": "https://www.greenhousenovascotia.com",
+    "category": "support",
+    "contact": "Member directory",
+    "data_needed": "Installer referrals, builder contacts by region",
+    "collection_method": "directory_review",
+    "status": "pending"
+  }
+]

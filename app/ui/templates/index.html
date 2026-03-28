@@ -271,7 +271,6 @@
                 </div>
             </div>
             <div class="cost-explainer">Kit price is what the manufacturer charges. True Installed Cost is what you'll actually spend — including site prep, foundation, growing setup, assembly labor, and a 10% contingency. This is where most first-time buyers get surprised.</div>
-            <div class="cost-line-items" id="costLineItems"></div>
             <div class="cost-disclaimer" id="costDisclaimer"></div>
         </div>
 
@@ -294,11 +293,11 @@
             <ul class="assumptions-list" id="assumptionsList"></ul>
         </div>
 
-        <!-- Materials Summary -->
-        <div class="materials-block">
+        <!-- Materials Summary - Gated behind payment -->
+        <!-- <div class="materials-block">
             <div class="materials-heading">What You'll Need</div>
             <ul class="materials-list" id="materialsList"></ul>
-        </div>
+        </div> -->
     </div>
 </section>
 
@@ -355,23 +354,24 @@
         <div class="heading-large">Your Next Step</div>
         <div class="text-body" style="text-align: center; font-size: 0.9rem; margin-bottom: 3rem;">You have the recommendation. Now decide how far you want to take it.</div>
 
-        <!-- TIER 1: Full Build Plan — $49 -->
+        <!-- TIER 1: Property Proposal — $20 -->
         <div style="border: 2px solid rgba(255,214,10,0.4); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem; background: rgba(255,214,10,0.03);">
-            <div style="text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: #FFD60A; margin-bottom: 0.75rem;">Most Popular</div>
-            <div class="action-price-tag" style="font-size: 3rem;">$49</div>
-            <div class="text-body" style="text-align: center; font-weight: 600; color: #fff; margin-bottom: 0.25rem;">Get Your <span id="actionArchetypeName1">Greenhouse</span> Build Plan</div>
-            <div class="text-body" style="text-align: center; font-size: 0.85rem; margin-bottom: 1rem;">Everything you need to start building or to hand a builder.</div>
-            <ul class="action-includes" style="margin-bottom: 1rem;">
-                <li>Structural specifications matched to your archetype</li>
-                <li>Materials cut list formatted for NS lumberyards</li>
-                <li>Foundation prep guide (treated timber, sono tubes, gravel base)</li>
-                <li>Crop starter plan with planting calendar</li>
-                <li>True Installed Cost breakdown with 5 line items</li>
-                <li>Delivered to your email within 24 hours</li>
+            <div style="text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: #FFD60A; margin-bottom: 0.75rem;">Proposal Preview</div>
+            <div class="action-price-tag" style="font-size: 3rem;">$20</div>
+            <div class="text-body" style="text-align: center; font-weight: 600; color: #fff; margin-bottom: 0.25rem;">YOUR PROPERTY PROPOSAL INCLUDES:</div>
+            
+            <ul class="action-includes" style="margin-bottom: 1.5rem;">
+                <li>Siting & orientation plan for your property</li>
+                <li>Blocker analysis — what could prevent success</li>
+                <li>Site prep checklist with cost estimates</li>
+                <li>Full seasonal growing calendar</li>
+                <li>Line-item cost breakdown (5 categories)</li>
+                <li>Complete materials list with NS sourcing notes</li>
+                <li>Feasibility & confidence assessment</li>
+                <li>Evidence sources and data disclosure</li>
             </ul>
-            <div class="text-body" style="text-align: center; font-size: 0.8rem; color: rgba(255,214,10,0.6); margin-bottom: 1.5rem;">Your plan matches your archetype, region, and budget — it is not generic.</div>
             <button class="btn-primary" id="btnGetPlan" onclick="handleAction('checkout')" style="width: 100%;">
-                <span>Get Your Build Plan — $49</span>
+                <span>Get Your Property Proposal — $20</span>
                 <span class="arrow">→</span>
             </button>
         </div>
@@ -431,7 +431,7 @@
 <!-- Sticky CTA -->
 <div class="sticky-cta" id="stickyCTA">
     <button class="btn-primary" onclick="handleAction('checkout')" style="margin: 0; padding: 0.75rem 2rem;">
-        <span>Get Your Build Plan — $49</span>
+        <span>Get Your Property Proposal — $20</span>
         <span class="arrow">→</span>
     </button>
 </div>
@@ -439,7 +439,7 @@
 <!-- Contact Modal -->
 <div class="modal-overlay" id="contactModal">
     <div class="modal">
-        <h3 id="modalTitle">Get Your Build Plan</h3>
+        <h3 id="modalTitle">Get Your Property Proposal</h3>
         <p id="modalDesc">Enter your email to continue.</p>
         <input type="email" id="modalEmail" placeholder="Your email" required>
         <div id="modalNameRow"><input type="text" id="modalName" placeholder="Your name"></div>
@@ -447,7 +447,7 @@
         <div class="modal-actions">
             <button class="btn-cancel" onclick="closeModal()">Cancel</button>
             <button class="btn-primary" onclick="submitContact()" style="flex:1">
-                <span id="modalSubmitLabel">Continue to Payment — $49</span>
+                <span id="modalSubmitLabel">Continue to Payment — $20</span>
                 <span class="arrow">→</span>
             </button>
         </div>

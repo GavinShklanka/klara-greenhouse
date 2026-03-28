@@ -1,0 +1,37 @@
+[
+  {
+    "product_id": "planta_greenhouses_sungrow_20",
+    "detected_at": "2026-03-27T23:19:32.117247+00:00",
+    "action": "new"
+  },
+  {
+    "product_id": "planta_greenhouses_sungrow_26",
+    "detected_at": "2026-03-27T23:19:32.117351+00:00",
+    "action": "new"
+  },
+  {
+    "product_id": "planta_greenhouses_sigma_20",
+    "detected_at": "2026-03-27T23:19:32.117436+00:00",
+    "action": "new"
+  },
+  {
+    "product_id": "mars_hydro_sp_150",
+    "detected_at": "2026-03-27T23:19:39.274742+00:00",
+    "action": "new"
+  },
+  {
+    "product_id": "mars_hydro_sp_3000",
+    "detected_at": "2026-03-27T23:19:39.274822+00:00",
+    "action": "new"
+  },
+  {
+    "product_id": "mars_hydro_ts_1000",
+    "detected_at": "2026-03-27T23:19:39.274884+00:00",
+    "action": "new"
+  },
+  {
+    "product_id": "mars_hydro_ts_600",
+    "detected_at": "2026-03-27T23:19:39.274941+00:00",
+    "action": "new"
+  }
+]
