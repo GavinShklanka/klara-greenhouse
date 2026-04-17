@@ -1,0 +1,65 @@
+sections:
+  - id: "title_and_thesis"
+    file: "01_title_and_thesis.md"
+    order: 1
+    group: "opening"
+
+  - id: "problem"
+    file: "02_problem.md"
+    order: 2
+    group: "context"
+
+  - id: "user_lanes"
+    file: "03_user_lanes.md"
+    order: 3
+    group: "context"
+
+  - id: "product_today"
+    file: "04_product_today.md"
+    order: 4
+    group: "product"
+
+  - id: "scope"
+    file: "05_scope.md"
+    order: 5
+    group: "product"
+
+  - id: "validation_logic"
+    file: "06_validation_logic.md"
+    order: 6
+    group: "validation"
+
+  - id: "nscc_fit"
+    file: "07_nscc_fit.md"
+    order: 7
+    group: "partnership"
+
+  - id: "business_model"
+    file: "08_business_model.md"
+    order: 8
+    group: "business"
+
+  - id: "local_execution"
+    file: "09_local_execution.md"
+    order: 9
+    group: "business"
+
+  - id: "roadmap"
+    file: "10_roadmap.md"
+    order: 10
+    group: "future"
+
+  - id: "current_ask"
+    file: "11_current_ask.md"
+    order: 11
+    group: "closing"
+
+groups:
+  opening: "Opening"
+  context: "Context & Problem"
+  product: "Product"
+  validation: "Validation"
+  partnership: "Partnership"
+  business: "Business"
+  future: "Roadmap"
+  closing: "The Ask"

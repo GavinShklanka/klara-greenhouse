@@ -1,0 +1,36 @@
+app:
+  title: "Klara Greenhouse"
+  subtitle: "Founder & Strategy Presentation"
+  version: "0.1.0"
+  accent_color: "#4A7C59"
+  logo: "assets/branding/logo.png"
+
+modes:
+  presentation:
+    show_speaker_notes: false
+    show_implementation_notes: false
+    show_do_not_say: false
+    show_scope_flags: false
+    layout: "clean"
+  working:
+    show_speaker_notes: true
+    show_implementation_notes: true
+    show_do_not_say: true
+    show_scope_flags: true
+    layout: "full"
+
+scope_drift_phrases:
+  - "full platform"
+  - "continuous monitoring"
+  - "deep learning engine"
+  - "marketplace"
+
+audiences:
+  - founder
+  - investor
+  - nscc
+  - pivp
+
+default_audience: "founder"
+slides_dir: "slides"
+notes_dir: "notes"
