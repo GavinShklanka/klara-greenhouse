@@ -2,26 +2,14 @@
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
-_DATA: dict = {}
-
-
-def _load_data():
-    global _DATA
-    if not _DATA:
-        path = Path(__file__).resolve().parents[2] / "config" / "greenhouse_data.json"
-        with open(path, "r", encoding="utf-8") as f:
-            _DATA = json.load(f)
-    return _DATA
+from app.core.data_loader import get_greenhouse_data
 
 
 def recommend_design(intake: dict, suitability: dict) -> dict:
     """
     Produce ONE greenhouse recommendation based on intake + suitability.
     """
-    data = _load_data()
+    data = get_greenhouse_data()
     budget = intake.get("budget", "under_5k")
     goal = intake.get("goal", "grow_food")
     prop = intake.get("property_type", "backyard")
@@ -29,19 +17,27 @@ def recommend_design(intake: dict, suitability: dict) -> dict:
     climate = suitability["climate"]
     budget_ceiling = suitability["budget_ceiling"]
 
+    trace = []
+    trace.append(f"Location: {climate['label']} (Zone {climate['zone']})")
+    trace.append(f"Budget Ceiling: ${budget_ceiling:,}")
+
     # --- Step 1: Select greenhouse type ---
     gh_types = data["greenhouse_types"]
 
     if gh_pref in gh_types and gh_pref != "not_sure":
         selected_type = gh_types[gh_pref]
+        trace.append(f"Type: User explicitly preferred '{gh_pref}'")
     else:
         # "not_sure" → engine decides based on budget + goal
         if budget == "under_5k":
             selected_type = gh_types["polytunnel"]
+            trace.append("Type: Selected Polytunnel due to budget < $5k")
         elif goal in ("sustainability", "save_money") and budget in ("5k_10k", "over_10k"):
             selected_type = gh_types["passive_solar"]
+            trace.append(f"Type: Selected Passive Solar due to goal '{goal}' and budget '{budget}'")
         else:
             selected_type = gh_types["polycarbonate"]
+            trace.append("Type: Defaulted to Polycarbonate for mid-range budget/standard goal")
 
     type_id = selected_type["id"]
 
@@ -54,14 +50,17 @@ def recommend_design(intake: dict, suitability: dict) -> dict:
         tier_costs = cost_matrix.get(tier["id"])
         if tier_costs and tier_costs["total_diy_low"] <= budget_ceiling:
             selected_tier = tier
+            trace.append(f"Size: Selected '{tier['id']}' based on ${tier_costs['total_diy_low']:,} DIY cost fitting under ${budget_ceiling:,} ceiling")
             break
 
     if selected_tier is None:
         selected_tier = size_tiers[0]
+        trace.append(f"Size: Defaulted to '{selected_tier['id']}' because no larger tier fit budget")
 
     # Property constraint: backyard caps at "serious"
     if prop == "backyard" and selected_tier["id"] == "market":
         selected_tier = size_tiers[2]
+        trace.append("Size: Capped at 'serious' (backyard property constraint)")
 
     tier_id = selected_tier["id"]
     costs = cost_matrix[tier_id]
@@ -75,16 +74,39 @@ def recommend_design(intake: dict, suitability: dict) -> dict:
     }
     goal_text = goal_labels.get(goal, "your greenhouse goals")
 
-    why = (
-        f"A {selected_type['name']} is the best match for your {climate['label']} location "
-        f"and {goal_text} goal. {selected_type['description']} "
-        f"The {selected_tier['dimensions']} size gives you {selected_tier['beds']} "
-        f"with capacity for {selected_tier['capacity']}."
-    )
+    # Dynamic reasoning text
+    reasoning_parts = []
+    reasoning_parts.append(f"A {selected_type['name']} is the best match for your {climate['label']} location.")
+    
+    if gh_pref == "not_sure":
+        if budget == "under_5k":
+            reasoning_parts.append("Given your budget, a high-efficiency polytunnel provides the best growth-to-cost ratio.")
+        elif selected_type['id'] == "passive_solar":
+            reasoning_parts.append("We recommended passive solar because it directly supports your goal of sustainability and self-reliance in the NS climate.")
+        else:
+            reasoning_parts.append("Polycarbonate offers the best balance of insulation and durability for standard backyard setups.")
+    else:
+        reasoning_parts.append(f"We've optimized the plan based on your preference for a {selected_type['name']} structure.")
+
+    reasoning_parts.append(f"The {selected_tier['dimensions']} size gives you {selected_tier['beds']} with capacity for {selected_tier['capacity']}.")
+
+    why = " ".join(reasoning_parts)
+
+    # --- Step 4: Calculate Impact ---
+    sqft = selected_tier["sq_ft"]
+    if sqft >= 350:
+        impact = {"produce": "50–80%", "savings": "$1,500–$2,500"}
+    elif sqft >= 250:
+        impact = {"produce": "40–60%", "savings": "$1,000–$1,800"}
+    elif sqft >= 150:
+        impact = {"produce": "25–45%", "savings": "$600–$1,200"}
+    else:
+        impact = {"produce": "15–30%", "savings": "$300–$700"}
 
     return {
         "recommendation": f"{selected_tier['dimensions']} {selected_type['name']}",
         "why": why,
+        "trace": trace,
         "assumptions": (
             f"Zone {climate['zone']} in {climate['label']}. "
             f"Budget ceiling ~${budget_ceiling:,}. "
@@ -112,6 +134,7 @@ def recommend_design(intake: dict, suitability: dict) -> dict:
             "capacity": selected_tier["capacity"],
             "best_for": selected_tier["best_for"],
         },
+        "impact": impact,
         "climate_context": {
             "zone": climate["zone"],
             "region": climate["label"],

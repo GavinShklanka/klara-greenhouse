@@ -42,62 +42,17 @@ class ConsultationRequest(BaseModel):
     notes: str = ""
 
 
-# ── /action/checkout — Stripe Checkout Session ───────────────
+# ── /action/checkout — Plan Request ───────────────
 
 @router.post("/action/checkout")
 def create_checkout(req: CheckoutRequest, db: DBSession = Depends(get_db)):
-    """Create a Stripe checkout session for plan purchase."""
+    """Capture a plan request (formerly checkout)."""
     gh_session = db.query(GreenhouseSession).filter_by(id=req.session_id).first()
     if not gh_session:
-        return {"success": False, "error": "Session not found"}
+        raise HTTPException(status_code=404, detail="Session not found")
 
-    # Determine price
-    price_cents = settings.plan_price_basic if req.plan_tier == "basic" else settings.plan_price_premium
-    price_label = "$29" if req.plan_tier == "basic" else "$79"
+    plan_label = "Starter Plan" if req.plan_tier == "basic" else "Tailored Blueprint"
 
-    # If Stripe is configured, create real checkout session
-    if settings.stripe_secret_key:
-        try:
-            import stripe
-            stripe.api_key = settings.stripe_secret_key
-
-            checkout_session = stripe.checkout.Session.create(
-                payment_method_types=["card"],
-                line_items=[{
-                    "price_data": {
-                        "currency": "cad",
-                        "product_data": {
-                            "name": f"Greenhouse Build Plan ({req.plan_tier.title()})",
-                            "description": "Complete build plan with materials list, instructions, crop calendar, and foundation calculations.",
-                        },
-                        "unit_amount": price_cents,
-                    },
-                    "quantity": 1,
-                }],
-                mode="payment",
-                success_url=f"{settings.base_url}/?checkout=success&session_id={req.session_id}",
-                cancel_url=f"{settings.base_url}/?checkout=cancelled",
-                customer_email=req.email,
-                metadata={
-                    "greenhouse_session_id": req.session_id,
-                    "plan_tier": req.plan_tier,
-                },
-            )
-
-            # Record the contact request
-            _record_contact(db, req.session_id, "checkout", req.email)
-
-            return {
-                "success": True,
-                "action": "checkout",
-                "checkout_url": checkout_session.url,
-                "message": f"Redirecting to secure payment for your {price_label} build plan.",
-            }
-
-        except Exception as e:
-            return {"success": False, "error": f"Payment setup failed: {str(e)}"}
-
-    # Stripe not configured — stub response for development
     _record_contact(db, req.session_id, "checkout", req.email)
     gh_session.action_taken = "checkout"
     gh_session.status = "action"
@@ -112,11 +67,7 @@ def create_checkout(req: CheckoutRequest, db: DBSession = Depends(get_db)):
         "success": True,
         "action": "checkout",
         "checkout_url": None,
-        "message": (
-            f"Your {price_label} build plan request has been received. "
-            f"Stripe is not configured — in production, you would be redirected to a secure checkout page."
-        ),
-        "dev_note": "Set STRIPE_SECRET_KEY in .env to enable real payments.",
+        "message": f"Your {plan_label} request has been received.",
     }
 
 
@@ -127,7 +78,7 @@ def request_quote(req: QuoteRequest, db: DBSession = Depends(get_db)):
     """Capture a builder quote request (lead gen)."""
     gh_session = db.query(GreenhouseSession).filter_by(id=req.session_id).first()
     if not gh_session:
-        return {"success": False, "error": "Session not found"}
+        raise HTTPException(status_code=404, detail="Session not found")
 
     # Get plan data for context
     plan_data = json.loads(gh_session.plan_data) if gh_session.plan_data else {}
@@ -167,7 +118,7 @@ def book_consultation(req: ConsultationRequest, db: DBSession = Depends(get_db))
     """Capture consultation booking request."""
     gh_session = db.query(GreenhouseSession).filter_by(id=req.session_id).first()
     if not gh_session:
-        return {"success": False, "error": "Session not found"}
+        raise HTTPException(status_code=404, detail="Session not found")
 
     _record_contact(
         db, req.session_id, "consultation", req.email,

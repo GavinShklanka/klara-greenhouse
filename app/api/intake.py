@@ -1,10 +1,11 @@
 """Intake API — POST /api/intake."""
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from sqlalchemy.orm import Session as DBSession
 
 from app.core.database import get_db
+from app.core.enums import Location, Goal, Budget, PropertyType, GreenhouseType, SolarExisting
 from app.services.intake_service import validate_intake, create_session
 
 router = APIRouter()
@@ -25,7 +26,7 @@ def submit_intake(req: IntakeRequest, db: DBSession = Depends(get_db)):
     data = req.model_dump()
     valid, error = validate_intake(data)
     if not valid:
-        return {"success": False, "error": error}
+        raise HTTPException(status_code=422, detail=error)
 
     session = create_session(db, data)
     return {"success": True, "session_id": session.id}

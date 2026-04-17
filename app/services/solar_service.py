@@ -2,19 +2,7 @@
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
-_DATA: dict = {}
-
-
-def _load_data():
-    global _DATA
-    if not _DATA:
-        path = Path(__file__).resolve().parents[2] / "config" / "greenhouse_data.json"
-        with open(path, "r", encoding="utf-8") as f:
-            _DATA = json.load(f)
-    return _DATA
+from app.core.data_loader import get_greenhouse_data
 
 
 def get_solar_context(location: str) -> dict:
@@ -22,7 +10,7 @@ def get_solar_context(location: str) -> dict:
     Return solar viability and orientation guidance for a NS region.
     Rule-based — no simulation engine.
     """
-    data = _load_data()
+    data = get_greenhouse_data()
     climate = data["climate_zones"].get(location, data["climate_zones"]["halifax"])
 
     summer_hours = climate.get("peak_sun_hours_summer", 5.0)

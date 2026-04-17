@@ -2,19 +2,7 @@
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
-_DATA: dict = {}
-
-
-def _load_data():
-    global _DATA
-    if not _DATA:
-        path = Path(__file__).resolve().parents[2] / "config" / "greenhouse_data.json"
-        with open(path, "r", encoding="utf-8") as f:
-            _DATA = json.load(f)
-    return _DATA
+from app.core.data_loader import get_greenhouse_data
 
 
 def get_local_resources(location: str) -> dict:
@@ -22,7 +10,7 @@ def get_local_resources(location: str) -> dict:
     Return local seeds, materials, builders, and ag extensions for a NS region.
     This is guidance, NOT a marketplace.
     """
-    data = _load_data()
+    data = get_greenhouse_data()
     resources = data.get("local_resources", {})
     contractors = data.get("contractors", [])
     climate = data["climate_zones"].get(location, data["climate_zones"]["halifax"])

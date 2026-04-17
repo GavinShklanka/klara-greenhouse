@@ -1,0 +1,89 @@
+<!-- Recommendation + Solar Badge + SVG Diagram -->
+<section class="section recommendation-section hidden-section" id="screen-recommendation">
+    <div class="container">
+        <div class="rec-layout">
+            <div class="rec-visual">
+                <div class="rec-visual-inner">
+                    <div class="rec-type-label" id="recTypeLabel">Your Greenhouse</div>
+                    <div class="rec-dims" id="recDims">—</div>
+                    <div class="rec-type-name" id="recTypeName">Loading...</div>
+                    <!-- SVG Greenhouse Diagram -->
+                    <div class="gh-diagram" id="ghDiagram"></div>
+                    <!-- Solar Badge -->
+                    <div class="solar-badge" id="solarBadge">
+                        <div class="solar-badge-item">
+                            <div class="solar-badge-value" id="badgeOrientation">South</div>
+                            <div class="solar-badge-label">Orientation</div>
+                        </div>
+                        <div class="solar-badge-item">
+                            <div class="solar-badge-value" id="badgeViability">—</div>
+                            <div class="solar-badge-label">Solar Viability</div>
+                        </div>
+                        <div class="solar-badge-item">
+                            <div class="solar-badge-value" id="badgeSolar">Optional</div>
+                            <div class="solar-badge-label">Solar Add-On</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rec-card">
+                <h3>Your Best-Fit Direction</h3>
+                <div class="text-body" style="font-size: 0.8rem; color: rgba(27,48,34,0.8); margin-bottom: 1.25rem;">This is your starting plan. Final greenhouse design is customized after reviewing your property, sunlight, shading, and build goals.</div>
+                <div class="text-body" style="font-size: 0.8rem; color: rgba(166,124,39,0.7); margin-bottom: 1.25rem;">Klara gives you a credible starting direction now, then helps route you to the right next step locally.</div>
+                <div class="rec-detail"><div class="rec-detail-label">Type</div><div class="rec-detail-value" id="recType">—</div></div>
+                <div class="rec-detail"><div class="rec-detail-label">Size</div><div class="rec-detail-value" id="recSize">—</div></div>
+                <div class="rec-detail"><div class="rec-detail-label">Materials</div><div class="rec-detail-value" id="recMaterials">—</div></div>
+                <div class="rec-detail"><div class="rec-detail-label">Estimated Cost</div><div class="rec-detail-value cost" id="recCost">—</div></div>
+                <div class="rec-detail"><div class="rec-detail-label">Build Timeline</div><div class="rec-detail-value" id="recTimeline">—</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why This Fits -->
+<section class="section why-section hidden-section" id="screen-why">
+    <div class="container-narrow">
+        <div class="intake-step-label">Decision Logic</div>
+        <div class="heading-large" style="margin-bottom: 1.5rem">Why This Fits</div>
+        <ul class="why-list" id="whyList"></ul>
+    </div>
+</section>
+
+<!-- How This Was Calculated (Veracity) -->
+<section class="section hidden-section veracity-section" id="screen-veracity" style="border-top: 1px solid rgba(27,48,34,0.08)">
+    <div class="container-narrow">
+        <div class="intake-step-label">Transparency</div>
+        <div class="heading-large" style="margin-bottom: 1.5rem">How This Was Calculated</div>
+        <div class="veracity-block">
+            <div class="veracity-block-label">Data Sources</div>
+            <div class="veracity-facts">
+                <div class="veracity-fact"><span class="veracity-key">Climate Zone</span><span class="veracity-val" id="vZone">—</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Growing Season</span><span class="veracity-val" id="vSeason">—</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Summer Sunlight</span><span class="veracity-val" id="vSunSummer">—</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Winter Sunlight</span><span class="veracity-val" id="vSunWinter">—</span></div>
+            </div>
+        </div>
+        <div class="veracity-block">
+            <div class="veracity-block-label">Decision Logic</div>
+            <div class="text-body" style="margin-bottom: 1rem; color: rgba(27,48,34,0.85); font-size: 0.9rem;">We use rule-based logic grounded in Nova Scotia climate conditions, greenhouse design principles, and your selected goals.</div>
+            <div class="veracity-facts">
+                <div class="veracity-fact"><span class="veracity-key">Climate context</span><span class="veracity-val">Nova Scotia growing conditions, winter limits, and seasonal opportunity</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Site assumptions</span><span class="veracity-val">Sunlight exposure, orientation, and likely property constraints</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Build fit</span><span class="veracity-val">Budget, greenhouse type, and intended use</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Next-step logic</span><span class="veracity-val">Whether you need a starter plan, tailored blueprint, or direct consultation</span></div>
+            </div>
+            <div class="text-body" style="margin-top: 0.75rem; font-size: 0.85rem; color: rgba(166,124,39,0.8);" id="veracityRuleApplied">—</div>
+        </div>
+        <div class="veracity-block">
+            <div class="veracity-block-label">Localized For Your Region</div>
+            <div class="veracity-facts">
+                <div class="veracity-fact"><span class="veracity-key">Snow Load</span><span class="veracity-val" id="vSnow">—</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Frost Depth</span><span class="veracity-val" id="vFrost">—</span></div>
+                <div class="veracity-fact"><span class="veracity-key">Daylight Variation</span><span class="veracity-val" id="vDaylight">—</span></div>
+            </div>
+        </div>
+        <div class="veracity-confidence">
+            This recommendation is a credible starting point — not a final engineered design. Property-specific customization happens through the tailored blueprint process.
+        </div>
+    </div>
+</section>

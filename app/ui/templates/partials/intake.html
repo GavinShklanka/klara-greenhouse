@@ -1,0 +1,66 @@
+<!-- Guided Intake (6 Steps) -->
+<section class="section intake-section" id="screen-intake">
+    <div class="container-narrow">
+        <div class="intake-step active" id="intake-step-1">
+            <div class="intake-step-label"><button class="btn-intake-overview" onclick="scrollToSection('screen-hero')">↑ Overview</button> Step 1 of 6</div>
+            <div class="intake-question">Where in Nova Scotia<br>are you?</div>
+            <div class="intake-options">
+                <button class="btn-select" data-field="location" data-value="halifax">Halifax / HRM<span class="btn-select-sub">Zone 6a · 158-day season</span></button>
+                <button class="btn-select" data-field="location" data-value="annapolis_valley">Annapolis Valley<span class="btn-select-sub">Zone 6a · 168-day season</span></button>
+                <button class="btn-select" data-field="location" data-value="south_shore">South Shore<span class="btn-select-sub">Zone 6a · 153-day season</span></button>
+                <button class="btn-select" data-field="location" data-value="cape_breton">Cape Breton<span class="btn-select-sub">Zone 5b · 133-day season</span></button>
+                <button class="btn-select" data-field="location" data-value="north_shore">North Shore (Pictou / Antigonish)<span class="btn-select-sub">Zone 5b · 141-day season</span></button>
+                <button class="btn-select" data-field="location" data-value="central_ns">Central NS (Truro / Colchester)<span class="btn-select-sub">Zone 5b · 145-day season</span></button>
+                <button class="btn-select" data-field="location" data-value="eastern_shore">Eastern Shore<span class="btn-select-sub">Zone 6a · 148-day season</span></button>
+            </div>
+        </div>
+        <div class="intake-step" id="intake-step-2">
+            <div class="intake-step-label"><button class="btn-intake-back" onclick="retreatIntake()">← Back</button> Step 2 of 6</div>
+            <div class="intake-question">What is your main<br>garden goal?</div>
+            <div class="intake-options">
+                <button class="btn-select" data-field="goal" data-value="grow_food">Grow my own food<span class="btn-select-sub">Year-round vegetables and herbs for your household</span></button>
+                <button class="btn-select" data-field="goal" data-value="save_money">Save money on groceries<span class="btn-select-sub">High-value crops that offset food costs</span></button>
+                <button class="btn-select" data-field="goal" data-value="sustainability">Sustainability &amp; self-reliance<span class="btn-select-sub">Low-energy food production with minimal footprint</span></button>
+                <button class="btn-select" data-field="goal" data-value="mixed">A mix of everything<span class="btn-select-sub">Food, savings, and sustainability combined</span></button>
+            </div>
+        </div>
+        <div class="intake-step" id="intake-step-3">
+            <div class="intake-step-label"><button class="btn-intake-back" onclick="retreatIntake()">← Back</button> Step 3 of 6</div>
+            <div class="intake-question">What is your estimated<br>project budget?</div>
+            <div class="intake-options">
+                <button class="btn-select" data-field="budget" data-value="under_5k">Under $5,000<span class="btn-select-sub">Compact polycarbonate or DIY hoop house</span></button>
+                <button class="btn-select" data-field="budget" data-value="5k_10k">$5,000 – $10,000<span class="btn-select-sub">Medium-size polycarbonate or basic passive solar</span></button>
+                <button class="btn-select" data-field="budget" data-value="over_10k">Over $10,000<span class="btn-select-sub">Large footprint or premium passive solar</span></button>
+            </div>
+        </div>
+        <div class="intake-step" id="intake-step-4">
+            <div class="intake-step-label"><button class="btn-intake-back" onclick="retreatIntake()">← Back</button> Step 4 of 6</div>
+            <div class="intake-question">What type of space<br>do you have?</div>
+            <div class="intake-options">
+                <button class="btn-select" data-field="property_type" data-value="backyard">Suburban backyard<span class="btn-select-sub">Limited space, standard setbacks</span></button>
+                <button class="btn-select" data-field="property_type" data-value="rural">Rural property / Acreage<span class="btn-select-sub">Plenty of open space</span></button>
+                <button class="btn-select" data-field="property_type" data-value="small_lot">Small urban lot<span class="btn-select-sub">Very tight footprint required</span></button>
+                <button class="btn-select" data-field="property_type" data-value="not_sure">Not sure yet<span class="btn-select-sub">Just exploring</span></button>
+            </div>
+        </div>
+        <div class="intake-step" id="intake-step-5">
+            <div class="intake-step-label"><button class="btn-intake-back" onclick="retreatIntake()">← Back</button> Step 5 of 6</div>
+            <div class="intake-question">Which greenhouse type<br>do you prefer?</div>
+            <div class="intake-options">
+                <button class="btn-select" data-field="greenhouse_type" data-value="polycarbonate">Polycarbonate (Freestanding)<span class="btn-select-sub">Classic design, all-glass look, great light</span></button>
+                <button class="btn-select" data-field="greenhouse_type" data-value="passive_solar">Passive Solar<span class="btn-select-sub">Solid insulated north wall, better winter control</span></button>
+                <button class="btn-select" data-field="greenhouse_type" data-value="not_sure">Not sure<span class="btn-select-sub">Recommend based on my region and budget</span></button>
+            </div>
+        </div>
+        <div class="intake-step" id="intake-step-6">
+            <div class="intake-step-label"><button class="btn-intake-back" onclick="retreatIntake()">← Back</button> Step 6 of 6</div>
+            <div class="intake-question">Do you already use<br>solar power?</div>
+            <div class="intake-options">
+                <button class="btn-select" data-field="solar_existing" data-value="none">No solar array<span class="btn-select-sub">Grid power only</span></button>
+                <button class="btn-select" data-field="solar_existing" data-value="rooftop">Yes, rooftop panels<span class="btn-select-sub">House tied</span></button>
+                <button class="btn-select" data-field="solar_existing" data-value="ground">Yes, ground mount<span class="btn-select-sub">Dedicated array</span></button>
+                <button class="btn-select" data-field="solar_existing" data-value="not_sure">Not sure / Planning to add<span class="btn-select-sub">Considering for the future</span></button>
+            </div>
+        </div>
+    </div>
+</section>

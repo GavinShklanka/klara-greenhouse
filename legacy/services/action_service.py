@@ -4,23 +4,11 @@ from __future__ import annotations
 
 import json
 import uuid
-from pathlib import Path
 
 from sqlalchemy.orm import Session as DBSession
 
+from app.core.data_loader import get_greenhouse_data
 from app.models import GreenhouseSession, ContactRequest
-
-
-_DATA: dict = {}
-
-
-def _load_data():
-    global _DATA
-    if not _DATA:
-        path = Path(__file__).resolve().parents[2] / "config" / "greenhouse_data.json"
-        with open(path, "r", encoding="utf-8") as f:
-            _DATA = json.load(f)
-    return _DATA
 
 
 def handle_action(
@@ -56,7 +44,7 @@ def handle_action(
     db.add(contact)
     db.commit()
 
-    data = _load_data()
+    data = get_greenhouse_data()
 
     if action_type == "quote":
         # Find relevant contractors for the user's region

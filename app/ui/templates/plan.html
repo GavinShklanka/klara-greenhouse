@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLARA Greenhouse — Your Greenhouse Plan</title>
+    <meta name="description" content="Your personalized greenhouse plan for Nova Scotia — structure, sizing, crops, solar, and local next steps.">
+    <link rel="stylesheet" href="/static/css/greenhouse.css">
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar" style="width: 100%"></div>
+
+<!-- Toast Notifications -->
+<div id="toastContainer" style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;"></div>
+
+<!-- Header / Logo Bar -->
+<header class="plan-header" id="planHeader">
+    <div class="plan-header-inner" style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+            <a href="/" class="plan-header-logo" onclick="sessionStorage.removeItem('klara_intake_submitted');">KLARA</a>
+            <span class="plan-header-subtitle">Your Greenhouse Plan</span>
+        </div>
+        <a href="/?restart=1" class="btn-secondary" style="padding: 0.5rem 1.5rem; font-size: 0.8rem; border-radius: 20px;">Start New Plan</a>
+    </div>
+</header>
+
+<!-- Plan Sections (all visible on this page — populated by JS) -->
+{% include "partials/plan_details.html" %}
+{% include "partials/context.html" %}
+{% include "partials/routing.html" %}
+{% include "partials/action.html" %}
+
+<footer class="footer" style="padding: 3rem 0; border-top: 1px solid rgba(27,48,34,0.08); opacity: 0.6; font-size: 0.8rem; text-align: center;">
+    <p>Built for Nova Scotia · Designed for real execution</p>
+</footer>
+
+<!-- Sticky CTA (appears after recommendation loads) -->
+<div class="sticky-cta" id="stickyCTA">
+    <button class="btn-primary" onclick="handleAction('blueprint')" style="margin: 0; padding: 0.75rem 2rem;">
+        <span>Get Your Tailored Blueprint</span>
+        <span class="arrow">→</span>
+    </button>
+</div>
+
+<!-- Main Action Modal (Checkout/Quote/Consultation) -->
+<div class="modal" id="actionModal">
+    <div class="modal-content">
+        <div class="modal-close" onclick="closeModal('actionModal')">×</div>
+        <h2 id="modalTitle" style="margin-bottom: 0.5rem; color: #1B3022;">Next Step</h2>
+        <div class="text-body" id="modalDesc" style="margin-bottom: 2rem; font-size: 0.9rem; color: rgba(27, 48, 34, 0.85)"></div>
+        
+        <form id="actionForm" onsubmit="submitAction(event)">
+            <input type="hidden" id="actionType" name="actionType">
+            
+            <!-- Standard fields -->
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="actionName" required placeholder="Jane Doe">
+            </div>
+            <div class="form-group">
+                <label>Email (We will send your plan here)</label>
+                <input type="email" id="actionEmail" required placeholder="jane@example.com">
+            </div>
+            
+            <!-- Conditional fields (Phone/Time/Notes) shown by JS if needed -->
+            <div class="form-group" id="groupPhone" style="display: none;">
+                <label>Phone Number</label>
+                <input type="tel" id="actionPhone" placeholder="(902) 555-0123">
+            </div>
+            
+            <div class="form-group" id="groupTime" style="display: none;">
+                <label>Preferred Contact Time</label>
+                <select id="actionTime">
+                    <option value="morning">Morning (9am - 12pm)</option>
+                    <option value="afternoon">Afternoon (12pm - 4pm)</option>
+                    <option value="evening">Evening (4pm - 7pm)</option>
+                </select>
+            </div>
+            
+            <div class="form-group" id="groupNotes" style="display: none;">
+                <label>Property Details or Questions (Optional)</label>
+                <textarea id="actionNotes" rows="3" placeholder="I have a slight slope in my backyard..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary" id="btnActionSubmit" style="width: 100%; margin-top: 1rem;">
+                <span id="btnActionText">Submit Request</span>
+                <span class="spinner" id="actionSpinner"></span>
+            </button>
+        </form>
+        
+        <div id="actionSuccess" style="display: none; text-align: center; padding: 2rem 0;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
+            <h3>Request Received</h3>
+            <p class="text-body" style="margin-top: 1rem; color: rgba(255,255,255,0.7);">Check your email shortly for confirmation. We'll be in touch regarding next steps.</p>
+            <button class="btn-secondary" onclick="closeModal('actionModal')" style="margin-top: 2rem;">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Debug Output (Visible with ?debug=true) -->
+<div id="debug-output" style="display: none; background: #1a1a1a; color: #00ff00; padding: 2rem; font-family: monospace; font-size: 0.8rem; border-top: 2px solid #333; margin-top: 4rem;">
+    <h3 style="color: #fff; margin-bottom: 1rem; text-transform: uppercase;">Developer Debug Trace</h3>
+    <div id="debug-content"></div>
+</div>
+
+<!-- Scripts -->
+<script src="/static/js/SVGDic.js"></script>
+<script src="/static/js/greenhouse.js"></script>
+
+</body>
+</html>

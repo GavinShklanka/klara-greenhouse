@@ -2,20 +2,7 @@
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
-
-_DATA: dict = {}
-
-
-def _load_data():
-    global _DATA
-    if not _DATA:
-        path = Path(__file__).resolve().parents[2] / "config" / "greenhouse_data.json"
-        with open(path, "r", encoding="utf-8") as f:
-            _DATA = json.load(f)
-    return _DATA
+from app.core.data_loader import get_greenhouse_data
 
 
 def check_suitability(intake: dict) -> dict:
@@ -23,7 +10,7 @@ def check_suitability(intake: dict) -> dict:
     Cross-reference intake with NS climate data.
     Returns suitability verdict + warnings.
     """
-    data = _load_data()
+    data = get_greenhouse_data()
     location = intake.get("location", "halifax")
     budget = intake.get("budget", "under_5k")
 

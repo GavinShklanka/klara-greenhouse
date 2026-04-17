@@ -1,0 +1,69 @@
+<!-- Interactive Sun Map -->
+<section class="sun-map-section" id="screen-sunmap">
+    <div class="container">
+        <div class="intake-step-label">Regional Intelligence</div>
+        <div class="heading-large" style="margin-bottom: 0.75rem">Where the Sun Works<br>in Nova Scotia</div>
+        <div class="text-body" style="margin-bottom: 2rem; max-width: 600px">Nova Scotia has enough sunlight to grow food year-round — with the right design.</div>
+        <div class="sun-map-grid">
+            <div class="ns-map-visual">
+                <!-- NS Province Silhouette (SVG) -->
+                <svg viewBox="0 0 400 300" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.2; pointer-events: none;" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M180,40 L220,35 L260,25 L300,30 L340,20 L355,35 L365,60 L350,80 L335,75 L310,90 L320,110 L340,120 L355,140 L340,150 L310,145 L280,160 L290,180 L310,195 L295,210 L260,200 L240,215 L220,230 L200,240 L170,245 L140,240 L120,250 L90,240 L70,225 L50,210 L40,190 L50,170 L70,160 L60,140 L70,120 L90,110 L110,100 L100,80 L115,65 L140,55 L160,45 Z" fill="rgba(27,48,34,0.15)" stroke="rgba(27,48,34,0.1)" stroke-width="1"/>
+                    <path d="M300,30 L310,20 L330,15 L350,10 L365,15 L375,30 L380,50 L375,65 L365,60 L355,35 L340,20 Z" fill="rgba(27,48,34,0.65)" stroke="rgba(27,48,34,0.1)" stroke-width="0.5"/>
+                </svg>
+                <div class="ns-map-region high" style="width: 90px; height: 90px; top: 40%; left: 6%;" data-region="annapolis_valley" onclick="showRegionDetail('annapolis_valley')">
+                    Annapolis<br>Valley<br><small>High</small>
+                </div>
+                <div class="ns-map-region high" style="width: 85px; height: 85px; top: 58%; left: 38%;" data-region="halifax" onclick="showRegionDetail('halifax')">
+                    Halifax<br>HRM<br><small>High</small>
+                </div>
+                <div class="ns-map-region moderate" style="width: 80px; height: 80px; top: 70%; left: 18%;" data-region="south_shore" onclick="showRegionDetail('south_shore')">
+                    South<br>Shore<br><small>Mod</small>
+                </div>
+                <div class="ns-map-region moderate" style="width: 75px; height: 75px; top: 52%; left: 65%;" data-region="eastern_shore" onclick="showRegionDetail('eastern_shore')">
+                    Eastern<br>Shore<br><small>Mod</small>
+                </div>
+                <div class="ns-map-region lower" style="width: 85px; height: 85px; top: 6%; left: 60%;" data-region="cape_breton" onclick="showRegionDetail('cape_breton')">
+                    Cape<br>Breton<br><small>Insulate</small>
+                </div>
+                <div class="ns-map-region lower" style="width: 80px; height: 80px; top: 22%; left: 35%;" data-region="central_ns" onclick="showRegionDetail('central_ns')">
+                    Central<br>NS<br><small>Insulate</small>
+                </div>
+                <div class="ns-map-region moderate" style="width: 80px; height: 80px; top: 15%; left: 70%;" data-region="north_shore" onclick="showRegionDetail('north_shore')">
+                    North<br>Shore<br><small>Mod</small>
+                </div>
+                <div class="sun-map-detected" id="sunMapDetected"></div>
+            </div>
+            <div>
+                <div class="sun-map-insights">
+                    <div class="sun-insight-item">
+                        <div class="sun-insight-icon"></div>
+                        <div class="sun-insight-text">South-facing structures maximize solar gain — critical in Nova Scotia's short winter days</div>
+                    </div>
+                    <div class="sun-insight-item">
+                        <div class="sun-insight-icon"></div>
+                        <div class="sun-insight-text">Passive heat storage reduces energy use and keeps temps above freezing overnight</div>
+                    </div>
+                    <div class="sun-insight-item">
+                        <div class="sun-insight-icon"></div>
+                        <div class="sun-insight-text">Winter growing is possible — cold-hardy greens produce through December–March</div>
+                    </div>
+                    <div class="sun-insight-item">
+                        <div class="sun-insight-icon"></div>
+                        <div class="sun-insight-text">Even a small system can offset 20–40% of household fresh produce</div>
+                    </div>
+                </div>
+                <!-- Region Detail Panel -->
+                <div class="sun-map-detail" id="sunMapDetail">
+                    <div class="sun-map-detail-name" id="regionDetailName">—</div>
+                    <div class="sun-map-detail-grid">
+                        <div class="sun-map-detail-item"><span class="label">Sunlight</span><span class="value" id="regionSunlight">—</span></div>
+                        <div class="sun-map-detail-item"><span class="label">Wind Exposure</span><span class="value" id="regionWind">—</span></div>
+                        <div class="sun-map-detail-item"><span class="label">Winter Severity</span><span class="value" id="regionWinter">—</span></div>
+                        <div class="sun-map-detail-item"><span class="label">Greenhouse Fit</span><span class="value" id="regionFit">—</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

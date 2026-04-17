@@ -1,0 +1,135 @@
+<!-- ACTION — 3-TIER CTA -->
+<section class="section action-section hidden-section" id="screen-action">
+    <div class="container-narrow">
+        <div class="text-body" style="text-align: center; font-size: 0.8rem; color: rgba(166,124,39,0.7); margin-bottom: 1rem; letter-spacing: 0.05em;">Spring builds fill up fast in Nova Scotia — start planning now</div>
+
+        <div class="heading-large">Choose Your Next Step</div>
+        <div class="text-body" style="text-align: center; font-size: 0.9rem; margin-bottom: 2rem;">Start with direction, move into precision, and route into real execution when you're ready.</div>
+
+        <!-- TIER 1: Starter Plan -->
+        <div style="border: 1px solid rgba(27,48,34,0.15); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem;">
+
+            <div class="text-body" style="text-align: center; font-weight: 500; color: rgba(27,48,34,0.95); margin-bottom: 0.25rem;">Get Your Starter Plan</div>
+            <div class="text-body" style="text-align: center; font-size: 0.85rem; margin-bottom: 1rem;">A clear starting point based on your goals, budget, and region.</div>
+            <ul class="action-includes" style="margin-bottom: 1rem;">
+                <li>Best-fit greenhouse direction</li>
+                <li>Rough size and budget range</li>
+                <li>Starter materials and layout guidance</li>
+                <li>Seasonal crop guidance</li>
+                <li>Emailed starter plan</li>
+            </ul>
+            <div class="text-body" style="text-align: center; font-size: 0.8rem; color: rgba(166,124,39,0.8); margin-bottom: 1.5rem;">Best for understanding what direction makes sense before customizing.</div>
+            <button class="btn-secondary" id="btnGetPlan" onclick="handleAction('checkout')" style="width: 100%;">
+                <span>Get Your Starter Plan</span>
+                <span class="arrow">→</span>
+            </button>
+        </div>
+
+        <!-- TIER 2: Tailored Blueprint -->
+        <div style="border: 2px solid rgba(166,124,39,0.5); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem; background: rgba(166,124,39,0.05);">
+            <div style="text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: #A67C27; margin-bottom: 0.75rem;">Recommended</div>
+
+            <div class="text-body" style="text-align: center; font-weight: 600; color: #1B3022; margin-bottom: 0.25rem;">Get Your Tailored Blueprint</div>
+            <div class="text-body" style="text-align: center; font-size: 0.85rem; margin-bottom: 1rem;">We review your property and create a more specific greenhouse path for your site.</div>
+            <ul class="action-includes" style="margin-bottom: 1rem;">
+                <li>Address-based site review</li>
+                <li>Sunlight &amp; orientation analysis</li>
+                <li>Shading &amp; surrounding-condition review</li>
+                <li>Refined structure recommendation</li>
+                <li>Improved cost &amp; build-path guidance</li>
+                <li>Builder-ready blueprint emailed to you</li>
+            </ul>
+            <div class="text-body" style="text-align: center; font-size: 0.8rem; color: rgba(166,124,39,0.8); margin-bottom: 1.5rem;">This is where your plan becomes specific to your property.</div>
+            <button class="btn-primary" id="btnBlueprint" onclick="handleAction('blueprint')" style="width: 100%;">
+                <span>Get Your Tailored Blueprint</span>
+                <span class="arrow">→</span>
+            </button>
+        </div>
+
+        <!-- TIER 3: Consultation -->
+        <div style="border: 1px solid rgba(27,48,34,0.15); border-radius: 8px; padding: 2rem; margin-bottom: 2rem;">
+            <div class="text-body" style="text-align: center; font-weight: 500; color: rgba(27,48,34,0.95); margin-bottom: 0.25rem;">Book a 15-Min Consultation</div>
+            <div class="text-body" style="text-align: center; font-size: 0.85rem; margin-bottom: 1rem;">We walk you through your setup, answer questions, and help route you to the right local path.</div>
+            <ul class="action-includes" style="margin-bottom: 1rem;">
+                <li>Review of your goals</li>
+                <li>Guidance on next steps</li>
+                <li>Consultation before builder or blueprint follow-up</li>
+            </ul>
+            <div class="text-body" style="text-align: center; font-size: 0.8rem; color: rgba(166,124,39,0.8); margin-bottom: 1rem;">Best for users who want help deciding or want local service support.</div>
+            <button class="btn-secondary" id="btnConsult" onclick="handleAction('consultation')" style="width: 100%;">
+                <span>Book a Consultation</span>
+                <span class="arrow">→</span>
+            </button>
+        </div>
+
+        <!-- Risk removal -->
+
+        <div class="text-body" style="text-align: center; font-size: 0.75rem; color: rgba(27,48,34,0.5); margin-top: 0.5rem;">Built for Nova Scotia conditions — not generic advice.</div>
+    </div>
+</section>
+
+<!-- How The Tailored Blueprint Works -->
+<section class="section-half hidden-section" id="screen-blueprint-flow" style="border-top: 1px solid rgba(27,48,34,0.08)">
+    <div class="container-narrow">
+        <div class="intake-step-label" style="margin-bottom: 1rem">How It Works</div>
+        <div class="heading-medium" style="margin-bottom: 1.5rem">Your Tailored Blueprint in 4 Steps</div>
+        <div style="max-width: 500px; margin: 0 auto;">
+            <div style="padding: 1rem 0; border-bottom: 1px solid rgba(27,48,34,0.08); display: flex; gap: 1.25rem; align-items: flex-start;">
+                <div style="width: 32px; height: 32px; border: 1px solid rgba(166,124,39,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: #A67C27; flex-shrink: 0;">1</div>
+                <div><div style="font-weight: 500; color: #1B3022; margin-bottom: 0.25rem;">Region &amp; Climate</div><div style="font-size: 0.85rem; color: rgba(27,48,34,0.85);">We review your zone, weather, and growing conditions</div></div>
+            </div>
+            <div style="padding: 1rem 0; border-bottom: 1px solid rgba(27,48,34,0.08); display: flex; gap: 1.25rem; align-items: flex-start;">
+                <div style="width: 32px; height: 32px; border: 1px solid rgba(166,124,39,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: #A67C27; flex-shrink: 0;">2</div>
+                <div><div style="font-weight: 500; color: #1B3022; margin-bottom: 0.25rem;">Site Assessment</div><div style="font-size: 0.85rem; color: rgba(27,48,34,0.85);">Address, sunlight, orientation, shading, and surrounding conditions</div></div>
+            </div>
+            <div style="padding: 1rem 0; border-bottom: 1px solid rgba(27,48,34,0.08); display: flex; gap: 1.25rem; align-items: flex-start;">
+                <div style="width: 32px; height: 32px; border: 1px solid rgba(166,124,39,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: #A67C27; flex-shrink: 0;">3</div>
+                <div><div style="font-weight: 500; color: #1B3022; margin-bottom: 0.25rem;">Goal Matching</div><div style="font-size: 0.85rem; color: rgba(27,48,34,0.85);">We match the build to your budget, goals, and desired crops</div></div>
+            </div>
+            <div style="padding: 1rem 0; display: flex; gap: 1.25rem; align-items: flex-start;">
+                <div style="width: 32px; height: 32px; border: 1px solid rgba(166,124,39,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: #A67C27; flex-shrink: 0;">4</div>
+                <div><div style="font-weight: 500; color: #1B3022; margin-bottom: 0.25rem;">Custom Blueprint</div><div style="font-size: 0.85rem; color: rgba(27,48,34,0.85);">Tailored plan &amp; routing to the right builder or next step</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What the blueprint includes -->
+<section class="section-half hidden-section" id="screen-blueprint-includes" style="border-top: 1px solid rgba(27,48,34,0.08)">
+    <div class="container-narrow">
+        <div class="intake-step-label" style="margin-bottom: 1.5rem">What's In Your Blueprint</div>
+        <div class="veracity-facts">
+            <div class="veracity-fact"><span class="veracity-key">Tailored greenhouse design direction</span><span class="veracity-val">Custom for your site</span></div>
+            <div class="veracity-fact"><span class="veracity-key">Site layout guidance</span><span class="veracity-val">Address-based</span></div>
+            <div class="veracity-fact"><span class="veracity-key">Materials &amp; build path</span><span class="veracity-val">Local sourcing</span></div>
+            <div class="veracity-fact"><span class="veracity-key">Crop suitability plan</span><span class="veracity-val">Seasonal optimized</span></div>
+            <div class="veracity-fact"><span class="veracity-key">Solar readiness note</span><span class="veracity-val">Panel-ready or passive</span></div>
+            <div class="veracity-fact"><span class="veracity-key">Next-step routing</span><span class="veracity-val">Builder or consultation</span></div>
+        </div>
+        <div class="text-body" style="text-align: center; font-size: 0.8rem; color: rgba(27,48,34,0.65); margin-top: 1.5rem;">Your blueprint is emailed before your consultation or builder conversation.</div>
+    </div>
+</section>
+
+<!-- Klara Stays With You -->
+<section class="section-half hidden-section" id="screen-continuity" style="border-top: 1px solid rgba(27,48,34,0.08)">
+    <div class="container-narrow">
+        <div class="intake-step-label" style="margin-bottom: 1rem">After Your Plan</div>
+        <div class="heading-medium" style="margin-bottom: 1rem">What Klara Can Support Next</div>
+        <div class="text-body" style="margin-bottom: 1.5rem; font-size: 0.9rem; color: rgba(27,48,34,0.85);">After planning, Klara can support the next phase with timeline guidance, milestone reminders, seasonal prompts, and local routing support.</div>
+        <div class="veracity-facts">
+            <div class="veracity-fact"><span class="veracity-key">📅 Timeline guidance</span><span class="veracity-val">Build milestones</span></div>
+            <div class="veracity-fact"><span class="veracity-key">🔔 Milestone reminders</span><span class="veracity-val">Key dates flagged</span></div>
+            <div class="veracity-fact"><span class="veracity-key">🌱 Seasonal planting prompts</span><span class="veracity-val">What to plant when</span></div>
+            <div class="veracity-fact"><span class="veracity-key">🔧 Maintenance guidance</span><span class="veracity-val">Seasonal care</span></div>
+            <div class="veracity-fact"><span class="veracity-key">📍 Local support routing</span><span class="veracity-val">Builders &amp; support</span></div>
+        </div>
+        <div class="text-body" style="font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-top: 1rem;">Some support features are delivered through consultation and post-plan follow-up.</div>
+    </div>
+</section>
+
+<section class="section-half hidden-section" id="screen-service" style="border-top: 1px solid rgba(27,48,34,0.08)">
+    <div class="container-narrow" style="text-align: center">
+        <div class="intake-step-label" style="margin-bottom: 1rem">How Klara Works</div>
+        <div class="heading-medium" style="margin-bottom: 2rem">Klara analyzes your property and climate, recommends a greenhouse setup, and routes you to real local next steps — whether that's building it yourself, getting a quote, or speaking to someone.</div>
+    </div>
+</section>

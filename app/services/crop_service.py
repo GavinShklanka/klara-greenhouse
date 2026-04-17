@@ -2,19 +2,7 @@
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
-_DATA: dict = {}
-
-
-def _load_data():
-    global _DATA
-    if not _DATA:
-        path = Path(__file__).resolve().parents[2] / "config" / "greenhouse_data.json"
-        with open(path, "r", encoding="utf-8") as f:
-            _DATA = json.load(f)
-    return _DATA
+from app.core.data_loader import get_greenhouse_data
 
 
 def get_crop_plan(greenhouse_type: str, goal: str, location: str) -> dict:
@@ -22,7 +10,7 @@ def get_crop_plan(greenhouse_type: str, goal: str, location: str) -> dict:
     Recommend 3-5 crops based on greenhouse type and user goals.
     Rule-based — no ML.
     """
-    data = _load_data()
+    data = get_greenhouse_data()
     crops_db = data["crops"]
     climate = data["climate_zones"].get(location, data["climate_zones"]["halifax"])
 

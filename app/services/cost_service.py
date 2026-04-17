@@ -2,26 +2,14 @@
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
-_DATA: dict = {}
-
-
-def _load_data():
-    global _DATA
-    if not _DATA:
-        path = Path(__file__).resolve().parents[2] / "config" / "greenhouse_data.json"
-        with open(path, "r", encoding="utf-8") as f:
-            _DATA = json.load(f)
-    return _DATA
+from app.core.data_loader import get_greenhouse_data
 
 
 def estimate_costs(greenhouse_type: str, tier_id: str, climate: dict) -> dict:
     """
     Produce cost breakdown + timeline for a given greenhouse type + size.
     """
-    data = _load_data()
+    data = get_greenhouse_data()
     type_costs = data["cost_matrix"].get(greenhouse_type, data["cost_matrix"]["polycarbonate"])
     costs = type_costs.get(tier_id, type_costs["starter"])
     type_timeline = data["timeline"].get(greenhouse_type, data["timeline"]["polycarbonate"])

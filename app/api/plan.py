@@ -2,10 +2,11 @@
 
 import json
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session as DBSession
 
 from app.core.database import get_db
+from app.core.dependencies import get_session, get_session_intake, get_session_context
 from app.models import GreenhouseSession
 from app.services.suitability_service import check_suitability
 from app.services.design_service import recommend_design
@@ -20,10 +21,7 @@ router = APIRouter()
 @router.get("/plan/{session_id}")
 def get_plan(session_id: str, db: DBSession = Depends(get_db)):
     """Run full pipeline, return complete build plan."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
-    if not gh_session:
-        return {"success": False, "error": "Session not found"}
-
+    gh_session = get_session(session_id, db)
     intake = json.loads(gh_session.intake_data)
     location = intake.get("location", "halifax")
 
@@ -45,6 +43,7 @@ def get_plan(session_id: str, db: DBSession = Depends(get_db)):
             "warnings": suitability["warnings"],
         },
         "design": design,
+        "impact": design.get("impact", {}),
         "costs": costs,
         "solar": solar,
         "crops": crops,
@@ -62,53 +61,41 @@ def get_plan(session_id: str, db: DBSession = Depends(get_db)):
 @router.get("/solar-context/{session_id}")
 def solar_context(session_id: str, db: DBSession = Depends(get_db)):
     """Solar viability for a session's location."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
-    if not gh_session:
-        return {"success": False, "error": "Session not found"}
-    intake = json.loads(gh_session.intake_data)
+    _session, intake = get_session_intake(session_id, db)
     return get_solar_context(intake.get("location", "halifax"))
 
 
 @router.get("/greenhouse-model/{session_id}")
 def greenhouse_model(session_id: str, db: DBSession = Depends(get_db)):
     """Greenhouse type + size recommendation for a session."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
-    if not gh_session:
-        return {"success": False, "error": "Session not found"}
-    intake = json.loads(gh_session.intake_data)
-    suitability = check_suitability(intake)
-    return recommend_design(intake, suitability)
+    _session, intake, suitability, design = get_session_context(session_id, db)
+    return design
 
 
 @router.get("/crop-plan/{session_id}")
 def crop_plan(session_id: str, db: DBSession = Depends(get_db)):
     """Crop recommendations for a session."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
-    if not gh_session:
-        return {"success": False, "error": "Session not found"}
-    intake = json.loads(gh_session.intake_data)
-    suitability = check_suitability(intake)
-    design = recommend_design(intake, suitability)
-    return get_crop_plan(design["greenhouse"]["type_id"], intake.get("goal", "grow_food"), intake.get("location", "halifax"))
+    _session, intake, suitability, design = get_session_context(session_id, db)
+    return get_crop_plan(
+        design["greenhouse"]["type_id"],
+        intake.get("goal", "grow_food"),
+        intake.get("location", "halifax"),
+    )
 
 
 @router.get("/cost-estimate/{session_id}")
 def cost_estimate(session_id: str, db: DBSession = Depends(get_db)):
     """Cost estimate for a session."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
-    if not gh_session:
-        return {"success": False, "error": "Session not found"}
-    intake = json.loads(gh_session.intake_data)
-    suitability = check_suitability(intake)
-    design = recommend_design(intake, suitability)
-    return estimate_costs(design["greenhouse"]["type_id"], design["size"]["tier_id"], suitability["climate"])
+    _session, intake, suitability, design = get_session_context(session_id, db)
+    return estimate_costs(
+        design["greenhouse"]["type_id"],
+        design["size"]["tier_id"],
+        suitability["climate"],
+    )
 
 
 @router.get("/local-routing/{session_id}")
 def local_routing(session_id: str, db: DBSession = Depends(get_db)):
     """Local resources for a session's location."""
-    gh_session = db.query(GreenhouseSession).filter_by(id=session_id).first()
-    if not gh_session:
-        return {"success": False, "error": "Session not found"}
-    intake = json.loads(gh_session.intake_data)
+    _session, intake = get_session_intake(session_id, db)
     return get_local_resources(intake.get("location", "halifax"))
