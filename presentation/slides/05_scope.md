@@ -11,13 +11,13 @@ show_scope_boundary: true
 
 # PIVP Scope
 
-## Layer 1 only — this is a validation and refinement project
+## Layer 1 only: this is a validation and refinement project
 
 What is in scope for this application is deliberately narrow. Narrow is correct.
 
 ---
 
-### Layer 1 — What PIVP funds (THIS project)
+### Layer 1: What PIVP funds (THIS project)
 
 | Focus area | What it means in practice |
 |------------|--------------------------|
@@ -36,7 +36,7 @@ What is in scope for this application is deliberately narrow. Narrow is correct.
 |-------------|----------------------|
 | Layer 2 (monitoring, crop tracking) | Not validated yet; would dilute Layer 1 focus |
 | Layer 3 (deep crop intelligence, follow-up loops) | Future state contingent on Layer 1 success |
-| National expansion | Premature — local proof first |
+| National expansion | Premature, local proof first |
 | Marketplace or directory functionality | Different product category; not what this is |
 
 ---
@@ -66,6 +66,6 @@ Layers 2 and 3 exist in the roadmap. They are not being funded or built here. An
 <!-- do_not_say -->
 ## Do Not Say
 
-- Do not say "we also plan to add monitoring" in this context — it undercuts the application ask.
+- Do not say "we also plan to add monitoring" in this context, it undercuts the application ask.
 - Do not present Layer 2 or 3 to soften the fact that Layer 1 is small. Small and validated beats big and unproven.
 - Do not use "phase" language unless you're prepared to explain phase gates.

@@ -11,7 +11,7 @@ show_scope_boundary: false
 
 # Local Execution Model
 
-## Nova Scotia-first is not a limitation — it's the design
+## Nova Scotia-first is not a limitation: it's the design
 
 Every part of the value chain runs local. That's what makes recommendations credible.
 
@@ -68,12 +68,12 @@ The recommendation archetypes are calibrated to the scale and context of Nova Sc
 
 - The "local-first" framing is a competitive position, not a limitation. Say that explicitly.
 - Frost dates and shoulder-season logic are the kind of detail that signal real domain knowledge. Use them.
-- Be honest about supplier and installer data gaps — it's a known Layer 1 task, not a product failure.
+- Be honest about supplier and installer data gaps, it's a known Layer 1 task, not a product failure.
 - If they ask about national expansion: "That's a question we'll be better positioned to answer after we've proven local fit. The logic would port, but the data wouldn't."
 
 <!-- do_not_say -->
 ## Do Not Say
 
-- Do not say "we can scale to any province" — it undercuts the Nova Scotia positioning.
-- Do not overstate current supplier relationships — don't claim a network that isn't built yet.
-- Do not use "hyperlocal" as a buzzword — just describe the logic and let it speak.
+- Do not say "we can scale to any province", it undercuts the Nova Scotia positioning.
+- Do not overstate current supplier relationships, don't claim a network that isn't built yet.
+- Do not use "hyperlocal" as a buzzword, just describe the logic and let it speak.

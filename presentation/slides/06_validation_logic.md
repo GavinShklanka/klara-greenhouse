@@ -1,75 +1,45 @@
 ---
-title: "Validation Logic"
+title: "What This Project Needs to Prove"
 slug: "validation_logic"
 order: 6
-status: "draft"
+status: "meeting_ready"
 audience: "founder"
-show_speaker_notes: true
+show_speaker_notes: false
 show_now_next_later: false
 show_scope_boundary: false
 ---
 
-# Validation Logic
+# What This Project Needs to Prove
 
-## What we're proving, and how we know when it's proven
+**How we are checking whether Klara is useful, credible, and grounded in Nova Scotia reality.**
 
-Validation is not "did people like it." It's structured signal against specific questions.
+This stage is not about whether people think the idea sounds interesting. It is about whether the intake, recommendation, and next-step guidance are clear enough to be trusted.
 
----
+## What We Are Trying to Answer
 
-### The questions being answered
+**1. Is the problem real in Nova Scotia?**
+Do households and serious small growers actually struggle to choose the right greenhouse path, or are we overstating the gap?
 
-**1. Is the problem real?**
-Do Lane 1 and Lane 2 users actually experience decision friction when trying to choose a greenhouse path? What form does it take?
+**2. Does the intake language make sense?**
+Can a potential grower move through the questions without confusion, backtracking, or guessing?
 
-**2. Are user lanes correct?**
-Do the three lanes we've defined map onto real and distinct user groups — or are they collapsing into one, or splitting into more?
+**3. Do the recommendation paths feel credible?**
+When someone sees the result, does it feel like a good fit for their budget, site, and growing goals?
 
-**3. Does intake language work?**
-Can a real potential grower complete the intake flow without confusion, backtracking, or misinterpretation? Where does it break?
+**4. What is still missing before this is ready for public use?**
+Where does the tool still feel too generic, too thin, or not yet proven enough?
 
-**4. Do recommendations feel credible?**
-When a user sees their recommendation output, do they trust it? What makes it feel right or wrong?
+**5. What should this project pressure-test first?**
+What needs to be tightened during the PIVP stage so the product becomes more credible and more usable?
 
-**5. What evidence is still missing?**
-After early user testing, what are the open questions that still need to be closed before this can be credibly offered to the public?
+## How We Are Checking It
 
----
+| Channel | What it tests |
+|---|---|
+| NSCC meetings and follow-up | Scope fit, intake feedback, testing path, service-provider role |
+| Operator interviews | Real decision friction, sizing mistakes, timing and cost issues |
+| Perennia / technical review | Recommendation credibility, crop-fit logic, terminology check |
+| Halifax Seed / sector conversations | Household questions, buyer confusion, seasonal patterns |
+| Intake walkthroughs | Confusing fields, missing questions, completion issues |
 
-### How validation is structured
-
-| Method | What it answers |
-|--------|----------------|
-| Structured user interviews | Problem reality, lane validity, vocabulary fit |
-| Intake walkthroughs | Completion rate, confusion points, language gaps |
-| Recommendation reviews | Credibility, fit, missing variables |
-| Stakeholder conversations | Sector grounding, supplier reality check |
-| NSCC engagement | Usability pressure-test, institutional signal |
-
----
-
-### What "validated" means at PIVP close
-
-- Lane 1 users can complete intake and find recommendations plausible
-- Core vocabulary is grounded in how real growers speak
-- At least one stakeholder class has engaged formally
-- Gap list is documented and prioritized for Layer 2
-
----
-
-> *Validation is not proof that the product is finished. It's proof that the direction is sound.*
-
-<!-- speaker_notes -->
-## Speaker Notes
-
-- This slide matters most to NSCC and PIVP reviewers — they want to know what structured rigor looks like.
-- Be specific about what "credible" means for recommendations — not just "they liked it" but "they would act on it."
-- The "what validated means" section sets the success criterion. Don't leave it vague.
-- If challenged on method: "We're using structured interviews, not surveys — because the signal we need is qualitative at this stage."
-
-<!-- do_not_say -->
-## Do Not Say
-
-- Do not say "we'll survey 500 users" — that's not the right tool at this stage.
-- Do not conflate user satisfaction with validation. They're different.
-- Do not imply validation is already complete — it's what this project does.
+A known issue already exists: the intake language still needs to align better with how growers actually describe their needs. That is part of the project, not something being hidden.

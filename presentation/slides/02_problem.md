@@ -21,15 +21,15 @@ People who want to grow in protected structures in Nova Scotia face a specific a
 
 - Generic online advice doesn't account for Nova Scotia climate, costs, or suppliers
 - Prospective buyers don't know which greenhouse type fits their site, budget, or growing intent
-- Conversations with local suppliers start too late — after confusion is already baked in
+- Conversations with local suppliers start too late, after confusion is already baked in
 - The gap between "I want to grow more" and "I know what to buy" is large and poorly served
 
 ### Why this matters
 
 Most people either:
-1. Over-buy — purchase infrastructure that doesn't match their readiness or use case
-2. Under-buy — start too small and either abandon or face expensive mid-season changes
-3. Don't start — because the path from intention to confident decision feels unclear
+1. Over-buy, purchase infrastructure that doesn't match their readiness or use case
+2. Under-buy, start too small and either abandon or face expensive mid-season changes
+3. Don't start, because the path from intention to confident decision feels unclear
 
 ### What the market currently offers
 
@@ -47,14 +47,14 @@ Most people either:
 <!-- speaker_notes -->
 ## Speaker Notes
 
-- The table is useful if the audience wants to understand competitive context. Don't read it aloud — let them scan.
-- Emphasize "locally-grounded" — this is the differentiator from generic tools.
+- The table is useful if the audience wants to understand competitive context. Don't read it aloud, let them scan.
+- Emphasize "locally-grounded", this is the differentiator from generic tools.
 - If they push on "why not just talk to a supplier": that's part of what we're building toward, but it requires the decision to already be partially formed. Klara helps form it.
 - The three outcome buckets (over-buy, under-buy, don't start) are the user behaviour this tool interrupts.
 
 <!-- do_not_say -->
 ## Do Not Say
 
-- Do not say the market is "broken" — it's underserved, which is different.
+- Do not say the market is "broken", it's underserved, which is different.
 - Do not claim that no tools exist. Say they don't serve this specific need.
-- Do not use "pain points" as a phrase — it's overused and weakens the observation.
+- Do not use "pain points" as a phrase, it's overused and weakens the observation.

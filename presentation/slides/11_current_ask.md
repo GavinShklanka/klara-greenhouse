@@ -11,7 +11,7 @@ show_scope_boundary: false
 
 # Current Ask
 
-## Four things — all of them concrete
+## Four things: all of them concrete
 
 This is not a vague ask for support. It's a specific request for specific things.
 
@@ -27,7 +27,7 @@ We want to understand whether the scope, stage, and structure of this project ma
 
 ### 2. Role clarity
 
-*If this goes forward — what does the relationship actually look like?*
+*If this goes forward, what does the relationship actually look like?*
 
 - What does NSCC engagement mean in practice?
 - Who owns what decisions?
@@ -49,7 +49,7 @@ We want to understand whether the scope, stage, and structure of this project ma
 
 ### 4. What formal backing looks like
 
-*If this is the right fit — what are the next steps?*
+*If this is the right fit, what are the next steps?*
 
 - PIVP application timeline and requirements
 - NSCC formalization process
@@ -70,21 +70,21 @@ We want to understand whether the scope, stage, and structure of this project ma
 <!-- speaker_notes -->
 ## Speaker Notes
 
-- The four-part ask is unusual — most founders just ask for money. The clarity here signals maturity.
+- The four-part ask is unusual, most founders just ask for money. The clarity here signals maturity.
 - Let them respond to each part. Don't rush through the ask.
-- "Fit check" first is important — it opens the door for them to say this isn't the right vehicle without embarrassment.
+- "Fit check" first is important, it opens the door for them to say this isn't the right vehicle without embarrassment.
 - If they offer more than you asked for: accept graciously, note it, and don't immediately expand scope.
 - If they say "not yet": ask what would need to be true.
 
 <!-- do_not_say -->
 ## Do Not Say
 
-- Do not say "we just need funding" — it collapses the conversation.
+- Do not say "we just need funding", it collapses the conversation.
 - Do not ask for a number before the relationship is established.
-- Do not end with "any questions?" — end with a clear invitation to respond to the ask.
+- Do not end with "any questions?", end with a clear invitation to respond to the ask.
 
 <!-- implementation_notes -->
 ## Implementation Notes
 
-- This slide should have a slightly different visual treatment — closing energy, not pitch energy.
+- This slide should have a slightly different visual treatment, closing energy, not pitch energy.
 - Consider a soft call-to-action component if implemented in working mode.

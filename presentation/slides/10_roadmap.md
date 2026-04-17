@@ -11,13 +11,13 @@ show_scope_boundary: true
 
 # Roadmap
 
-## Now / Next / Later — the scope line is real
+## Now / Next / Later: the scope line is real
 
 The roadmap exists to show direction, not to commit to a timeline. The Now is what we're building.
 
 ---
 
-### Now — Routing and Proposal Engine (Layer 1)
+### Now: Routing and Proposal Engine (Layer 1)
 
 *This is the current product and the scope of PIVP.*
 
@@ -33,7 +33,7 @@ The roadmap exists to show direction, not to commit to a timeline. The Now is wh
 
 ---
 
-### Next — Validation and Refinement (Layer 2 foundations)
+### Next: Validation and Refinement (Layer 2 foundations)
 
 *Post-PIVP, contingent on Layer 1 proof.*
 
@@ -47,9 +47,9 @@ The roadmap exists to show direction, not to commit to a timeline. The Now is wh
 
 ---
 
-### Later — Monitoring, Crop Intelligence, Follow-Up Support (Layer 3)
+### Later: Monitoring, Crop Intelligence, Follow-Up Support (Layer 3)
 
-*Future state — not in current scope.*
+*Future state, not in current scope.*
 
 - Post-installation check-in logic
 - Season-specific crop routing
@@ -66,10 +66,10 @@ The roadmap exists to show direction, not to commit to a timeline. The Now is wh
 <!-- speaker_notes -->
 ## Speaker Notes
 
-- The Now/Next/Later framing is deliberate — it shows you have a direction without over-committing.
+- The Now/Next/Later framing is deliberate, it shows you have a direction without over-committing.
 - If they ask "when is Next?": "After we've closed Layer 1 with documented validation outcomes. We're not putting a date on that until we know what the validation surfaces."
 - If they push on Layer 3: acknowledge it exists, confirm it's not in scope here, redirect to what the application is about.
-- The "success signal" framing is useful — it shows you know what done looks like.
+- The "success signal" framing is useful, it shows you know what done looks like.
 
 <!-- implementation_notes -->
 ## Implementation Notes
@@ -81,5 +81,5 @@ The roadmap exists to show direction, not to commit to a timeline. The Now is wh
 ## Do Not Say
 
 - Do not commit to Layer 2 or Layer 3 timelines.
-- Do not present Layer 3 features as "coming soon" — they are contingent on proof that doesn't exist yet.
+- Do not present Layer 3 features as "coming soon", they are contingent on proof that doesn't exist yet.
 - Do not say "we'll add AI" without being specific about what problem it solves and when.
