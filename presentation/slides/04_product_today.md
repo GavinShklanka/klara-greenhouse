@@ -21,7 +21,7 @@ Klara exists and functions. What it does today is the honest baseline.
 
 - **Structured intake flow**, guides users through site, budget, crop intent, and readiness questions
 - **Greenhouse archetypes**, defined recommendation categories with local fit logic
-- **Recommendation engine**, matches intake responses to appropriate greenhouse configurations
+- **Decision-support engine**, matches intake responses to viable greenhouse configurations and surfaces alternatives with explicit tradeoffs (Klara suggests; humans decide — per Landscape v1.0.3)
 - **Proposal structure**, outputs a readable proposal with cost framing
 - **Payment scaffolding**, basic transaction structure exists
 - **Nova Scotia-first logic**, routing considers local climate and context, not generic national defaults
@@ -47,7 +47,7 @@ Because the PIVP application is precisely about closing them. Pretending they do
 
 ---
 
-> *The prototype proves the approach is buildable. Validation proves it's useful.*
+> *The prototype proves the approach is buildable. Validation proves it's useful. Reference: Klara Landscape v1.0.3 (2026-04-24) — § Decision-support posture.*
 
 <!-- speaker_notes -->
 ## Speaker Notes
@@ -63,3 +63,4 @@ Because the PIVP application is precisely about closing them. Pretending they do
 - Do not say "MVP" unless they ask, the framing invites debate about what's minimum.
 - Do not over-explain the technical architecture. This audience cares about fit and function.
 - Do not present gaps as problems that indicate the idea is wrong, they're normal at prototype stage.
+- Do not say "recommendation engine" in present tense — Landscape v1.0.3 explicitly disclaims that framing. Use "decision-support engine" or "suggests viable paths".

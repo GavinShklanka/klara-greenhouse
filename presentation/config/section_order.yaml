@@ -49,9 +49,14 @@ sections:
     order: 10
     group: "future"
 
-  - id: "current_ask"
-    file: "11_current_ask.md"
+  - id: "landscape_v103"
+    file: "11_landscape_v103.md"
     order: 11
+    group: "closing"
+
+  - id: "current_ask"
+    file: "12_current_ask.md"
+    order: 12
     group: "closing"
 
 groups:
