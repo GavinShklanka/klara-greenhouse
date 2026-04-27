@@ -34,8 +34,8 @@ sections:
     order: 7
     group: "partnership"
 
-  - id: "business_model"
-    file: "08_business_model.md"
+  - id: "commercialization"
+    file: "08_commercialization.md"
     order: 8
     group: "business"
 
