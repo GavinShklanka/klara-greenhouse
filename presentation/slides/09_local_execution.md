@@ -2,24 +2,40 @@
 title: "Local Execution Model"
 slug: "local_execution"
 order: 9
-status: "draft"
+status: "meeting_ready"
 audience: "founder"
 show_speaker_notes: true
 show_now_next_later: false
 show_scope_boundary: false
+landscape_reference: "v1.0.4-candidate"
 ---
 
 # Local Execution Model
 
-## Nova Scotia-first is not a limitation: it's the design
+## Nova Scotia–first is the design, not a limitation
 
-Every part of the value chain runs local. That's what makes recommendations credible.
+Every part of the routing chain runs through local context. That is what makes routed paths credible.
 
 ---
 
-### Local climate logic
+<div class="section-divider"><span>Nova Scotia in numbers</span></div>
 
-Nova Scotia growing conditions are not generic Canadian conditions. The routing engine accounts for:
+<div class="stat-block"><span class="stat-num">100+</span><span class="stat-label">Greenhouse growers</span></div>
+<div class="stat-block"><span class="stat-num">$24M</span><span class="stat-label">2023 sector sales</span></div>
+<div class="stat-block"><span class="stat-num">~750</span><span class="stat-label">Sector jobs</span></div>
+<div class="stat-block"><span class="stat-num">40+</span><span class="stat-label">FMNS member markets</span></div>
+<div class="stat-block"><span class="stat-num">2,741</span><span class="stat-label">NS farms (2021)</span></div>
+<div class="stat-block"><span class="stat-num">30.3%</span><span class="stat-label">NS direct sales (vs 13.6% national)</span></div>
+<div class="stat-block"><span class="stat-num">428,225</span><span class="stat-label">NS occupied dwellings (2021)</span></div>
+<div class="stat-block"><span class="stat-num">63.7%</span><span class="stat-label">Single-detached share</span></div>
+
+All <span class="ev-badge ev-A">A</span> from 2021 Census, NSDA, and Greenhouse NS sector data.
+
+---
+
+<div class="section-divider"><span>Local climate routing</span></div>
+
+NS growing conditions are not generic Canadian conditions. The routing core accounts for:
 
 - Regional frost dates and shoulder-season growing windows
 - Wind and precipitation exposure relevant to structure selection
@@ -28,52 +44,45 @@ Nova Scotia growing conditions are not generic Canadian conditions. The routing 
 
 ---
 
-### Local supplier routing
+<div class="section-divider"><span>Local supplier routing (Function 4)</span></div>
 
-When supplier data is production-grade, the routing engine connects users to:
+When supplier data is production-grade, the routing core connects users to:
 
-- Nova Scotia-based greenhouse structure suppliers
-- Local glazing and covering material sources
+- Greenhouse Nova Scotia member structure suppliers
+- Halifax Seed commercial stack for seeds and inputs
+- Local glazing, covering, and environmental-control sources
 - Regional equipment suppliers familiar with local conditions
 
-**Current status:** Supplier data is thin. This is a Layer 1 gap being addressed during PIVP.
+**Current status:** Supplier data is thin. Tier <span class="ev-badge ev-D">D</span>. Closing this is a Function 4 PIVP gap.
 
 ---
 
-### Local installer routing
+<div class="section-divider"><span>Local installer routing</span></div>
 
 Installation matters. A greenhouse built incorrectly for a site fails regardless of structure quality.
 
 - Routing logic for local greenhouse installers and contractors
-- Context for DIY vs. professional installation based on structure type and site complexity
+- Context for DIY vs professional installation based on structure type and site complexity
 
-**Current status:** Installer network data is not yet production-grade. Layer 1 validation will identify key contacts.
-
----
-
-### Local operator and prosumer fit
-
-The recommendation archetypes are calibrated to the scale and context of Nova Scotia operators:
-
-- Small household setups (Lane 1): 4-season extensions, cold frames, small poly tunnels
-- Prosumer scale (Lane 2): High tunnels, small Venlo configurations, season-extension infrastructure
-- Sizing, cost, and complexity logic reflects what is actually purchasable and buildable here
+**Current status:** Installer network data not yet production-grade. Tier <span class="ev-badge ev-D">D</span>. PIVP validation will identify key contacts.
 
 ---
 
-> *Local execution is not a constraint. It's the reason the recommendation means something.*
+<div class="section-divider"><span>Local operator and prosumer fit</span></div>
 
-<!-- speaker_notes -->
-## Speaker Notes
+Routed archetypes are calibrated to scale and context of NS operators:
 
-- The "local-first" framing is a competitive position, not a limitation. Say that explicitly.
-- Frost dates and shoulder-season logic are the kind of detail that signal real domain knowledge. Use them.
-- Be honest about supplier and installer data gaps, it's a known Layer 1 task, not a product failure.
-- If they ask about national expansion: "That's a question we'll be better positioned to answer after we've proven local fit. The logic would port, but the data wouldn't."
+- **Function 2 prosumer scale** — high tunnels, small Venlo configurations, season-extension infrastructure
+- **Function 1 small commercial** — production-scale structures, partnership-routed supplier networks, channel-routed sales paths
+- Sizing, cost, and complexity logic reflect what is actually purchasable and buildable here
+
+---
+
+> *Local execution is not a constraint. It is the reason the routing means something.*
 
 <!-- do_not_say -->
 ## Do Not Say
 
-- Do not say "we can scale to any province", it undercuts the Nova Scotia positioning.
-- Do not overstate current supplier relationships, don't claim a network that isn't built yet.
-- Do not use "hyperlocal" as a buzzword, just describe the logic and let it speak.
+- Do not say "we can scale to any province" — undercuts NS positioning.
+- Do not overstate current supplier relationships.
+- Do not use "hyperlocal" — describe the logic instead.

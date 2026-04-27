@@ -1,8 +1,13 @@
 """
 Klara Greenhouse - PIVP Project Brief
 
-Public-facing presentation surface for PIVP Tier 1 application and NSCC conversations.
-Presentation mode only. No internal notes, no working mode.
+Public-facing presentation surface for PIVP Tier 1 application and NSCC
+conversations. Presentation mode only. No internal notes, no working mode.
+
+v1.0.4-candidate visual system: sage/forest/ochre agtech palette, Source Serif
+Pro display headers, hybrid routing/suggesting verb framing, dedicated callouts
+for territory and decision-support discipline, evidence-tier badges, in-deck
+PDF download for Klara Landscape v1.0.3.
 
 Run with:
     streamlit run presentation/streamlit_app.py
@@ -22,8 +27,18 @@ from utils.ui_components import (
     render_slide_header,
     render_slide_body,
     render_nav_controls,
+    render_landscape_pdf_download,
     ACCENT,
+    TEXT_MUTED,
 )
+
+
+# -- Constants -----------------------------------------------------------------
+
+LANDSCAPE_PDF_PATH = (
+    Path(__file__).parent / "assets" / "landscape" / "Klara_Landscape_v1_0_3.pdf"
+)
+LANDSCAPE_PDF_MARKER = "<!-- LANDSCAPE_PDF_DOWNLOAD_BUTTON -->"
 
 
 # -- Page config ---------------------------------------------------------------
@@ -75,11 +90,14 @@ render_styles()
 
 with st.sidebar:
     st.markdown(
-        f'<div style="font-size:1.3rem;font-weight:700;color:{ACCENT};margin-bottom:0.2rem;">Klara Greenhouse</div>',
+        f'<div style="font-family: \'Source Serif Pro\', Georgia, serif; '
+        f'font-size:1.5rem;font-weight:700;color:{ACCENT};margin-bottom:0.2rem;">'
+        f'Klara Greenhouse</div>',
         unsafe_allow_html=True,
     )
     st.markdown(
-        '<div style="font-size:0.8rem;color:#8aad90;margin-bottom:1.5rem;letter-spacing:0.03em;">PIVP Project Brief</div>',
+        f'<div style="font-size:0.78rem;color:{TEXT_MUTED};margin-bottom:1.5rem;'
+        f'letter-spacing:0.04em;text-transform:uppercase;">PIVP Project Brief · v1.0.4-candidate</div>',
         unsafe_allow_html=True,
     )
 
@@ -93,7 +111,8 @@ with st.sidebar:
         if group_id != current_group:
             st.markdown(
                 f'<div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;'
-                f'color:#6b8c70;margin-top:0.75rem;margin-bottom:0.25rem;">{group_label}</div>',
+                f'color:{ACCENT};margin-top:0.85rem;margin-bottom:0.3rem;font-weight:600;">'
+                f'{group_label}</div>',
                 unsafe_allow_html=True,
             )
             current_group = group_id
@@ -120,6 +139,7 @@ with st.sidebar:
 current_idx = st.session_state.current_slide
 slide = slides[current_idx]
 parsed = slide.get("parsed")
+slide_slug = slide.get("id", "")
 
 if parsed is None:
     st.error(f"Could not load slide: {slide.get('file', 'unknown')}")
@@ -146,13 +166,24 @@ for line in body_lines:
 
 body_without_title = "\n".join(cleaned_body_lines).strip()
 
+
 # -- Slide header --------------------------------------------------------------
 
 render_slide_header(title, subtitle)
 
-# -- Slide body ----------------------------------------------------------------
 
-render_slide_body(body_without_title)
+# -- Slide body (with PDF-download injection point for landscape slide) -------
+
+if slide_slug == "landscape_v103" and LANDSCAPE_PDF_MARKER in body_without_title:
+    # Split body around the marker so the download button renders in the
+    # exact position the slide author placed it.
+    before, after = body_without_title.split(LANDSCAPE_PDF_MARKER, 1)
+    render_slide_body(before)
+    render_landscape_pdf_download(str(LANDSCAPE_PDF_PATH))
+    render_slide_body(after)
+else:
+    render_slide_body(body_without_title)
+
 
 # -- Navigation ----------------------------------------------------------------
 

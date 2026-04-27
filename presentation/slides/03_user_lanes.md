@@ -1,70 +1,91 @@
 ---
-title: "User Lanes"
+title: "Five Intake Types"
 slug: "user_lanes"
 order: 3
-status: "draft"
+status: "meeting_ready"
 audience: "founder"
 show_speaker_notes: true
 show_now_next_later: false
 show_scope_boundary: false
+landscape_reference: "v1.0.4-candidate"
 ---
 
-# User Lanes
+# Five Intake Types <span class="update-badge">v1.0.4 reframe</span>
 
-## Who Klara is actually built for
+## One governed routing core, five distinct intakes
 
-Three distinct user contexts exist. Their needs diverge enough to treat separately.
-
----
-
-### Lane 1: Local Homeowners
-
-**Who:** Nova Scotia households with real site flexibility, some budget, and genuine growing intent
-
-**What they need:** Clear, confidence-building guidance that matches their situation, not generic advice they have to filter themselves
-
-**Why they matter:** Largest accessible group, lowest barrier to validation conversations, most sensitive to intake clarity and vocabulary
-
-**Validation status:** Primary target for PIVP testing
+The five operational functions in Klara are not five products. They are one routing core expressed in five intake types depending on who is at the door.
 
 ---
 
-### Lane 2: Serious Smaller-Scale Growers / Prosumers
+### 1 · Small commercial operators
 
-**Who:** Growers operating between hobby and commercial, producing for household use, farmers markets, CSA, or income supplementation
+**They ask:** *"Given my current scale, inventory, export capacity, and the season ahead — what should I do next?"*
 
-**What they need:** More precise crop-intent routing, better cost/yield framing, local supplier and installer routing
+**Klara routes them to:** specific actions — sell excess into FMNS markets with inventory gaps, tighten operations on a specific crop line, expand into a new channel, upgrade structure, add a partnership. Routed actions carry evidence tiers <span class="ev-badge ev-A">A</span> through <span class="ev-badge ev-D">D</span> so the operator knows what's confirmed and what's inference.
 
-**Why they matter:** Willing to engage deeply, have real stakes, will surface vocabulary and recommendation gaps quickly
-
-**Validation status:** Secondary target, brings higher signal, higher complexity
+**Operator archetypes:** Small commercial growers; hydroponic social-enterprise operations (Summer Street Farm, Pictou County); seasonal outdoor perennial operators (Seafoam Lavender, Northumberland Shore); hobby-to-commercial transitioning growers.
 
 ---
 
-### Lane 3: Community Initiatives
+### 2 · Homeowners and prosumers
 
-**Who:** School growing programs, community gardens, food sovereignty projects
+**They ask:** *"Given my budget, site, crop intent, and time commitment — how do I start a green space that works?"*
 
-**What they need:** Accessible intake, institutional credibility, cost transparency
+**Klara routes them to:** the right structure archetype, the right local supplier, the right seasonal plan. Same evidence discipline. Same vetted partner network as commercial operators — because trust should not be a function of scale.
 
-**Why they matter:** Validation environment, not core market lane, useful for stress-testing the tool in a lower-stakes context
-
-**Validation status:** Not primary focus for PIVP, present as potential future environment
+**User archetypes:** Serious prosumers pursuing season extension; owner-occupiers of single-detached NS homes (63.7% of NS dwellings <span class="ev-badge ev-A">A</span>); first-time growers intimidated by the fragmented decision path.
 
 ---
 
-> *Lanes are not equal. Lane 1 is where validation begins. Lane 2 is where credibility deepens. Lane 3 is a context, not a customer.*
+### 3 · B2B buyers
+
+**They declare:** *"I need these volumes of these products across these seasons."*
+
+**Klara routes the declaration to:** grower-ready contract signals. Small commercial operators see forward-committed demand they can plan production against, instead of harvesting into uncertainty. This is **demand-declaration, not listing** — the inverse direction of a typical marketplace.
+
+**Declarant archetypes:** Restaurants with menu commitments; large-event organizers with forward provisioning needs; institutional buyers (NSH example below); local retail with seasonal featured-product programs.
+
+---
+
+### 4 · Partnership-channeled routing
+
+**Implicit across all other intakes.** Every time Klara recommends a structure, seed, soil amendment, environmental control, certified advisor, or extension resource:
+
+- Greenhouse Nova Scotia member for structures
+- Halifax Seed commercial stack for seeds and inputs
+- Perennia protected-crop team for agronomic escalation
+- NSCC-affiliated agriculture collaborators for applied research and pilot support
+
+Operators and prosumers see the same trusted partner network. Trust is not tiered by scale.
+
+---
+
+### 5 · Excess-routing and community-food strengthening
+
+**Event-driven trigger:** A Summer Street-type hydroponic operation has overflow. A small commercial has produce near spoilage. A seasonal peak produces more than the operator's usual channel can absorb.
+
+**Klara routes the surplus to:** FMNS member markets with inventory gaps in that produce, with feasibility tradeoffs (distance, buyer reliability, timing match). Operator chooses.
+
+**Distinction from food-bank operation:** Food-bank distribution is already handled in Pictou County by Nova Scotia Health's Highland Health / Summer Street Farm partnership (12-week pilot, 20 parcels weekly to a New Glasgow food bank for families with dependent children under 25 — 101 people through ~30 families in three weeks per March 2026 NSH announcement) <span class="ev-badge ev-A">A</span>. Klara's job is **market-channel rebalancing**, not food-bank distribution. Community-food programs strengthen *because* the market-channel network is healthier.
+
+---
+
+> *Five intakes. One routing core. The same evidence discipline across all of them.*
 
 <!-- speaker_notes -->
 ## Speaker Notes
 
-- Be prepared for the question "who is your customer?", the answer is Lane 1 first, then Lane 2. Lane 3 is an environment, not a customer.
-- If NSCC asks about community programs: acknowledge it as a useful test environment without committing to serving it as a primary lane.
-- The prosumer segment (Lane 2) will give better feedback but requires more precision from the tool. That's intentional, it's where PIVP refinement is pointed.
+- **The five-intake reframe is the v1.0.4-candidate spine.** Lead with it if Pat hasn't seen the v1.0.3 PDF; this is what's new since the prior deck.
+- Each intake answers a real question. Keep them concrete: scale, inventory, export, season.
+- The "trust should not be a function of scale" line is load-bearing for the prosumer / commercial bridge. Use it.
+- If asked which intake matters most: Function 1 (small commercial) is the optimization core. Function 2 (prosumer) is the largest accessible group.
+- The Summer Street / NSH example is the credibility anchor — concrete, named, public. Use it to ground Function 5 immediately.
 
 <!-- do_not_say -->
 ## Do Not Say
 
-- Do not say "B2B" or "B2C", the framing doesn't map cleanly yet.
-- Do not present Lane 3 as a growth opportunity, it's a validation context.
-- Do not imply you've validated all three lanes, be honest about where you are.
+- Do not say "user lanes" — that's the prior framing. Say "intake types."
+- Do not say "B2C" or "B2B" as the framing — say which intake is being discussed.
+- Do not present Function 5 as Klara doing food-bank work. Klara strengthens the network *around* food-bank work.
+- Do not imply Klara has validated all five intakes equally. Function 1 and Function 2 are validation-primary; the others are framed for context.

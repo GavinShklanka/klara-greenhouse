@@ -2,84 +2,77 @@
 title: "Roadmap"
 slug: "roadmap"
 order: 10
-status: "draft"
+status: "meeting_ready"
 audience: "founder"
 show_speaker_notes: true
 show_now_next_later: true
 show_scope_boundary: true
+landscape_reference: "v1.0.4-candidate"
 ---
 
 # Roadmap
 
-## Now / Next / Later: the scope line is real
+## Now / Next / Later — Function maturity, not feature creep
 
-The roadmap exists to show direction, not to commit to a timeline. The Now is what we're building.
+The roadmap shows direction, not a timeline. Now is what we're routing today.
 
 ---
 
-### Now: Routing and Proposal Engine (Layer 1)
+<div class="section-divider"><span>Now — Function 1 + Function 2 routing core (current PIVP scope)</span></div>
 
-*This is the current product and the scope of PIVP.*
-
-- Structured intake flow, refined and validated
-- Greenhouse archetype recommendation engine
+- Structured intake flow refined and validated across the two primary intake types
+- Routing logic for greenhouse archetypes, calibrated to NS context
 - Locally-grounded proposal output
-- Nova Scotia climate and cost logic
-- Early user validation (Lane 1 + Lane 2)
-- Stakeholder proof and NSCC engagement
-- Supplier and installer routing foundations
+- Partnership channels (Function 4) at validation depth — Greenhouse NS, Halifax Seed, Perennia, NSCC
+- Early user validation (Function 1 + 2)
+- Stakeholder proof for PIVP application
 
-**Success signal:** Users complete intake, receive recommendations they find credible, and suppliers recognize the output as accurate.
+**Success signal:** Users in Function 1 and Function 2 complete intake, receive routed paths they find credible, and partner suppliers recognize routed outputs as accurate.
 
 ---
 
-### Next: Validation and Refinement (Layer 2 foundations)
+<div class="section-divider"><span>Next — Function 3 instrumentation + Function 5 pilot (Phase 2)</span></div>
 
-*Post-PIVP, contingent on Layer 1 proof.*
+*Post-PIVP, contingent on Function 1/2 proof.*
 
-- Recommendation scoring depth based on real user feedback
+- Function 3 (B2B forward-demand declaration) instrumented at production scale
+- Function 5 (excess-routing) pilot with a Summer Street–type operator
+- Routing-logic depth from real user feedback
 - Supplier and installer network data production-grade
-- Refined vocabulary and intake language from validation cohort
-- First formal commercial transactions
+- Refined vocabulary and intake language from the validation cohort
+- First formal commercial transactions through routed paths
 - NSCC or sector partner relationships formalized
 
-**Trigger:** Layer 1 validation is closed with documented outcomes.
+**Trigger:** Function 1/2 validation closed with documented outcomes.
 
 ---
 
-### Later: Monitoring, Crop Intelligence, Follow-Up Support (Layer 3)
+<div class="section-divider"><span>Later — Maritime extension + monitoring layer (Phase 3)</span></div>
 
 *Future state, not in current scope.*
 
-- Post-installation check-in logic
-- Season-specific crop routing
+- Maritime provinces extension (NB, PEI, NL) — routing-logic transfer
+- Post-installation check-in routing
 - Yield and cost tracking for prosumers
 - Deeper follow-up support loops
-- Potential for institutional or regional partnerships
+- Potential institutional or regional partnerships
 
-**Trigger:** Layer 2 is proven and revenue is sufficient to fund deeper development.
+**Trigger:** Function 1–5 validated and revenue sufficient to fund deeper development.
+
+---
+
+<div class="territory-callout">
+  <div class="territory-label">Cross-cutting throughout</div>
+  <p>Mi'kma'ki engagement posture remains prospective across all phases. No phase commits to Mi'kmaw partnerships without institutional introduction. Klara does not claim to advance Mi'kmaw food sovereignty in any phase.</p>
+</div>
 
 ---
 
 > *The roadmap is honest. Later is later. We are building Now.*
 
-<!-- speaker_notes -->
-## Speaker Notes
-
-- The Now/Next/Later framing is deliberate, it shows you have a direction without over-committing.
-- If they ask "when is Next?": "After we've closed Layer 1 with documented validation outcomes. We're not putting a date on that until we know what the validation surfaces."
-- If they push on Layer 3: acknowledge it exists, confirm it's not in scope here, redirect to what the application is about.
-- The "success signal" framing is useful, it shows you know what done looks like.
-
-<!-- implementation_notes -->
-## Implementation Notes
-
-- This slide should render the now/next/later visual component if show_now_next_later is true.
-- Scope boundary callout should render for the "Later" section.
-
 <!-- do_not_say -->
 ## Do Not Say
 
-- Do not commit to Layer 2 or Layer 3 timelines.
-- Do not present Layer 3 features as "coming soon", they are contingent on proof that doesn't exist yet.
-- Do not say "we'll add AI" without being specific about what problem it solves and when.
+- Do not commit to Phase 2 or Phase 3 timelines.
+- Do not present Phase 3 features as "coming soon" — contingent on proof not yet earned.
+- Do not say "we'll add AI" without specifying what problem it solves and when.

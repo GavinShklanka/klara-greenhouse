@@ -2,66 +2,69 @@
 title: "Current Ask"
 slug: "current_ask"
 order: 12
-status: "draft"
+status: "meeting_ready"
 audience: "pivp"
 show_speaker_notes: true
 show_now_next_later: false
 show_scope_boundary: false
+landscape_reference: "v1.0.4-candidate"
 ---
 
 # Current Ask
 
-## Four things: all of them concrete
+## Four things — all of them concrete, all routed through the v1.0.3 landscape
 
-This is not a vague ask for support. It's a specific request for specific things.
+This is not a vague ask for support. It is a specific request, framed against the canonical landscape document.
 
 ---
 
-### 1. Fit check
+<div class="section-divider"><span>1 · Fit check</span></div>
 
 *Is Klara Greenhouse the right kind of project for this support structure?*
 
-We want to understand whether the scope, stage, and structure of this project match what PIVP (and NSCC) are designed to support. If there are mismatches, we'd rather know now.
+Given the v1.0.3 landscape (five functions, routing infrastructure, decision-support discipline, Mi'kma'ki posture) — does the scope, stage, and structure of this project match what PIVP and NSCC are designed to support? If there are mismatches, we'd rather know now.
 
 ---
 
-### 2. Role clarity
+<div class="section-divider"><span>2 · Role clarity</span></div>
 
 *If this goes forward, what does the relationship actually look like?*
 
-- What does NSCC engagement mean in practice?
+- What does NSCC engagement mean in practice for Function 1 + Function 2 user-testing routing?
 - Who owns what decisions?
 - What obligations flow in each direction?
-- What does the founder retain?
+- What does the founder retain across all five functions?
 
 ---
 
-### 3. Support structure
+<div class="section-divider"><span>3 · Support structure</span></div>
 
-*What support is available, and what does it enable?*
+*What support is available, and what does it enable for the routing core?*
 
-- Access to structured user-testing environments
-- Usability and intake pressure-testing with real domain knowledge
+- Access to structured user-testing environments (Function 1 + Function 2 intake refinement)
+- Intake pressure-testing with real domain knowledge
 - Stakeholder conversations and institutional signal
 - Optional: letter of support for PIVP application
+- Specific Mi'kma'ki question: would NSCC's CMM relationship be an appropriate institutional introduction channel for Mi'kmaw review of the v1.0.3 Mi'kma'ki section?
 
 ---
 
-### 4. What formal backing looks like
+<div class="section-divider"><span>4 · What formal backing looks like</span></div>
 
 *If this is the right fit, what are the next steps?*
 
-- PIVP application timeline and requirements
-- NSCC formalization process
+- PIVP application timeline and requirements (deadline 2026-05-15)
+- NSCC formalization process for service-provider relationship
 - Any pre-conditions or milestones to establish before application
 
 ---
 
-### What we're not asking for
+<div class="section-divider"><span>What we're NOT asking for</span></div>
 
-- We are not asking NSCC to co-build the product
+- We are not asking NSCC to co-build the routing core
 - We are not asking for IP arrangements or equity conversations
 - We are not asking for commitments before fit is established
+- We are not asking for cold introduction to Mi'kmaw communities — only whether the existing CMM channel is one Pat would consider activating
 
 ---
 
@@ -70,21 +73,19 @@ We want to understand whether the scope, stage, and structure of this project ma
 <!-- speaker_notes -->
 ## Speaker Notes
 
-- The four-part ask is unusual, most founders just ask for money. The clarity here signals maturity.
-- Let them respond to each part. Don't rush through the ask.
-- "Fit check" first is important, it opens the door for them to say this isn't the right vehicle without embarrassment.
-- If they offer more than you asked for: accept graciously, note it, and don't immediately expand scope.
-- If they say "not yet": ask what would need to be true.
+- The four-part ask is unusual; most founders just ask for money. The clarity here signals maturity.
+- Let Pat respond to each part. Don't rush through.
+- Fit check first is important — opens the door for him to say this isn't the right vehicle without embarrassment.
+- The Mi'kma'ki ask in #3 is the highest-value specific ask of the meeting. Frame it as a question. Do not push.
+- If he offers more than asked: accept graciously, note it, do not immediately expand scope.
+- If he says "not yet": ask what would need to be true.
 
 <!-- do_not_say -->
-## Do Not Say
-
-- Do not say "we just need funding", it collapses the conversation.
+- Do not say "we just need funding" — collapses the conversation.
 - Do not ask for a number before the relationship is established.
-- Do not end with "any questions?", end with a clear invitation to respond to the ask.
+- Do not end with "any questions?" — end with a clear invitation to respond to each ask.
+- Do not over-promise on Mi'kma'ki engagement timeline — engagement happens on Mi'kmaw terms.
 
 <!-- implementation_notes -->
-## Implementation Notes
-
-- This slide should have a slightly different visual treatment, closing energy, not pitch energy.
+- Slightly different visual treatment: closing energy, not pitch energy.
 - Consider a soft call-to-action component if implemented in working mode.
