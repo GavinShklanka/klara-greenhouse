@@ -17,6 +17,9 @@ Klara is not a listing site. It suggests feasible paths through five functions:
 
 ## Quick Start (Presentation Deck)
 
+**Live Streamlit App:** [PASTE CONFIRMED STREAMLIT URL HERE]
+*(If the link fails, log into Streamlit Cloud, verify the app visibility is set to Public, and open it directly from the dashboard: `klara-greenhouse · main · presentation/streamlit_app.py`)*
+
 ```bash
 python -m venv .venv
 .venv\Scripts\activate        # Windows
